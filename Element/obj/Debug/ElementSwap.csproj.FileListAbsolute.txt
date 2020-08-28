@@ -1,0 +1,5 @@
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.Form1.resources
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\Element.Properties.Resources.resources
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csproj.CoreCompileInputs.cache
