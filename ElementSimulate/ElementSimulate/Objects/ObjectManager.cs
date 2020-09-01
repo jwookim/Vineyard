@@ -74,11 +74,7 @@ namespace ElementSimulate
         public void Move()
         {
             foreach (var ob in Objects)
-            {
                 ob.Move();
-                /*if (ob.myPicturebox.Top > form1.Height)
-                    ob.myPicturebox.Top = 0;*/
-            }
         }
 
         public void CollisionCheck()
@@ -92,10 +88,15 @@ namespace ElementSimulate
                         if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
                         {
                             ob.Collision(target.Vec, target.Mass);
+                            target.Collision(ob.Vec, ob.Mass);
+
+                            Overlap(ob, target);
                         }
                     }
                 }
 
+
+                //맵 밖으로 나가려 할 경우
                 if (ob.myPicturebox.Bottom >= form1.Height - 39)
                 {
                     ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
@@ -123,6 +124,51 @@ namespace ElementSimulate
         {
             foreach (var ob in Objects)
                 ob.Resist();
+        }
+
+        public void Overlap(GameObject ob1, GameObject ob2)
+        {
+            int left;
+            int top;
+            if(ob1.myPicturebox.Left <= ob2.myPicturebox.Left)
+            {
+                left = ob1.myPicturebox.Right - ob2.myPicturebox.Left;
+
+                if (ob1.myPicturebox.Top < ob2.myPicturebox.Top)
+                {
+                    top = ob1.myPicturebox.Bottom - ob2.myPicturebox.Top;
+
+                    ob1.Overlap(left / 2 % 2 == 0 ? -(left / 2) : -(left / 2 + 1), top / 2 % 2 == 0 ? -(top / 2) : -(top / 2 + 1));
+                    ob2.Overlap(left / 2, top / 2);
+                }
+                else
+                {
+                    top = ob2.myPicturebox.Bottom - ob1.myPicturebox.Top;
+                    ob1.Overlap(left / 2 % 2 == 0 ? -(left / 2) : -(left / 2 + 1), top / 2 % 2 == 0 ? top / 2 : top / 2 + 1);
+                    ob2.Overlap(left / 2, -(top / 2));
+                }
+
+            }
+            else
+            {
+                left = ob2.myPicturebox.Right - ob1.myPicturebox.Left;
+
+                if (ob1.myPicturebox.Top < ob2.myPicturebox.Top)
+                {
+                    top = ob1.myPicturebox.Bottom - ob2.myPicturebox.Top;
+
+                    ob1.Overlap(left / 2 % 2 == 0 ? left / 2 : left / 2 + 1, top / 2 % 2 == 0 ? -(top / 2) : -(top / 2 + 1));
+                    ob2.Overlap(-(left / 2), top / 2);
+                }
+                else
+                {
+                    top = ob2.myPicturebox.Bottom - ob1.myPicturebox.Top;
+                    ob1.Overlap(left / 2 % 2 == 0 ? left / 2 : left / 2 + 1, top / 2 % 2 == 0 ? top / 2 : top / 2 + 1);
+                    ob2.Overlap(-(left / 2), -(top / 2));
+                }
+            }
+
+            
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +19,17 @@ namespace ElementSimulate
             InitializeComponent();
             objectManager = new ObjectManager(this);
 
-            objectManager.Create(150, 0);
-            objectManager.Create(100, 0);
+            /*objectManager.Create(150, 0);
+            objectManager.Create(100, 0);*/
+
+            for (int x = 50; x < Width; x += 25)
+            {
+                for (int y = 0; y < 50; y += 25)
+                {
+                    objectManager.Create(x, 0);
+                    Thread.Sleep(10);
+                }
+            }
 
         }
 
@@ -32,7 +42,7 @@ namespace ElementSimulate
 
             objectManager.CollisionCheck();
 
-            //objectManager.Resist();
+            objectManager.Resist();
         }
 
     }

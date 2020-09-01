@@ -74,7 +74,7 @@ namespace ElementSimulate
 
         public void Resist()
         {
-            Vertical *= 0.95f;
+            Vertical *= 0.98f;
             Horizontal *= 0.98f;
         }
 
@@ -93,7 +93,9 @@ namespace ElementSimulate
 
     class GameObject
     {
-        Random random = new Random();
+        //Random random = new Random();
+        
+        
         public PictureBox myPicturebox;
 
         Vector vector;
@@ -107,7 +109,7 @@ namespace ElementSimulate
             }
         }
 
-        private int time;
+        private float gTime;
         private float G;
         private float Interval;
         private float Elasticity;
@@ -129,13 +131,13 @@ namespace ElementSimulate
 
             vector = default;
             MoveInterval = default;
-            vector.Horizontal = (float)(random.Next(-10, 10) * random.NextDouble());
+            vector.Horizontal = (float)(new Random().Next(-10, 10) * new Random().NextDouble());
             //vector.Horizontal = 10f;
             myState = State.Drop;
-            time = 0;
+            gTime = 0;
             G = 9.81f;
             Interval = 0.1f;
-            Elasticity = 0.5f;
+            Elasticity = 0.2f;
             Mass = 1f;
         }
 
@@ -187,11 +189,18 @@ namespace ElementSimulate
 
             MoveInterval.HeadCut();
 
+
+            if (gTime <= 3f)
+            {
+                if (vector.Vertical > -1f && vector.Vertical < 1f)
+                    gTime += Interval;
+            }
         }
 
         public void Gravity()
         {
-            vector.Vertical += G * Interval;
+            if (gTime <= 3f)
+                vector.Vertical += G * Interval;
         }
 
         public void Resist()
@@ -201,8 +210,21 @@ namespace ElementSimulate
 
         public void Collision(Vector v, float _mass)
         {
-            //vector = vector - _mass * (1f + Elasticity) / (Mass + _mass) * (vector - v);
-            vector = (vector * (Mass - _mass) + 2f * _mass * v) / (Mass + _mass);
+            //vector = vector - _mass * (1f + Elasticity) / (Mass + _mass) * (vector - v); // 비탄성 충돌
+            //vector = (vector * (Mass - _mass) + 2f * _mass * v) / (Mass + _mass); //완전 탄성 충돌
+            //둘다 1차원...
+
+
+            vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1 + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);
+
+            if (vector.Vertical < -1f)
+                gTime = 0;
+        }
+
+        public void Overlap(int left, int top)
+        {
+            myPicturebox.Left += left;
+            myPicturebox.Top += top;
         }
 
         public void VerticalReflect()
@@ -214,5 +236,8 @@ namespace ElementSimulate
         {
             vector.Horizontal *= -Elasticity;
         }
+
+
+
     }
 }

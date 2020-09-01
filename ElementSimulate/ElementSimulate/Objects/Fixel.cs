@@ -25,27 +25,14 @@ namespace ElementSimulate
         public Pixel(int x, int y, Form1 form1) : base(x, y, form1)
         {
             myPicturebox.SizeMode = PictureBoxSizeMode.Normal;
-            myPicturebox.Height = 10;
-            myPicturebox.Width = 10;
+            myPicturebox.Height = 3;
+            myPicturebox.Width = 3;
         }
 
         public override void Move()
         {
             base.Move();
         }
-
-
-
-        /*public void Drop()
-        {
-            myPicturebox.Top++;
-        }
-
-        public void Spread()
-        {
-
-        }*/
-
 
     }
 }

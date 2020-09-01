@@ -18,3 +18,13 @@ C:\Users\Admin\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Deb
 C:\Users\Admin\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.exe
 C:\Users\Admin\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.pdb
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.exe.config
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.exe
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.pdb
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.Form1.resources
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.exe
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.pdb
