@@ -87,19 +87,25 @@ namespace ElementSimulate
         {
             Horizontal *= -1f;
         }
+
+        public void Clear()
+        {
+            Vertical = 0f;
+            Horizontal = 0f;
+        }
     }
 
     
 
     class GameObject
     {
-        //Random random = new Random();
+        Random random = new Random();
         
         
         public PictureBox myPicturebox;
 
-        Vector vector;
-        Vector MoveInterval;
+        protected Vector vector;
+        private Vector MoveInterval;
 
         public Vector Vec
         {
@@ -129,14 +135,13 @@ namespace ElementSimulate
             };
             form1.Controls.Add(myPicturebox);
 
-            vector = default;
-            MoveInterval = default;
-            vector.Horizontal = (float)(new Random().Next(-10, 10) * new Random().NextDouble());
+            vector = new Vector();
+            MoveInterval = new Vector();
             //vector.Horizontal = 10f;
             myState = State.Drop;
             gTime = 0;
             G = 9.81f;
-            Interval = 0.1f;
+            Interval = 0.2f;
             Elasticity = 0.2f;
             Mass = 1f;
         }
@@ -189,18 +194,12 @@ namespace ElementSimulate
 
             MoveInterval.HeadCut();
 
-
-            if (gTime <= 3f)
-            {
-                if (vector.Vertical > -1f && vector.Vertical < 1f)
-                    gTime += Interval;
-            }
+            
         }
 
         public void Gravity()
         {
-            if (gTime <= 3f)
-                vector.Vertical += G * Interval;
+            vector.Vertical += G * Interval;
         }
 
         public void Resist()
@@ -216,9 +215,7 @@ namespace ElementSimulate
 
 
             vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1 + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);
-
-            if (vector.Vertical < -1f)
-                gTime = 0;
+            
         }
 
         public void Overlap(int left, int top)
@@ -237,7 +234,24 @@ namespace ElementSimulate
             vector.Horizontal *= -Elasticity;
         }
 
+        public virtual void Generate(int x, int y, int size)
+        {
+            myPicturebox.Left = x;
+            myPicturebox.Top = y;
+            myPicturebox.Visible = true;
+            myPicturebox.Enabled = true;
+            vector.Horizontal = (float)(random.Next(-20, 20) * random.NextDouble());
+            vector.Vertical = (float)(random.Next(20) * random.NextDouble());
+        }
 
-
+        public void Extinction()
+        {
+            myPicturebox.Visible = false;
+            myPicturebox.Enabled = false;
+            myPicturebox.Left = -1;
+            myPicturebox.Top = -1;
+            vector.Clear();
+            MoveInterval.Clear();
+        }
     }
 }

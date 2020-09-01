@@ -21,21 +21,19 @@ namespace ElementSimulate
 
             /*objectManager.Create(150, 0);
             objectManager.Create(100, 0);*/
-
-            for (int x = 50; x < Width; x += 25)
-            {
-                for (int y = 0; y < 50; y += 25)
-                {
-                    objectManager.Create(x, 0);
-                    Thread.Sleep(10);
-                }
-            }
+            //for(int x= 50; x<Width; x+=50)
+            //{
+            //    objectManager.Create(x, 0);
+            //}
+            
 
         }
 
 
         private void GameTimer_Tick_1(object sender, EventArgs e)
         {
+            objectManager.Rainism();
+
             objectManager.Gravity();
 
             objectManager.Move();

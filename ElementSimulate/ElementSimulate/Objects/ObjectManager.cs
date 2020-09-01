@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,31 +15,36 @@ namespace ElementSimulate
         Stack<GameObject> dummyObjects = new Stack<GameObject>();
         Random random = new Random();
         Form1 form1;
+        int size;
 
         public ObjectManager(Form1 _form1)
         {
             form1 = _form1;
+            size = 3;
         }
+
         public void Create(int x, int y)
         {
             GameObject temp;
 
             if (dummyObjects.Count > 0)
-                temp = dummyObjects.Pop();
-            else
-                temp = new Pixel(x, y, form1);
-            /*foreach (var ob in Objects)
             {
-                if (ob.myPicturebox.Top == y && ob.myPicturebox.Left == x)
-                {
-                    dummyObjects.Push(temp);
-                    return;
-                }
+                temp = dummyObjects.Pop();
+                temp.Generate(x, y, size);
+            }
+            else
+                temp = new Pixel(x, y, size, form1);
 
-            }*/
             Objects.Add(temp);
         }
 
+        public void Rainism()
+        {
+            int num = random.Next(-6, 6);
+
+            for (int i = 0; i < num; i++)
+                Create(random.Next(10, form1.Width - 10), 0);
+        }
         /*public void Add(PictureBox ob)
         {
             GameObject temp = new GameObject(ob);
@@ -79,8 +85,11 @@ namespace ElementSimulate
 
         public void CollisionCheck()
         {
-            foreach(var ob in Objects)
+            int num = 0;
+            while(num < Objects.Count)
             {
+                var ob = Objects[num];
+
                 foreach(var target in Objects)
                 {
                     if (ob != target)
@@ -95,13 +104,22 @@ namespace ElementSimulate
                     }
                 }
 
+                if (ob.myPicturebox.Bottom >= form1.Height)
+                {
+                    ob.Extinction();
+                    dummyObjects.Push(ob);
+                    Objects.Remove(ob);
+                    continue;
+                }
+                else
+                    num++;
 
                 //맵 밖으로 나가려 할 경우
-                if (ob.myPicturebox.Bottom >= form1.Height - 39)
-                {
-                    ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
-                    ob.VerticalReflect();
-                }
+                //if (ob.myPicturebox.Bottom >= form1.Height - 39)
+                //{
+                //    ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
+                //    ob.VerticalReflect();
+                //}
 
                 if (ob.myPicturebox.Left < 0)
                 {

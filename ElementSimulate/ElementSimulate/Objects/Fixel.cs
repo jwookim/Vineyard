@@ -22,11 +22,11 @@ namespace ElementSimulate
         protected int Temperature { get; set; }
         protected int Moisture { get; set; }
 
-        public Pixel(int x, int y, Form1 form1) : base(x, y, form1)
+        public Pixel(int x, int y, int size, Form1 form1) : base(x, y, form1)
         {
             myPicturebox.SizeMode = PictureBoxSizeMode.Normal;
-            myPicturebox.Height = 3;
-            myPicturebox.Width = 3;
+            myPicturebox.Height = size;
+            myPicturebox.Width = size;
         }
 
         public override void Move()
@@ -34,5 +34,11 @@ namespace ElementSimulate
             base.Move();
         }
 
+        public override void Generate(int x, int y, int size)
+        {
+            myPicturebox.Width = size;
+            myPicturebox.Height = size;
+            base.Generate(x, y, size);
+        }
     }
 }
