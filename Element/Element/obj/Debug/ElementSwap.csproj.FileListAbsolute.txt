@@ -1,0 +1,15 @@
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.Form1.resources
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\Element.Properties.Resources.resources
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\Element\Element\obj\Debug\ElementSwap.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\bin\Debug\Element.exe.config
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\bin\Debug\Element.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\bin\Debug\Element.pdb
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\ElementSwap.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\ElementSwap.Form1.resources
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\Element.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\ElementSwap.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\ElementSwap.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\Element.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\Element\Element\obj\Debug\Element.pdb
