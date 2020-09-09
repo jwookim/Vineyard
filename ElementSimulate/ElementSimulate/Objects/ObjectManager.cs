@@ -1,5 +1,7 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
@@ -12,38 +14,54 @@ namespace ElementSimulate
     class ObjectManager
     {
         List<GameObject> Objects = new List<GameObject>();
-        Stack<GameObject> dummyObjects = new Stack<GameObject>();
+        Stack<Star> dummyObjects = new Stack<Star>();
+        Stack<StarTail> dummyTails = new Stack<StarTail>();
         Random random = new Random();
         Form1 form1;
-        int size;
 
         public ObjectManager(Form1 _form1)
         {
             form1 = _form1;
-            size = 3;
+            form1.BackColor = Color.MidnightBlue;
+            form1.Height = 1000;
         }
 
-        public void Create(int x, int y)
+        public void StarCreate(int x, int y)
         {
-            GameObject temp;
+            Star temp;
 
             if (dummyObjects.Count > 0)
             {
                 temp = dummyObjects.Pop();
+                temp.Generate(x, y);
+            }
+            else
+                temp = new Star(x, y, form1);
+
+            Objects.Add(temp);
+        }
+
+        public void TailCreate(int x, int y, int size)
+        {
+            StarTail temp;
+
+            if (dummyTails.Count > 0)
+            {
+                temp = dummyTails.Pop();
                 temp.Generate(x, y, size);
             }
             else
-                temp = new Pixel(x, y, size, form1);
+                temp = new StarTail(x, y, size, form1);
 
             Objects.Add(temp);
         }
 
         public void Rainism()
         {
-            int num = random.Next(-6, 6);
+            int num = random.Next(-6, 2);
 
             for (int i = 0; i < num; i++)
-                Create(random.Next(10, form1.Width - 10), 0);
+                StarCreate(random.Next(10, form1.Width - 10), 0);
         }
         /*public void Add(PictureBox ob)
         {
@@ -79,64 +97,96 @@ namespace ElementSimulate
 
         public void Move()
         {
-            foreach (var ob in Objects)
+            int num = 0;
+            while (num < Objects.Count)
+            {
+                var ob = Objects[num];
+                if (ob.GetType() == typeof(Star))
+                    TailCreate(ob.myPicturebox.Left, ob.myPicturebox.Top, ob.myPicturebox.Width / 2);
                 ob.Move();
+
+                num++;
+            }
         }
 
         public void CollisionCheck()
         {
+            foreach (var ob in Objects)
+            {
+                if (ob.GetType() == typeof(Star))
+                {
+                    foreach (var target in Objects)
+                    {
+                        if (ob != target && target.GetType() == typeof(Star))
+                        {
+                            if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
+                            {
+                                ob.Collision(target.Vec, target.Mass);
+                                target.Collision(ob.Vec, ob.Mass);
+
+                                Overlap(ob, target);
+                            }
+                        }
+                    }
+
+
+                    //맵 밖으로 나가려 할 경우
+                    //if (ob.myPicturebox.Bottom >= form1.Height - 39)
+                    //{
+                    //    ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
+                    //    ob.VerticalReflect();
+                    //}
+
+                    if (ob.myPicturebox.Left < 0)
+                    {
+                        ob.myPicturebox.Left = 0;
+                        ob.HorizontalReflect();
+                    }
+
+                    if (ob.myPicturebox.Right > form1.Width - 15)
+                    {
+                        ob.myPicturebox.Left = form1.Width - 15 - ob.myPicturebox.Width;
+                        ob.HorizontalReflect();
+                    }
+                }
+            }
+        }
+
+        public void ExtinctionCheck()
+        {
             int num = 0;
-            while(num < Objects.Count)
+            while (num < Objects.Count)
             {
                 var ob = Objects[num];
 
-                foreach(var target in Objects)
+                if (ob.GetType() == typeof(Star))
                 {
-                    if (ob != target)
+                    if (ob.myPicturebox.Bottom >= form1.Height)
                     {
-                        if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
-                        {
-                            ob.Collision(target.Vec, target.Mass);
-                            target.Collision(ob.Vec, ob.Mass);
-
-                            Overlap(ob, target);
-                        }
+                        ob.Extinction();
+                        dummyObjects.Push((Star)ob);
+                        Objects.Remove(ob);
+                        continue;
                     }
+                    else
+                        num++;
                 }
 
-                if (ob.myPicturebox.Bottom >= form1.Height)
+                else if(ob.GetType() == typeof(StarTail))
                 {
-                    ob.Extinction();
-                    dummyObjects.Push(ob);
-                    Objects.Remove(ob);
-                    continue;
-                }
-                else
-                    num++;
-
-                //맵 밖으로 나가려 할 경우
-                //if (ob.myPicturebox.Bottom >= form1.Height - 39)
-                //{
-                //    ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
-                //    ob.VerticalReflect();
-                //}
-
-                if (ob.myPicturebox.Left < 0)
-                {
-                    ob.myPicturebox.Left = 0;
-                    ob.HorizontalReflect();
-                }
-
-                if (ob.myPicturebox.Right > form1.Width - 15)
-                {
-                    ob.myPicturebox.Left = form1.Width - 15 - ob.myPicturebox.Width;
-                    ob.HorizontalReflect();
+                    if (((StarTail)ob).time <= 0)
+                    {
+                        ob.Extinction();
+                        dummyTails.Push((StarTail)ob);
+                        Objects.Remove(ob);
+                        continue;
+                    }
+                    else
+                        num++;
                 }
             }
-
-
-
         }
+
 
         public void Resist()
         {

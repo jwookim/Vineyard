@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ElementSimulate
 {
-    enum Element
+    /*enum Element
     {
         Void, // 어떤 영향도 받지않고 물리적 영향도 주지 않음 <- 없는게 낫지않을까?
         Air = 0, // 대류현상을 재현할 수 있을까? - 온도가 높아질수록 가볍게 만들면 빠르게 움직일 수 있고 차갑고 무거운 공기에 부딪히면 치여서 위로 올라가지 않을까?
@@ -18,7 +18,7 @@ namespace ElementSimulate
         Water_Source = 2, // 물방울을 지속적으로 생성하는 지점, 물방울이 닿아있는동안은 생성이 멈춘다
         Grass, //수분이 공급되는 한 계속 자란다, 수분이 없으면 죽음
         Earth // 물이 근처에 있으면 수분을 머금고 근처로 수분이 번져나가며, 표면의 흙이 수분을 충분히 머금으면 초목이 자람
-    }
+    }*/
     struct Vector
     {
         public float Vertical { get; set; } // 수직
@@ -97,9 +97,8 @@ namespace ElementSimulate
 
     
 
-    class GameObject
+    abstract class GameObject
     {
-        Random random = new Random();
         
         
         public PictureBox myPicturebox;
@@ -118,10 +117,11 @@ namespace ElementSimulate
         private float gTime;
         private float G;
         private float Interval;
-        private float Elasticity;
-        public float Mass { get; private set; }
+        protected float Elasticity;
+        public float Mass { get; protected set; }
 
-        public State myState { get; set; }
+
+        //public State myState { get; set; }
 
 
         public GameObject(int x, int y, Form1 form1)
@@ -130,20 +130,17 @@ namespace ElementSimulate
             {
                 Top = y,
                 Left = x,
-                BackColor = Color.Black,
+                //BackColor = Color.Black,
                 Visible = true,
             };
             form1.Controls.Add(myPicturebox);
 
             vector = new Vector();
             MoveInterval = new Vector();
-            //vector.Horizontal = 10f;
-            myState = State.Drop;
-            gTime = 0;
             G = 9.81f;
             Interval = 0.2f;
-            Elasticity = 0.2f;
-            Mass = 1f;
+            //Elasticity = 0.2f;
+            //Mass = 1f;
         }
 
         /*public GameObject(int x, int y, int width, int height, Form1 form1)
@@ -193,8 +190,6 @@ namespace ElementSimulate
 
 
             MoveInterval.HeadCut();
-
-            
         }
 
         public void Gravity()
@@ -207,7 +202,7 @@ namespace ElementSimulate
             vector.Resist();
         }
 
-        public void Collision(Vector v, float _mass)
+        public virtual void Collision(Vector v, float _mass)
         {
             //vector = vector - _mass * (1f + Elasticity) / (Mass + _mass) * (vector - v); // 비탄성 충돌
             //vector = (vector * (Mass - _mass) + 2f * _mass * v) / (Mass + _mass); //완전 탄성 충돌
@@ -234,14 +229,12 @@ namespace ElementSimulate
             vector.Horizontal *= -Elasticity;
         }
 
-        public virtual void Generate(int x, int y, int size)
+        public virtual void Generate(int x, int y)
         {
             myPicturebox.Left = x;
             myPicturebox.Top = y;
             myPicturebox.Visible = true;
             myPicturebox.Enabled = true;
-            vector.Horizontal = (float)(random.Next(-20, 20) * random.NextDouble());
-            vector.Vertical = (float)(random.Next(20) * random.NextDouble());
         }
 
         public void Extinction()
@@ -250,6 +243,7 @@ namespace ElementSimulate
             myPicturebox.Enabled = false;
             myPicturebox.Left = -1;
             myPicturebox.Top = -1;
+            myPicturebox.Tag = "";
             vector.Clear();
             MoveInterval.Clear();
         }

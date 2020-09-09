@@ -19,6 +19,7 @@ namespace ElementSimulate
             InitializeComponent();
             objectManager = new ObjectManager(this);
 
+            objectManager.TailCreate(100, 100, 20);
             /*objectManager.Create(150, 0);
             objectManager.Create(100, 0);*/
             //for(int x= 50; x<Width; x+=50)
@@ -39,6 +40,8 @@ namespace ElementSimulate
             objectManager.Move();
 
             objectManager.CollisionCheck();
+
+            objectManager.ExtinctionCheck();
 
             objectManager.Resist();
         }

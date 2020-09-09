@@ -53,9 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\Fixel.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="Objects\Character.cs" />
+    <Compile Include="Objects\Star.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="Objects\StarTail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
