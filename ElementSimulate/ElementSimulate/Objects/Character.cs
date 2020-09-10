@@ -14,5 +14,11 @@ namespace ElementSimulate
             Elasticity = 0.1f;
             Mass = 15f;
         }
+
+        public override void Move()
+        {
+
+            base.Move();
+        }
     }
 }

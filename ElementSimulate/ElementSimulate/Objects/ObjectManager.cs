@@ -58,7 +58,7 @@ namespace ElementSimulate
 
         public void Rainism()
         {
-            int num = random.Next(-6, 2);
+            int num = random.Next(-10, 3);
 
             for (int i = 0; i < num; i++)
                 StarCreate(random.Next(10, form1.Width - 10), 0);

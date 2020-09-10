@@ -22,14 +22,14 @@ namespace ElementSimulate
         public override void Move()
         {
             time--;
-            myPicturebox.BackColor = Color.FromArgb(255 / 3 * time, myPicturebox.BackColor);
+            myPicturebox.BackColor = Color.FromArgb(255 / 5 * time, myPicturebox.BackColor);
         }
 
         public void Generate(int x, int y, int size)
         {
             myPicturebox.Width = size;
             myPicturebox.Height = size;
-            time = 3;
+            time = 5;
             base.Generate(x, y);
         }
     }
