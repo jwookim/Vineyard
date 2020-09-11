@@ -46,5 +46,24 @@ namespace ElementSimulate
             objectManager.Resist();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DownKey(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void UpKey(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void PressKey(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

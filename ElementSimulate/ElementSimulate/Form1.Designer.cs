@@ -46,6 +46,10 @@
             this.ClientSize = new System.Drawing.Size(784, 441);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DownKey);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressKey);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UpKey);
             this.ResumeLayout(false);
 
         }

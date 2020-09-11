@@ -19,11 +19,15 @@ namespace ElementSimulate
         Random random = new Random();
         Form1 form1;
 
+        Character Player;
+
         public ObjectManager(Form1 _form1)
         {
             form1 = _form1;
             form1.BackColor = Color.MidnightBlue;
-            form1.Height = 1000;
+            form1.Height = 500;
+            Player = new Character(form1);
+            Objects.Add(Player);
         }
 
         public void StarCreate(int x, int y)
@@ -113,11 +117,11 @@ namespace ElementSimulate
         {
             foreach (var ob in Objects)
             {
-                if (ob.GetType() == typeof(Star))
+                if (ob.GetType() != typeof(StarTail))
                 {
                     foreach (var target in Objects)
                     {
-                        if (ob != target && target.GetType() == typeof(Star))
+                        if (ob != target && target.GetType() != typeof(StarTail))
                         {
                             if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
                             {
@@ -172,7 +176,7 @@ namespace ElementSimulate
                         num++;
                 }
 
-                else if(ob.GetType() == typeof(StarTail))
+                else if (ob.GetType() == typeof(StarTail))
                 {
                     if (((StarTail)ob).time <= 0)
                     {
@@ -183,6 +187,16 @@ namespace ElementSimulate
                     }
                     else
                         num++;
+                }
+
+                else if (ob == Player)
+                {
+                    if (ob.myPicturebox.Bottom >= form1.Height - 39 && ob.Vec.Vertical > 0)
+                    {
+                        ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
+                        ob.VerticalReflect();
+                    }
+                    num++;
                 }
             }
         }

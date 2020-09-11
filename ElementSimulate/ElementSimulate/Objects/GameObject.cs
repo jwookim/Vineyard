@@ -114,9 +114,10 @@ namespace ElementSimulate
             }
         }
 
+        private const float G = 9.81f;
+        protected const float Interval = 0.2f;
+
         private float gTime;
-        private float G;
-        private float Interval;
         protected float Elasticity;
         public float Mass { get; protected set; }
 
@@ -137,8 +138,6 @@ namespace ElementSimulate
 
             vector = new Vector();
             MoveInterval = new Vector();
-            G = 9.81f;
-            Interval = 0.2f;
             //Elasticity = 0.2f;
             //Mass = 1f;
         }
