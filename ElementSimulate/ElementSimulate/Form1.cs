@@ -30,22 +30,24 @@ namespace ElementSimulate
 
         }
 
+        public void HpUpdate(int hp)
+        {
+            HpBar.Value = hp;
+        }
+
+        public void HpBarToggle(bool toggle)
+        {
+            HpBar.Visible = toggle;
+        }
+
+        public void ScoreUpdate(int score)
+        {
+            ScoreLabel.Text = "Score : " + score.ToString();
+        }
 
         private void GameTimer_Tick_1(object sender, EventArgs e)
         {
-            objectManager.Rainism();
-
-            objectManager.Gravity();
-
-            objectManager.Move();
-
-            objectManager.CollisionCheck();
-
-            objectManager.ExtinctionCheck();
-
-            objectManager.Resist();
-
-            HpBar.Value = objectManager.HpCheck();
+            objectManager.Dodge_Star();
         }
 
         private void Form1_Load(object sender, EventArgs e)

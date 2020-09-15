@@ -20,6 +20,9 @@ namespace ElementSimulate
         Form1 form1;
 
         int Difficulty;
+        int Score;
+
+        delegate void Gaming();
 
         Character Player;
 
@@ -27,11 +30,45 @@ namespace ElementSimulate
         {
             form1 = _form1;
             form1.BackColor = Color.MidnightBlue;
-            form1.Height = 500;
             Player = new Character(form1);
+            Score = 0;
             Difficulty = 0;
             Objects.Add(Player);
         }
+
+        public void Game_Setting()
+        {
+            Score = 0;
+            form1.ScoreUpdate(Score);
+        }
+
+        public void Dodge_Star_Setting()
+        {
+            form1.HpBarToggle(true);
+            Game_Setting();
+        }
+
+        public void Dodge_Star()
+        {
+            Rainism();
+
+            Gravity();
+
+            Move();
+
+            CollisionCheck();
+
+            ExtinctionCheck();
+
+            Resist();
+
+            form1.HpUpdate(HpCheck());
+
+            form1.ScoreUpdate(Score);
+        }
+
+
+
 
         public void StarCreate(int x, int y)
         {
