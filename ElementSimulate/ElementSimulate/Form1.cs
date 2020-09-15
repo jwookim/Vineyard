@@ -44,6 +44,8 @@ namespace ElementSimulate
             objectManager.ExtinctionCheck();
 
             objectManager.Resist();
+
+            HpBar.Value = objectManager.HpCheck();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,17 +55,17 @@ namespace ElementSimulate
 
         private void DownKey(object sender, KeyEventArgs e)
         {
-
+            objectManager.KeyDown(e);
         }
 
         private void UpKey(object sender, KeyEventArgs e)
         {
-
+            objectManager.KeyUp(e);
         }
 
         private void PressKey(object sender, KeyPressEventArgs e)
         {
-
+            objectManager.KeyPress(e);
         }
     }
 }

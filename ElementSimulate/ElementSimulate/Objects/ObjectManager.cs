@@ -19,6 +19,8 @@ namespace ElementSimulate
         Random random = new Random();
         Form1 form1;
 
+        int Difficulty;
+
         Character Player;
 
         public ObjectManager(Form1 _form1)
@@ -27,6 +29,7 @@ namespace ElementSimulate
             form1.BackColor = Color.MidnightBlue;
             form1.Height = 500;
             Player = new Character(form1);
+            Difficulty = 0;
             Objects.Add(Player);
         }
 
@@ -37,10 +40,10 @@ namespace ElementSimulate
             if (dummyObjects.Count > 0)
             {
                 temp = dummyObjects.Pop();
-                temp.Generate(x, y);
+                temp.Generate(x, y, Difficulty);
             }
             else
-                temp = new Star(x, y, form1);
+                temp = new Star(x, y, Difficulty, form1);
 
             Objects.Add(temp);
         }
@@ -62,7 +65,7 @@ namespace ElementSimulate
 
         public void Rainism()
         {
-            int num = random.Next(-10, 3);
+            int num = random.Next(-10 - Difficulty / 2, 3 + Difficulty / 2);
 
             for (int i = 0; i < num; i++)
                 StarCreate(random.Next(10, form1.Width - 10), 0);
@@ -92,6 +95,10 @@ namespace ElementSimulate
             }
         }*/
 
+        public int HpCheck()
+        {
+            return (int)Player.Health;
+        }
 
         public void Gravity()
         {
@@ -125,8 +132,10 @@ namespace ElementSimulate
                         {
                             if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
                             {
+                                var obVec = ob.Vec;
+                                var obMass = ob.Mass;
                                 ob.Collision(target.Vec, target.Mass);
-                                target.Collision(ob.Vec, ob.Mass);
+                                target.Collision(obVec, obMass);
 
                                 Overlap(ob, target);
                             }
@@ -193,8 +202,8 @@ namespace ElementSimulate
                 {
                     if (ob.myPicturebox.Bottom >= form1.Height - 39 && ob.Vec.Vertical > 0)
                     {
+                        ((Character)ob).Landing();
                         ob.myPicturebox.Top = (form1.Height - 39) - ob.myPicturebox.Height;
-                        ob.VerticalReflect();
                     }
                     num++;
                 }
@@ -251,6 +260,22 @@ namespace ElementSimulate
             }
 
             
+        }
+
+
+        public void KeyUp(KeyEventArgs e)
+        {
+            Player.Control_Up(e);
+        }
+
+        public void KeyDown(KeyEventArgs e)
+        {
+            Player.Control_Down(e);
+        }
+
+        public void KeyPress(KeyPressEventArgs e)
+        {
+            Player.Control_Press(e);
         }
     }
 }

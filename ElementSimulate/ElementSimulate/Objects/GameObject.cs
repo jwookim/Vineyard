@@ -191,7 +191,7 @@ namespace ElementSimulate
             MoveInterval.HeadCut();
         }
 
-        public void Gravity()
+        public virtual void Gravity()
         {
             vector.Vertical += G * Interval;
         }
@@ -207,12 +207,14 @@ namespace ElementSimulate
             //vector = (vector * (Mass - _mass) + 2f * _mass * v) / (Mass + _mass); //완전 탄성 충돌
             //둘다 1차원...
 
+            if (v.Vertical <= 0 && Math.Abs(v.Vertical) > Math.Abs(v.Horizontal))
+                vector = ((Mass - Elasticity * _mass) * v.Horizontal + _mass * (1f + Elasticity) * v.Horizontal) / (Mass + _mass) * new Vector(0, 1f) - vector.Vertical * new Vector(1f, 0);
+            else
+                vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1f + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);
 
-            vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1 + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);
-            
         }
 
-        public void Overlap(int left, int top)
+        public virtual void Overlap(int left, int top)
         {
             myPicturebox.Left += left;
             myPicturebox.Top += top;
@@ -228,7 +230,7 @@ namespace ElementSimulate
             vector.Horizontal *= -Elasticity;
         }
 
-        public virtual void Generate(int x, int y)
+        public virtual void Generate(int x, int y, int diff)
         {
             myPicturebox.Left = x;
             myPicturebox.Top = y;

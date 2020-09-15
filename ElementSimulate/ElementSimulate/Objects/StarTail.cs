@@ -25,12 +25,12 @@ namespace ElementSimulate
             myPicturebox.BackColor = Color.FromArgb(255 / 5 * time, myPicturebox.BackColor);
         }
 
-        public void Generate(int x, int y, int size)
+        public override void Generate(int x, int y, int size)
         {
             myPicturebox.Width = size;
             myPicturebox.Height = size;
             time = 5;
-            base.Generate(x, y);
+            base.Generate(x, y, size);
         }
     }
 }

@@ -90,5 +90,86 @@
   <ItemGroup>
     <None Include="Resources\RockMan_Idle_R_01.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Dash_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Dash_L_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Dash_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Dash_R_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Idle_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Idle_L_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Idle_R_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Jump_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Jump_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_L_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_L_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_L_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_L_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_R_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_R_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_R_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Rest_R_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_L_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_L_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_L_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_R_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_R_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_R_04.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

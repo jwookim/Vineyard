@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.HpBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // GameTimer
@@ -38,12 +39,20 @@
             this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick_1);
             // 
+            // HpBar
+            // 
+            this.HpBar.Location = new System.Drawing.Point(12, 12);
+            this.HpBar.Name = "HpBar";
+            this.HpBar.Size = new System.Drawing.Size(141, 23);
+            this.HpBar.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(784, 441);
+            this.Controls.Add(this.HpBar);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -57,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.ProgressBar HpBar;
     }
 }
 

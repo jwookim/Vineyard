@@ -26,12 +26,12 @@ namespace ElementSimulate
         protected int Temperature { get; set; }
         protected int Moisture { get; set; }*/
 
-        public Star(int x, int y, Form1 form1) : base(x, y, form1)
+        public Star(int x, int y, int diff, Form1 form1) : base(x, y, form1)
         {
             //myPicturebox.SizeMode = PictureBoxSizeMode.Normal;
             myPicturebox.BackColor = Color.Yellow;
-            Elasticity = 0.8f;
-            Generate(x, y);
+            Elasticity = 0.5f;
+            Generate(x, y, diff);
         }
 
         public override void Move()
@@ -39,15 +39,15 @@ namespace ElementSimulate
             base.Move();
         }
 
-        public override void Generate(int x, int y)
+        public override void Generate(int x, int y, int diff)
         {
-            size = random.Next(3, 11);
+            size = random.Next(3 + diff, 11 + diff);
             Mass = (float)size;
             myPicturebox.Width = size;
             myPicturebox.Height = size;
             vector.Horizontal = (float)(random.Next(-40, 40) * random.NextDouble());
             vector.Vertical = (float)(random.Next(20) * random.NextDouble());
-            base.Generate(x, y);
+            base.Generate(x, y, diff);
         }
     }
 }
