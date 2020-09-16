@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ElementSimulate
+namespace ShootingStar
 {
     class ObjectManager
     {
@@ -19,58 +19,22 @@ namespace ElementSimulate
         Random random = new Random();
         Form1 form1;
 
-        int Difficulty;
-        int Score;
 
-        delegate void Gaming();
 
         Character Player;
 
         public ObjectManager(Form1 _form1)
         {
             form1 = _form1;
-            form1.BackColor = Color.MidnightBlue;
             Player = new Character(form1);
-            Score = 0;
-            Difficulty = 0;
             Objects.Add(Player);
         }
 
-        public void Game_Setting()
-        {
-            Score = 0;
-            form1.ScoreUpdate(Score);
-        }
+        
 
-        public void Dodge_Star_Setting()
-        {
-            form1.HpBarToggle(true);
-            Game_Setting();
-        }
+        
 
-        public void Dodge_Star()
-        {
-            Rainism();
-
-            Gravity();
-
-            Move();
-
-            CollisionCheck();
-
-            ExtinctionCheck();
-
-            Resist();
-
-            form1.HpUpdate(HpCheck());
-
-            form1.ScoreUpdate(Score);
-        }
-
-
-
-
-        public void StarCreate(int x, int y)
+        public void StarCreate(int x, int y, int Difficulty)
         {
             Star temp;
 
@@ -100,37 +64,13 @@ namespace ElementSimulate
             Objects.Add(temp);
         }
 
-        public void Rainism()
+        public void Rainism(int Difficulty)
         {
             int num = random.Next(-10 - Difficulty / 2, 3 + Difficulty / 2);
 
             for (int i = 0; i < num; i++)
-                StarCreate(random.Next(10, form1.Width - 10), 0);
+                StarCreate(random.Next(10, form1.Width - 10), 0, Difficulty);
         }
-        /*public void Add(PictureBox ob)
-        {
-            GameObject temp = new GameObject(ob);
-            Objects.Add(temp);
-        }*/
-
-        /*public void Check()
-        {
-            foreach (var ob in Objects)
-            {
-                switch (ob.myState)
-                {
-                    case State.Drop:
-                        foreach (var target in Objects)
-                        {
-                            if (ob.myPicturebox.Top + 1 == target.myPicturebox.Top)
-                            {
-
-                            }
-                        }
-                        break;
-                }
-            }
-        }*/
 
         public int HpCheck()
         {
@@ -202,8 +142,9 @@ namespace ElementSimulate
             }
         }
 
-        public void ExtinctionCheck()
+        public int ExtinctionCheck()
         {
+            int score = 0;
             int num = 0;
             while (num < Objects.Count)
             {
@@ -213,6 +154,7 @@ namespace ElementSimulate
                 {
                     if (ob.myPicturebox.Bottom >= form1.Height)
                     {
+                        score += (int)ob.Mass;
                         ob.Extinction();
                         dummyObjects.Push((Star)ob);
                         Objects.Remove(ob);
@@ -245,6 +187,8 @@ namespace ElementSimulate
                     num++;
                 }
             }
+
+            return score;
         }
 
 
@@ -310,9 +254,5 @@ namespace ElementSimulate
             Player.Control_Down(e);
         }
 
-        public void KeyPress(KeyPressEventArgs e)
-        {
-            Player.Control_Press(e);
-        }
     }
 }

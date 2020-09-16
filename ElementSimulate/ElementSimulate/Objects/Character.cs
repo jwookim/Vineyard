@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ElementSimulate
+namespace ShootingStar
 {
     enum Direct
     {
@@ -49,7 +49,7 @@ namespace ElementSimulate
         public float Health { get; private set; }
 
         const float AtkDelay = 1.0f;
-        public Character(Form1 form, bool _atkable = false):base(form.Width/2, form.Height - 200, form)
+        public Character(Form1 form, bool _atkable = false):base(form.Width/2, form.Height - 100, form)
         {
             goLeft = false;
             goRight = false;

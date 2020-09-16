@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElementSimulate.Properties {
+namespace ShootingStar.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

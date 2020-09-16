@@ -1,0 +1,10 @@
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.exe.config
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.exe
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\bin\Debug\ElementSimulate.pdb
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ShootingStar.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ShootingStar.Form1.resources
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ShootingStar.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ShootingStar.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.exe
+C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.pdb

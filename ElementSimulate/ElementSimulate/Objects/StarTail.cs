@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElementSimulate
+namespace ShootingStar
 {
     class StarTail : GameObject
     {
