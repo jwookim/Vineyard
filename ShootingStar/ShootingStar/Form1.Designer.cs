@@ -34,10 +34,10 @@
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.UpButton = new System.Windows.Forms.Button();
             this.DownButton = new System.Windows.Forms.Button();
-            this.DiffBox = new System.Windows.Forms.TextBox();
             this.SelectDodge = new System.Windows.Forms.Button();
             this.SelectShoot = new System.Windows.Forms.Button();
             this.Start = new System.Windows.Forms.Button();
+            this.DiffBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // GameTimer
@@ -87,16 +87,6 @@
             this.DownButton.UseVisualStyleBackColor = true;
             this.DownButton.Click += new System.EventHandler(this.DownButton_Click);
             // 
-            // DiffBox
-            // 
-            this.DiffBox.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.DiffBox.Location = new System.Drawing.Point(206, 156);
-            this.DiffBox.Name = "DiffBox";
-            this.DiffBox.Size = new System.Drawing.Size(100, 29);
-            this.DiffBox.TabIndex = 3;
-            this.DiffBox.Text = "0";
-            this.DiffBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // SelectDodge
             // 
             this.SelectDodge.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -130,22 +120,32 @@
             this.Start.UseVisualStyleBackColor = true;
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
+            // DiffBox
+            // 
+            this.DiffBox.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.DiffBox.Location = new System.Drawing.Point(206, 156);
+            this.DiffBox.Name = "DiffBox";
+            this.DiffBox.Size = new System.Drawing.Size(100, 29);
+            this.DiffBox.TabIndex = 6;
+            this.DiffBox.Text = "0";
+            this.DiffBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(784, 441);
+            this.Controls.Add(this.DiffBox);
             this.Controls.Add(this.SelectShoot);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.SelectDodge);
-            this.Controls.Add(this.DiffBox);
             this.Controls.Add(this.DownButton);
             this.Controls.Add(this.UpButton);
             this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.HpBar);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Shooting Star";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DownKey);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UpKey);
@@ -161,10 +161,10 @@
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.Button UpButton;
         private System.Windows.Forms.Button DownButton;
-        private System.Windows.Forms.TextBox DiffBox;
         private System.Windows.Forms.Button SelectDodge;
         private System.Windows.Forms.Button SelectShoot;
         private System.Windows.Forms.Button Start;
+        private System.Windows.Forms.TextBox DiffBox;
     }
 }
 

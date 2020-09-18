@@ -30,6 +30,37 @@ namespace ShootingStar
             Objects.Add(Player);
         }
 
+
+        public void Init()
+        {
+
+            int num = 0;
+            while (num < Objects.Count)
+            {
+                var ob = Objects[num];
+
+                if (ob.GetType() == typeof(Star))
+                {
+                    ob.Extinction();
+                    dummyObjects.Push((Star)ob);
+                    Objects.Remove(ob);
+                    continue;
+                }
+
+                else if (ob.GetType() == typeof(StarTail))
+                {
+                    ob.Extinction();
+                    dummyTails.Push((StarTail)ob);
+                    Objects.Remove(ob);
+                    continue;
+                }
+
+                else if (ob == Player)
+                    num++;
+            }
+
+            Player.Init();
+        }
         
 
         

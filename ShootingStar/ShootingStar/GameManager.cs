@@ -49,7 +49,10 @@ namespace ShootingStar
 
         void GameOver()
         {
+            Score = 0;
             Playing = false;
+            form1.ToggleVisible(true);
+            objectManager.Init();
         }
 
         void Dodge_Star()
@@ -95,7 +98,6 @@ namespace ShootingStar
 
         public void Shooting_Star_Setting()
         {
-            
             form1.HpBarToggle(false);
             Game_Setting();
         }

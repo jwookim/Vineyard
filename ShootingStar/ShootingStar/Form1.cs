@@ -58,6 +58,8 @@ namespace ShootingStar
         private void DownKey(object sender, KeyEventArgs e)
         {
             Gm.KeyDown(e);
+            e.SuppressKeyPress = true;
+
         }
 
         private void UpKey(object sender, KeyEventArgs e)
@@ -151,6 +153,7 @@ namespace ShootingStar
             Start.Enabled = toggle;
             Start.Visible = toggle;
         }
+
     }
 
 

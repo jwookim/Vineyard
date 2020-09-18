@@ -51,17 +51,16 @@ namespace ShootingStar
         const float AtkDelay = 1.0f;
         public Character(Form1 form, bool _atkable = false):base(form.Width/2, form.Height - 100, form)
         {
-            goLeft = false;
-            goRight = false;
+            Init();
+
+            direct = Direct.Right;
+            state = STATE.IDLE;
 
             Elasticity = 0.1f;
             Mass = 15f;
             Attackable = _atkable;
             Land = false;
-            Health = 100f;
             
-            direct = Direct.Right;
-            state = STATE.IDLE;
 
             string name;
             Idle = new Image[2, 2];
@@ -217,6 +216,17 @@ namespace ShootingStar
             myPicturebox.Image = act[(int)direct, aniNum];
         }
 
+        public void Init()
+        {
+            goLeft = false;
+            goRight = false;
+
+            Health = 100f;
+
+            vector.Vertical = 0f;
+            vector.Horizontal = 0f;
+        }
+
         public override void Move()
         {
             if (goLeft)
@@ -281,7 +291,7 @@ namespace ShootingStar
                     direct = Direct.Right;
                 }
 
-                if (e.KeyCode == Keys.Space && Land)
+                if (e.KeyCode == Keys.X && Land)
                 {
                     vector.Vertical -= 25f;
                     Land = false;
