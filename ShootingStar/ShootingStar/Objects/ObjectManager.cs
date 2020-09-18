@@ -19,7 +19,8 @@ namespace ShootingStar
         Random random = new Random();
         Form1 form1;
 
-
+        Pen myPen;
+        Graphics graphics;
 
         Character Player;
 
@@ -28,6 +29,7 @@ namespace ShootingStar
             form1 = _form1;
             Player = new Character(form1);
             Objects.Add(Player);
+            myPen = new Pen(Color.Red);
         }
 
 
@@ -126,6 +128,11 @@ namespace ShootingStar
 
                 num++;
             }
+        }
+
+        public void AimLine()
+        {
+            graphics.DrawLine(myPen, 100, 100, 200, 200);
         }
 
         public void CollisionCheck()

@@ -30,10 +30,14 @@ namespace ShootingStar
 
         bool goLeft;
         bool goRight;
+        bool aimUp;
+        bool aimDown;
 
         int aniNum = 0;
         int aniTime = 0;
         int aniTerm = 0;
+
+        public int Angle { get; private set; }
 
         bool Land;
 
@@ -225,6 +229,8 @@ namespace ShootingStar
 
             vector.Vertical = 0f;
             vector.Horizontal = 0f;
+
+            Angle = 0;
         }
 
         public override void Move()
@@ -239,6 +245,18 @@ namespace ShootingStar
             {
                 if (vector.Horizontal < 10f)
                     vector.Horizontal += 2f;
+            }
+
+            if(aimUp)
+            {
+                if (Angle < 90)
+                    Angle++;
+            }
+
+            if (aimDown)
+            {
+                if (Angle > 0)
+                    Angle--;
             }
 
             if (AtkCooldown < AtkDelay)
@@ -268,6 +286,18 @@ namespace ShootingStar
                     goRight = false;
                 }
             }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                if (aimUp)
+                    aimUp = false;
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                if (aimDown)
+                    aimDown = false;
+            }
         }
 
         public void Control_Down(KeyEventArgs e)
@@ -291,6 +321,21 @@ namespace ShootingStar
                     direct = Direct.Right;
                 }
 
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (aimDown)
+                        aimUp = false;
+                    aimUp = true;
+
+                }
+
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (aimUp)
+                        aimUp = false;
+                    aimDown = true;
+                }
+
                 if (e.KeyCode == Keys.X && Land)
                 {
                     vector.Vertical -= 25f;
@@ -302,20 +347,13 @@ namespace ShootingStar
                     Guard();
                 }
 
-                if (Attackable)
+                if (e.KeyCode == Keys.C)
                 {
-                    if (e.KeyCode == Keys.Control)
-                    {
 
-                    }
                 }
             }
         }
 
-        public void Control_Press(KeyPressEventArgs e)
-        {
-            
-        }
 
         void Guard()
         {
@@ -325,6 +363,8 @@ namespace ShootingStar
 
                 goLeft = false;
                 goRight = false;
+                aimUp = false;
+                aimDown = false;
 
                 Braking();
             }
