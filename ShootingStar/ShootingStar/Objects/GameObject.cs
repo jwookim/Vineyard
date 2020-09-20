@@ -117,7 +117,6 @@ namespace ShootingStar
         private const float G = 9.81f;
         protected const float Interval = 0.2f;
 
-        private float gTime;
         protected float Elasticity;
         public float Mass { get; protected set; }
 
@@ -203,14 +202,14 @@ namespace ShootingStar
 
         public virtual void Collision(Vector v, float _mass)
         {
-            //vector = vector - _mass * (1f + Elasticity) / (Mass + _mass) * (vector - v); // 비탄성 충돌
+            vector = vector - _mass * (1f + Elasticity) / (Mass + _mass) * (vector - v); // 비탄성 충돌
             //vector = (vector * (Mass - _mass) + 2f * _mass * v) / (Mass + _mass); //완전 탄성 충돌
-            //둘다 1차원...
+            
 
-            if (v.Vertical <= 0 && Math.Abs(v.Vertical) > Math.Abs(v.Horizontal))
+            /*if (v.Vertical <= 0 && Math.Abs(v.Vertical) > Math.Abs(v.Horizontal))
                 vector = ((Mass - Elasticity * _mass) * v.Horizontal + _mass * (1f + Elasticity) * v.Horizontal) / (Mass + _mass) * new Vector(0, 1f) - vector.Vertical * new Vector(1f, 0);
             else
-                vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1f + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);
+                vector = ((Mass - Elasticity * _mass) * v.Vertical + _mass * (1f + Elasticity) * v.Vertical) / (Mass + _mass) * new Vector(1f, 0) - vector.Horizontal * new Vector(0, 1f);*/
 
         }
 

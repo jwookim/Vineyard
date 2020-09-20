@@ -47,7 +47,7 @@ namespace ShootingStar
         private void GameTimer_Tick_1(object sender, EventArgs e)
         {
             if (Gm.Playing)
-                Gm.Play();
+                Gm.Game();
         }
 
         private void Form1_Load(object sender, EventArgs e)

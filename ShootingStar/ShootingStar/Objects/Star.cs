@@ -30,7 +30,7 @@ namespace ShootingStar
         {
             //myPicturebox.SizeMode = PictureBoxSizeMode.Normal;
             myPicturebox.BackColor = Color.Yellow;
-            Elasticity = 0.5f;
+            Elasticity = 1f;
             Generate(x, y, diff);
         }
 

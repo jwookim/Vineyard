@@ -20,7 +20,7 @@ namespace ShootingStar
 
         public delegate void Games();
 
-        public Games Play;
+        public Games Game;
 
         public GameManager(Form1 _form1)
         {
@@ -38,7 +38,7 @@ namespace ShootingStar
 
         public void Start(int _Difficulty)
         {
-            if (Play != default)
+            if (Game != default)
             {
                 Playing = true;
                 form1.ToggleVisible(false);
@@ -57,8 +57,22 @@ namespace ShootingStar
 
         void Dodge_Star()
         {
-            int hp;
             objectManager.Rainism(Difficulty);
+
+
+            Basic_Progression();
+        }
+
+        void Shooting_Star()
+        {
+            objectManager.AimLine();
+
+            Basic_Progression();
+        }
+
+        void Basic_Progression()
+        {
+            int hp;
 
             objectManager.Gravity();
 
@@ -73,14 +87,8 @@ namespace ShootingStar
             form1.HpUpdate(hp = objectManager.HpCheck());
 
             form1.ScoreUpdate(Score);
-
             if (hp <= 0)
                 GameOver();
-        }
-
-        void Shooting_Star()
-        {
-
         }
 
         void Game_Setting()
@@ -91,14 +99,15 @@ namespace ShootingStar
 
         public void Dodge_Star_Setting()
         {
-            Play = Dodge_Star;
-            form1.HpBarToggle(true);
+            Game = Dodge_Star;
+            objectManager.ChangeAttackable(false);
             Game_Setting();
         }
 
         public void Shooting_Star_Setting()
         {
-            form1.HpBarToggle(false);
+            Game = Shooting_Star;
+            objectManager.ChangeAttackable(true);
             Game_Setting();
         }
 
@@ -112,5 +121,7 @@ namespace ShootingStar
             objectManager.KeyDown(e);
         }
 
+
+        
     }
 }

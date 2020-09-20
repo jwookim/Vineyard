@@ -25,7 +25,7 @@ namespace ShootingStar
 
     class Character : GameObject
     {
-        Direct direct;
+        public Direct direct { get; private set; }
         public STATE state { get; private set; }
 
         bool goLeft;
@@ -250,13 +250,13 @@ namespace ShootingStar
             if(aimUp)
             {
                 if (Angle < 90)
-                    Angle++;
+                    Angle += 3;
             }
 
             if (aimDown)
             {
-                if (Angle > 0)
-                    Angle--;
+                if (Angle > -90)
+                    Angle -= 3;
             }
 
             if (AtkCooldown < AtkDelay)
@@ -287,19 +287,21 @@ namespace ShootingStar
                 }
             }
 
-            if (e.KeyCode == Keys.Up)
+            if (Attackable)
             {
-                if (aimUp)
-                    aimUp = false;
-            }
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (aimUp)
+                        aimUp = false;
+                }
 
-            if (e.KeyCode == Keys.Down)
-            {
-                if (aimDown)
-                    aimDown = false;
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (aimDown)
+                        aimDown = false;
+                }
             }
         }
-
         public void Control_Down(KeyEventArgs e)
         {
             if (state != STATE.REST)
@@ -321,21 +323,6 @@ namespace ShootingStar
                     direct = Direct.Right;
                 }
 
-                if (e.KeyCode == Keys.Up)
-                {
-                    if (aimDown)
-                        aimUp = false;
-                    aimUp = true;
-
-                }
-
-                if (e.KeyCode == Keys.Down)
-                {
-                    if (aimUp)
-                        aimUp = false;
-                    aimDown = true;
-                }
-
                 if (e.KeyCode == Keys.X && Land)
                 {
                     vector.Vertical -= 25f;
@@ -347,9 +334,27 @@ namespace ShootingStar
                     Guard();
                 }
 
-                if (e.KeyCode == Keys.C)
+                if (Attackable)
                 {
+                    if (e.KeyCode == Keys.Up)
+                    {
+                        if (aimDown)
+                            aimUp = false;
+                        aimUp = true;
 
+                    }
+
+                    if (e.KeyCode == Keys.Down)
+                    {
+                        if (aimUp)
+                            aimUp = false;
+                        aimDown = true;
+                    }
+
+                    if (e.KeyCode == Keys.C)
+                    {
+
+                    }
                 }
             }
         }
@@ -407,6 +412,11 @@ namespace ShootingStar
             }
         }
 
+        public void ChangeAttackable(bool _atk)
+        {
+            Attackable = _atk;
+        }
+
 
         void Damage(float dmg)
         {
@@ -415,5 +425,7 @@ namespace ShootingStar
             if (Health < 0)
                 Health = 0;
         }
+
+
     }
 }

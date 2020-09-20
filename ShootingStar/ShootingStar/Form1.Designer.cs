@@ -52,7 +52,6 @@
             this.HpBar.Name = "HpBar";
             this.HpBar.Size = new System.Drawing.Size(141, 23);
             this.HpBar.TabIndex = 0;
-            this.HpBar.Visible = false;
             // 
             // ScoreLabel
             // 

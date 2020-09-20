@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1489E653-205A-4DDA-A300-373F2161FEFA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ElementSimulate</RootNamespace>
-    <AssemblyName>ElementSimulate</AssemblyName>
+    <RootNamespace>ShootingStar</RootNamespace>
+    <AssemblyName>ShootingStar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -171,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RockMan_Run_R_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullet1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

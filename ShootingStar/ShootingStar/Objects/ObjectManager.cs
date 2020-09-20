@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,6 +12,28 @@ using System.Windows.Forms;
 
 namespace ShootingStar
 {
+    /*struct Point
+    {
+        public int x;
+        public int y;
+
+
+        static public bool operator ==(Point p1, Point p2)
+        {
+            if (p1.x == p2.x && p1.y == p2.y)
+                return true;
+
+            return false;
+        }
+
+        static public bool operator !=(Point p1, Point p2)
+        {
+            if (p1.x == p2.x && p1.y == p2.y)
+                return false;
+
+            return true;
+        }
+    }*/
     class ObjectManager
     {
         List<GameObject> Objects = new List<GameObject>();
@@ -20,7 +43,11 @@ namespace ShootingStar
         Form1 form1;
 
         Pen myPen;
+        Pen Eraser;
         Graphics graphics;
+
+        PointF AimStart;
+        PointF AimEnd;
 
         Character Player;
 
@@ -29,13 +56,19 @@ namespace ShootingStar
             form1 = _form1;
             Player = new Character(form1);
             Objects.Add(Player);
+            AimStart = default;
+            AimEnd = default;
             myPen = new Pen(Color.Red);
+            Eraser = new Pen(form1.BackColor);
+            graphics = form1.CreateGraphics();
         }
 
 
         public void Init()
         {
-
+            graphics.Clear(form1.BackColor);
+            AimStart = default;
+            AimEnd = default;
             int num = 0;
             while (num < Objects.Count)
             {
@@ -132,7 +165,28 @@ namespace ShootingStar
 
         public void AimLine()
         {
-            graphics.DrawLine(myPen, 100, 100, 200, 200);
+            PointF moveStart = default;
+            PointF moveEnd = default;
+
+            double dir = 1;
+
+            if (Player.direct == Direct.Left)
+                dir = -1;
+
+            double rad = (double)Player.Angle / 180d * 3.141592;
+            moveStart.X = Player.myPicturebox.Left + Player.myPicturebox.Width / 2;
+            moveStart.Y = Player.myPicturebox.Top + Player.myPicturebox.Height / 2;
+            moveEnd.X = Player.myPicturebox.Left + Player.myPicturebox.Width / 2 + (float)(Math.Cos(rad) * 100d * dir);
+            moveEnd.Y = Player.myPicturebox.Top + Player.myPicturebox.Height / 2 - (float)(Math.Sin(rad) * 100d);
+
+            if (!moveStart.Equals(AimStart) || !moveEnd.Equals(AimEnd))
+            {
+                graphics.DrawLine(Eraser, AimStart, AimEnd);
+                graphics.DrawLine(myPen, moveStart, moveEnd);
+
+                AimStart = moveStart;
+                AimEnd = moveEnd;
+            }
         }
 
         public void CollisionCheck()
@@ -281,6 +335,10 @@ namespace ShootingStar
             
         }
 
+        public void ChangeAttackable(bool _atk)
+        {
+            Player.ChangeAttackable(_atk);
+        }
 
         public void KeyUp(KeyEventArgs e)
         {

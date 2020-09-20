@@ -8,16 +8,10 @@ C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate
 C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ShootingStar.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.exe
 C:\Users\Administrator\Documents\GitHub\Vineyard\ElementSimulate\ElementSimulate\obj\Debug\ElementSimulate.pdb
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.exe.config
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.exe
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.pdb
 C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.Form1.resources
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ElementSimulate.Properties.Resources.resources
 C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csproj.GenerateResource.cache
 C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ElementSimulate.exe
-C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ElementSimulate.pdb
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.exe.config
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.exe
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ElementSimulate.pdb
@@ -28,3 +22,9 @@ C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\D
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ElementSimulate.exe
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ElementSimulate.pdb
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ShootingStar.exe.config
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ShootingStar.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\Debug\ShootingStar.pdb
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.pdb
