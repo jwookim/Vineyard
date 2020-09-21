@@ -195,7 +195,7 @@ namespace ShootingStar
             vector.Vertical += G * Interval;
         }
 
-        public void Resist()
+        public virtual void Resist()
         {
             vector.Resist();
         }

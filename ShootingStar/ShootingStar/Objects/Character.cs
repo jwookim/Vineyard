@@ -14,13 +14,18 @@ namespace ShootingStar
         Right
     }
 
+
+
     enum STATE
     {
         IDLE,
         RUN,
         DASH,
         JUMP,
-        REST
+        REST,
+        SHOT_IDLE,
+        SHOT_RUN,
+        SHOT_JUMP
     }
 
     class Character : GameObject
@@ -47,12 +52,15 @@ namespace ShootingStar
         Image[,] act;
         Image[,] Idle;
         Image[,] Run;
-        Image[,] Dash;
         Image[,] Jump;
+        Image[,] Dash;
         Image[,] Rest;
+        Image[,] Shot_Idle;
+        Image[,] Shot_Run;
+        Image[,] Shot_Jump;
         public float Health { get; private set; }
 
-        const float AtkDelay = 1.0f;
+        const float AtkDelay = 1f;
         public Character(Form1 form, bool _atkable = false):base(form.Width/2, form.Height - 100, form)
         {
             Init();
@@ -69,9 +77,12 @@ namespace ShootingStar
             string name;
             Idle = new Image[2, 2];
             Run = new Image[2, 4];
-            Dash = new Image[2, 2];
             Jump = new Image[2, 1];
+            Dash = new Image[2, 2];
             Rest = new Image[2, 5];
+            Shot_Idle = new Image[2, 1];
+            Shot_Run = new Image[2, 3];
+            Shot_Jump = new Image[2, 1];
             act = Idle;
 
 
@@ -98,6 +109,7 @@ namespace ShootingStar
                 name = "RockMan_Run_R_0" + (i + 1);
                 Run[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
             }
+
             for (int i = 0; i < Dash.GetLength(1); i++)
             {
                 name = "RockMan_Dash_L_0" + (i + 1);
@@ -109,6 +121,7 @@ namespace ShootingStar
                 name = "RockMan_Dash_R_0" + (i + 1);
                 Dash[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
             }
+
             for (int i = 0; i < Jump.GetLength(1); i++)
             {
                 name = "RockMan_Jump_L_0" + (i + 1);
@@ -120,6 +133,7 @@ namespace ShootingStar
                 name = "RockMan_Jump_R_0" + (i + 1);
                 Jump[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
             }
+
             for (int i = 0; i < Rest.GetLength(1); i++)
             {
                 name = "RockMan_Rest_L_0" + (i + 1);
@@ -130,6 +144,42 @@ namespace ShootingStar
             {
                 name = "RockMan_Rest_R_0" + (i + 1);
                 Rest[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Idle.GetLength(1); i++)
+            {
+                name = "RockMan_Idle_Shot_L_0" + (i + 1);
+                Shot_Idle[0, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Idle.GetLength(1); i++)
+            {
+                name = "RockMan_Idle_Shot_R_0" + (i + 1);
+                Shot_Idle[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Run.GetLength(1); i++)
+            {
+                name = "RockMan_Run_Shot_L_0" + (i + 1);
+                Shot_Run[0, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Run.GetLength(1); i++)
+            {
+                name = "RockMan_Run_Shot_R_0" + (i + 1);
+                Shot_Run[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Jump.GetLength(1); i++)
+            {
+                name = "RockMan_Jump_Shot_L_0" + (i + 1);
+                Shot_Jump[0, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
+            }
+
+            for (int i = 0; i < Shot_Jump.GetLength(1); i++)
+            {
+                name = "RockMan_Jump_Shot_R_0" + (i + 1);
+                Shot_Jump[1, i] = (Image)Properties.Resources.ResourceManager.GetObject(name);
             }
 
             myPicturebox.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -164,6 +214,16 @@ namespace ShootingStar
                         act = Rest;
                         aniTerm = 5;
                         break;
+                    case STATE.SHOT_IDLE:
+                        act = Shot_Idle;
+                        break;
+                    case STATE.SHOT_RUN:
+                        act = Shot_Run;
+                        aniTerm = 4;
+                        break;
+                    case STATE.SHOT_JUMP:
+                        act = Shot_Jump;
+                        break;
                 }
 
                 myPicturebox.Image = act[(int)direct, aniNum];
@@ -181,26 +241,44 @@ namespace ShootingStar
                     switch (state)
                     {
                         case STATE.IDLE:
+                            if (AtkCooldown <= 0.6f)
+                            {
+                                ChangeSTATE(STATE.SHOT_IDLE);
+                                break;
+                            }
                             aniNum++;
                             if (aniNum >= Idle.GetLength(1))
                                 aniNum = 0;
 
                             if (goLeft || goRight)
                                 ChangeSTATE(STATE.RUN);
+                            if (!Land)
+                                ChangeSTATE(STATE.JUMP);
                             break;
                         case STATE.RUN:
+                            if (AtkCooldown <= 0.6f)
+                            {
+                                ChangeSTATE(STATE.SHOT_RUN);
+                                break;
+                            }
                             aniNum++;
                             if (aniNum >= Run.GetLength(1))
                                 aniNum = 1;
 
                             if (!goLeft && !goRight)
                                 ChangeSTATE(STATE.IDLE);
+                            if (!Land)
+                                ChangeSTATE(STATE.JUMP);
                             break;
                         case STATE.DASH:
                             if (aniNum < Dash.GetLength(1) - 1)
                                 aniNum++;
+                            if (!Land)
+                                ChangeSTATE(STATE.JUMP);
                             break;
                         case STATE.JUMP:
+                            if (AtkCooldown <= 0.6f)
+                                ChangeSTATE(STATE.SHOT_JUMP);
                             /*if (Land)
                                 ChangeSTATE(STATE.IDLE);*/
                             break;
@@ -209,10 +287,41 @@ namespace ShootingStar
                             if (aniNum >= Rest.GetLength(1))
                                 ChangeSTATE(STATE.IDLE);
                             break;
+                        case STATE.SHOT_IDLE:
+                            if (AtkCooldown > 0.6f)
+                            {
+                                ChangeSTATE(STATE.IDLE);
+                                break;
+                            }
+
+                            if (goLeft || goRight)
+                                ChangeSTATE(STATE.SHOT_RUN);
+
+                            if (!Land)
+                                ChangeSTATE(STATE.SHOT_JUMP);
+                            break;
+                        case STATE.SHOT_RUN:
+                            if (AtkCooldown > 0.6f)
+                            {
+                                ChangeSTATE(STATE.RUN);
+                                break;
+                            }
+                            aniNum++;
+                            if (aniNum >= Run.GetLength(1))
+                                aniNum = 1;
+
+                            if (!goLeft && !goRight)
+                                ChangeSTATE(STATE.SHOT_IDLE);
+
+                            if (!Land)
+                                ChangeSTATE(STATE.SHOT_JUMP);
+                            break;
+                        case STATE.SHOT_JUMP:
+                            if (AtkCooldown > 0.6f)
+                                ChangeSTATE(STATE.JUMP);
+                            break;
                     }
 
-                    if (!Land)
-                        ChangeSTATE(STATE.JUMP);
 
                     aniTime = 0;
                 }
@@ -259,7 +368,7 @@ namespace ShootingStar
                     Angle -= 3;
             }
 
-            if (AtkCooldown < AtkDelay)
+            if (AtkCooldown <= AtkDelay)
                 AtkCooldown += Interval;
 
             base.Move();
@@ -334,6 +443,14 @@ namespace ShootingStar
                     Guard();
                 }
 
+                if (AtkCooldown > AtkDelay)
+                {
+                    if (e.KeyCode == Keys.C)
+                    {
+                        AtkCooldown = 0f;
+                    }
+                }
+
                 if (Attackable)
                 {
                     if (e.KeyCode == Keys.Up)
@@ -351,10 +468,6 @@ namespace ShootingStar
                         aimDown = true;
                     }
 
-                    if (e.KeyCode == Keys.C)
-                    {
-
-                    }
                 }
             }
         }
@@ -362,7 +475,7 @@ namespace ShootingStar
 
         void Guard()
         {
-            if (state != STATE.JUMP)
+            if (state != STATE.JUMP && AtkCooldown <= 0.4f)
             {
                 ChangeSTATE(STATE.REST);
 

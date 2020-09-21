@@ -153,6 +153,26 @@ namespace ShootingStar.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Idle_Shot_L_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Idle_Shot_L_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Idle_Shot_R_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Idle_Shot_R_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap RockMan_Jump_L_01 {
             get {
                 object obj = ResourceManager.GetObject("RockMan_Jump_L_01", resourceCulture);
@@ -166,6 +186,26 @@ namespace ShootingStar.Properties {
         internal static System.Drawing.Bitmap RockMan_Jump_R_01 {
             get {
                 object obj = ResourceManager.GetObject("RockMan_Jump_R_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Jump_Shot_L_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Jump_Shot_L_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Jump_Shot_R_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Jump_Shot_R_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +386,66 @@ namespace ShootingStar.Properties {
         internal static System.Drawing.Bitmap RockMan_Run_R_04 {
             get {
                 object obj = ResourceManager.GetObject("RockMan_Run_R_04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_L_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_L_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_L_02 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_L_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_L_03 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_L_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_R_01 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_R_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_R_02 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_R_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockMan_Run_Shot_R_03 {
+            get {
+                object obj = ResourceManager.GetObject("RockMan_Run_Shot_R_03", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

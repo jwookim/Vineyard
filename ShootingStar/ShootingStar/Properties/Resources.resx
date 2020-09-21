@@ -154,9 +154,6 @@
   <data name="RockMan_Run_R_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Run_R_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RockMan_Jump_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RockMan_Jump_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RockMan_Run_L_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Run_L_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,6 +168,9 @@
   </data>
   <data name="RockMan_Rest_L_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Rest_L_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Idle_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Idle_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RockMan_Run_L_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Run_L_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +187,9 @@
   <data name="RockMan_Idle_R_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Idle_R_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Bullet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bullet1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RockMan_Rest_R_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Rest_R_05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,13 +199,40 @@
   <data name="RockMan_Dash_R_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Dash_R_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RockMan_Idle_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RockMan_Idle_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RockMan_Jump_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Jump_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RockMan_Run_R_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RockMan_Run_R_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bullet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bullet1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RockMan_Idle_Shot_L_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Idle_Shot_L_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Idle_Shot_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Idle_Shot_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Jump_Shot_L_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Jump_Shot_L_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Jump_Shot_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Jump_Shot_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_L_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_L_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_L_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_L_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_L_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_L_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_R_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_R_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_R_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_R_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockMan_Run_Shot_R_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockMan_Run_Shot_R_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

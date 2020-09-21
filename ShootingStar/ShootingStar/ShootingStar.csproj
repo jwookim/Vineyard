@@ -175,5 +175,35 @@
   <ItemGroup>
     <None Include="Resources\Bullet1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Idle_Shot_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Idle_Shot_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Jump_Shot_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Jump_Shot_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_L_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_L_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_L_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_R_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_R_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockMan_Run_Shot_R_03.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
