@@ -154,6 +154,99 @@ namespace ShootingStar
             Start.Visible = toggle;
         }
 
+        public void ToggleRank(bool toggle)
+        {
+            Rank_Label.Visible = toggle;
+            Rank_Label1.Visible = toggle;
+            Rank_Label2.Visible = toggle;
+            Rank_Label3.Visible = toggle;
+            Rank_Label4.Visible = toggle;
+            Rank_Label5.Visible = toggle;
+            Rank_Num1.Visible = toggle;
+            Rank_Num2.Visible = toggle;
+            Rank_Num3.Visible = toggle;
+            Rank_Num4.Visible = toggle;
+            Rank_Num5.Visible = toggle;
+            Rank_Panel.Visible = toggle;
+            Rank_Panel1.Visible = toggle;
+            Rank_Panel2.Visible = toggle;
+            Rank_Panel3.Visible = toggle;
+            Rank_Panel4.Visible = toggle;
+            Rank_Panel5.Visible = toggle;
+
+            Rank_Label.Enabled = toggle;
+            Rank_Label1.Enabled = toggle;
+            Rank_Label2.Enabled = toggle;
+            Rank_Label3.Enabled = toggle;
+            Rank_Label4.Enabled = toggle;
+            Rank_Label5.Enabled = toggle;
+            Rank_Num1.Enabled = toggle;
+            Rank_Num2.Enabled = toggle;
+            Rank_Num3.Enabled = toggle;
+            Rank_Num4.Enabled = toggle;
+            Rank_Num5.Enabled = toggle;
+            Rank_Panel.Enabled = toggle;
+            Rank_Panel1.Enabled = toggle;
+            Rank_Panel2.Enabled = toggle;
+            Rank_Panel3.Enabled = toggle;
+            Rank_Panel4.Enabled = toggle;
+            Rank_Panel5.Enabled = toggle;
+        }
+
+        public void Rank_Swap(bool Atkable)
+        {
+            if (Atkable)
+                Rank_Label.Text = "Shooting Rank";
+            else
+                Rank_Label.Text = "Dodge Rank";
+        }
+
+        public void Rank_Update(int rank, int score, bool now = false)
+        {
+            switch(rank + 1)
+            {
+                case 1:
+                    Rank_Label1.Text = score.ToString();
+                    if (now)
+                        Rank_Label1.ForeColor = Color.Red;
+                    else
+                        Rank_Label1.ForeColor = Color.Black;
+                    break;
+                case 2:
+                    Rank_Label2.Text = score.ToString();
+                    if (now)
+                        Rank_Label2.ForeColor = Color.Red;
+                    else
+                        Rank_Label2.ForeColor = Color.Black;
+                    break;
+                case 3:
+                    Rank_Label3.Text = score.ToString();
+                    if (now)
+                        Rank_Label3.ForeColor = Color.Red;
+                    else
+                        Rank_Label3.ForeColor = Color.Black;
+                    break;
+                case 4:
+                    Rank_Label4.Text = score.ToString();
+                    if (now)
+                        Rank_Label4.ForeColor = Color.Red;
+                    else
+                        Rank_Label4.ForeColor = Color.Black;
+                    break;
+                case 5:
+                    Rank_Label5.Text = score.ToString();
+                    if (now)
+                        Rank_Label5.ForeColor = Color.Red;
+                    else
+                        Rank_Label5.ForeColor = Color.Black;
+                    break;
+            }
+        }
+
+        private void Rank_Panel_Clicked(object sender, MouseEventArgs e)
+        {
+            ToggleRank(false);
+        }
     }
 
 

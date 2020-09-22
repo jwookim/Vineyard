@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,8 +60,13 @@ namespace ShootingStar
         {
             objectManager.Rainism(Difficulty);
 
-
             Basic_Progression();
+
+            if (objectManager.HpCheck() <= 0)
+            {
+                Dodge_Star_Rank();
+                GameOver();
+            }
         }
 
         void Shooting_Star()
@@ -70,11 +76,17 @@ namespace ShootingStar
             objectManager.AimLine();
 
             Basic_Progression();
+
+
+            if (objectManager.HpCheck() <= 0)
+            {
+                Shooting_Star_Rank();
+                GameOver();
+            }
         }
 
         void Basic_Progression()
         {
-            int hp;
 
             objectManager.Gravity();
 
@@ -86,11 +98,9 @@ namespace ShootingStar
 
             objectManager.Resist();
 
-            form1.HpUpdate(hp = objectManager.HpCheck());
+            form1.HpUpdate(objectManager.HpCheck());
 
             form1.ScoreUpdate(Score);
-            if (hp <= 0)
-                GameOver();
         }
 
         void Game_Setting()
@@ -113,6 +123,107 @@ namespace ShootingStar
             Game = Shooting_Star;
             objectManager.ChangeAttackable(true);
             Game_Setting();
+        }
+
+        public void Dodge_Star_Rank()
+        {
+            List<int> rank = new List<int>();
+            try
+            {
+                StreamReader reader = new StreamReader("Dodge_Ranking.txt");
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    try
+                    {
+                        rank.Add(int.Parse(line));
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+                }
+
+                reader.Close();
+            }
+            catch
+            {
+
+            }
+            rank.Add(Score);
+
+            rank.Sort();
+            rank.Reverse();
+
+            StreamWriter writer = new StreamWriter("Dodge_Ranking.txt");
+            for(int i=0; i<5; i++)
+            {
+                if (i < rank.Count && rank[i] > 0)
+                {
+                    if (rank[i] == Score)
+                        form1.Rank_Update(i, rank[i], true);
+                    else
+                        form1.Rank_Update(i, rank[i]);
+                    writer.WriteLine(rank[i]);
+                }
+                else
+                    form1.Rank_Update(i, 0);
+            }
+
+            writer.Close();
+
+            form1.Rank_Swap(false);
+            form1.ToggleRank(true);
+        }
+        public void Shooting_Star_Rank()
+        {
+            List<int> rank = new List<int>();
+            try
+            {
+                StreamReader reader = new StreamReader("Shooting_Ranking.txt");
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    try
+                    {
+                        rank.Add(int.Parse(line));
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+                }
+
+                reader.Close();
+            }
+            catch
+            {
+
+            }
+            rank.Add(Score);
+
+            rank.Sort();
+            rank.Reverse();
+
+            StreamWriter writer = new StreamWriter("Shooting_Ranking.txt");
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < rank.Count && rank[i] > 0)
+                {
+                    if (rank[i] == Score)
+                        form1.Rank_Update(i, rank[i], true);
+                    else
+                        form1.Rank_Update(i, rank[i]);
+                    writer.WriteLine(rank[i]);
+                }
+                else
+                    form1.Rank_Update(i, 0);
+            }
+
+            writer.Close();
+
+            form1.Rank_Swap(true);
+            form1.ToggleRank(true);
         }
 
         public void KeyUp(KeyEventArgs e)
