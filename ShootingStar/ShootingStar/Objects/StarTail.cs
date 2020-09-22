@@ -29,6 +29,7 @@ namespace ShootingStar
         {
             myPicturebox.Width = size;
             myPicturebox.Height = size;
+            myPicturebox.SendToBack();
             time = 5;
             base.Generate(x, y, size);
         }

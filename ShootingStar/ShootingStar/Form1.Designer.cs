@@ -134,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(784, 441);
+            this.ClientSize = new System.Drawing.Size(784, 961);
             this.Controls.Add(this.DiffBox);
             this.Controls.Add(this.SelectShoot);
             this.Controls.Add(this.Start);

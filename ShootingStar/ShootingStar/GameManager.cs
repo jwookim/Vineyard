@@ -65,6 +65,8 @@ namespace ShootingStar
 
         void Shooting_Star()
         {
+            objectManager.Discus_Throw(Difficulty);
+
             objectManager.AimLine();
 
             Basic_Progression();
@@ -99,6 +101,7 @@ namespace ShootingStar
 
         public void Dodge_Star_Setting()
         {
+            form1.Height = 480;
             Game = Dodge_Star;
             objectManager.ChangeAttackable(false);
             Game_Setting();
@@ -106,6 +109,7 @@ namespace ShootingStar
 
         public void Shooting_Star_Setting()
         {
+            form1.Height = 1000;
             Game = Shooting_Star;
             objectManager.ChangeAttackable(true);
             Game_Setting();

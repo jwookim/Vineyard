@@ -39,6 +39,7 @@ namespace ShootingStar
         List<GameObject> Objects = new List<GameObject>();
         Stack<Star> dummyObjects = new Stack<Star>();
         Stack<StarTail> dummyTails = new Stack<StarTail>();
+        Stack<Bullet> dummyBullets = new Stack<Bullet>();
         Random random = new Random();
         Form1 form1;
 
@@ -49,23 +50,30 @@ namespace ShootingStar
         PointF AimStart;
         PointF AimEnd;
 
+        float Timer;
+        const float Interval = 0.2f;
+
         Character Player;
 
         public ObjectManager(Form1 _form1)
         {
             form1 = _form1;
-            Player = new Character(form1);
-            Objects.Add(Player);
             AimStart = default;
             AimEnd = default;
             myPen = new Pen(Color.Red);
             Eraser = new Pen(form1.BackColor);
             graphics = form1.CreateGraphics();
+
+            form1.Height = 480;
+
+            Player = new Character(form1);
+            Objects.Add(Player);
         }
 
 
         public void Init()
         {
+            Timer = 0f;
             graphics.Clear(form1.BackColor);
             AimStart = default;
             AimEnd = default;
@@ -90,6 +98,14 @@ namespace ShootingStar
                     continue;
                 }
 
+                else if (ob.GetType() == typeof(Bullet))
+                {
+                    ob.Extinction();
+                    dummyBullets.Push((Bullet)ob);
+                    Objects.Remove(ob);
+                    continue;
+                }
+
                 else if (ob == Player)
                     num++;
             }
@@ -100,17 +116,42 @@ namespace ShootingStar
 
         
 
-        public void StarCreate(int x, int y, int Difficulty)
+        public void DropStar(int x, int y, int Difficulty)
         {
             Star temp;
 
             if (dummyObjects.Count > 0)
             {
                 temp = dummyObjects.Pop();
+                temp.Drop_Shift(Difficulty);
                 temp.Generate(x, y, Difficulty);
             }
             else
-                temp = new Star(x, y, Difficulty, form1);
+            {
+                temp = new Star(x, y, form1);
+                temp.Drop_Shift(Difficulty);
+                temp.Generate(x, y, Difficulty);
+            }
+
+            Objects.Add(temp);
+        }
+
+        public void ThrowStar(int Difficulty)
+        {
+            Star temp;
+
+            if (dummyObjects.Count > 0)
+            {
+                temp = dummyObjects.Pop();
+                temp.Throw_Shift(Difficulty);
+                temp.Generate(50, form1.Height - 100, Difficulty);
+            }
+            else
+            {
+                temp = new Star(50, form1.Height - 100, form1);
+                temp.Throw_Shift(Difficulty);
+                temp.Generate(50, form1.Height - 100, Difficulty);
+            }
 
             Objects.Add(temp);
         }
@@ -130,12 +171,39 @@ namespace ShootingStar
             Objects.Add(temp);
         }
 
+        void ShootBullet()
+        {
+            Bullet temp;
+
+            if (dummyBullets.Count > 0)
+            {
+                temp = dummyBullets.Pop();
+                temp.Generate(Player.myPicturebox.Left + Player.myPicturebox.Width / 2, Player.myPicturebox.Top + Player.myPicturebox.Height / 2, 0);
+            }
+            else
+                temp = new Bullet(Player.myPicturebox.Left + Player.myPicturebox.Width / 2, Player.myPicturebox.Top + Player.myPicturebox.Height / 2, form1);
+
+            temp.SetDirect(Player.Angle, Player.direct);
+            Objects.Add(temp);
+        }
+
         public void Rainism(int Difficulty)
         {
             int num = random.Next(-10 - Difficulty / 2, 3 + Difficulty / 2);
 
             for (int i = 0; i < num; i++)
-                StarCreate(random.Next(10, form1.Width - 10), 0, Difficulty);
+                DropStar(random.Next(10, form1.Width - 10), 0, Difficulty);
+        }
+
+        public void Discus_Throw(int Difficulty)
+        {
+            Timer += Interval;
+
+            if ((8 - Difficulty) * 2 < Timer)
+            {
+                ThrowStar(Difficulty);
+                Timer = 0f;
+            }
         }
 
         public int HpCheck()
@@ -173,7 +241,7 @@ namespace ShootingStar
             if (Player.direct == Direct.Left)
                 dir = -1;
 
-            double rad = (double)Player.Angle / 180d * 3.141592;
+            double rad = Player.Angle / 180d * 3.141592;
             moveStart.X = Player.myPicturebox.Left + Player.myPicturebox.Width / 2;
             moveStart.Y = Player.myPicturebox.Top + Player.myPicturebox.Height / 2;
             moveEnd.X = Player.myPicturebox.Left + Player.myPicturebox.Width / 2 + (float)(Math.Cos(rad) * 100d * dir);
@@ -193,11 +261,11 @@ namespace ShootingStar
         {
             foreach (var ob in Objects)
             {
-                if (ob.GetType() != typeof(StarTail))
+                if (ob.GetType() != typeof(StarTail) && ob.GetType() != typeof(Bullet))
                 {
                     foreach (var target in Objects)
                     {
-                        if (ob != target && target.GetType() != typeof(StarTail))
+                        if (ob != target && target.GetType() != typeof(StarTail) && target.GetType() != typeof(Bullet))
                         {
                             if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
                             {
@@ -246,10 +314,16 @@ namespace ShootingStar
                 {
                     if (ob.myPicturebox.Bottom >= form1.Height)
                     {
-                        score += (int)ob.Mass;
+                        if (!Player.Attackable)
+                            score += (int)ob.Mass;
                         ob.Extinction();
                         dummyObjects.Push((Star)ob);
                         Objects.Remove(ob);
+
+
+                        if (Player.Attackable)
+                            Player.Drop_Star();
+                        
                         continue;
                     }
                     else
@@ -266,6 +340,52 @@ namespace ShootingStar
                         continue;
                     }
                     else
+                        num++;
+                }
+
+                else if (ob.GetType() == typeof(Bullet))
+                {
+                    if (ob.myPicturebox.Bottom < 0 || ob.myPicturebox.Bottom > form1.Height || ob.myPicturebox.Right < 0 || ob.myPicturebox.Left > form1.Width)
+                    {
+                        ob.Extinction();
+                        dummyBullets.Push((Bullet)ob);
+                        Objects.Remove(ob);
+                        continue;
+                    }
+
+                    int num2 = 0;
+                    while (num2 < Objects.Count)
+                    {
+                        var target = Objects[num2];
+
+                        if (target.GetType() == typeof(Star))
+                        {
+                            if (ob.myPicturebox.Bounds.IntersectsWith(target.myPicturebox.Bounds))
+                            {
+                                score += 100 - (int)target.Mass;
+                                target.Extinction();
+                                dummyObjects.Push((Star)target);
+                                Objects.Remove(target);
+
+
+                                ob.Extinction();
+                                dummyBullets.Push((Bullet)ob);
+                                Objects.Remove(ob);
+
+                                if (num2 < num)
+                                    num--;
+
+                                num2 = -1;
+                                break;
+                            }
+                            else
+                                num2++;
+                        }
+                        else
+                            num2++;
+                    }
+
+                    if (num2 > 0)
                         num++;
                 }
 
@@ -337,6 +457,10 @@ namespace ShootingStar
 
         public void ChangeAttackable(bool _atk)
         {
+            Eraser.Dispose();
+            myPen.Dispose();
+            Eraser = new Pen(form1.BackColor);
+            myPen = new Pen(Color.Red);
             Player.ChangeAttackable(_atk);
         }
 
@@ -347,7 +471,8 @@ namespace ShootingStar
 
         public void KeyDown(KeyEventArgs e)
         {
-            Player.Control_Down(e);
+            if (Player.Control_Down(e))
+                ShootBullet();
         }
 
     }

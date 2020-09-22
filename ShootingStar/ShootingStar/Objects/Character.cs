@@ -46,7 +46,7 @@ namespace ShootingStar
 
         bool Land;
 
-        bool Attackable;
+        public bool Attackable { get; private set; }
         float AtkCooldown;
 
         Image[,] act;
@@ -60,7 +60,7 @@ namespace ShootingStar
         Image[,] Shot_Jump;
         public float Health { get; private set; }
 
-        const float AtkDelay = 1f;
+        const float AtkDelay = 2f;
         public Character(Form1 form, bool _atkable = false):base(form.Width/2, form.Height - 100, form)
         {
             Init();
@@ -241,11 +241,6 @@ namespace ShootingStar
                     switch (state)
                     {
                         case STATE.IDLE:
-                            if (AtkCooldown <= 0.6f)
-                            {
-                                ChangeSTATE(STATE.SHOT_IDLE);
-                                break;
-                            }
                             aniNum++;
                             if (aniNum >= Idle.GetLength(1))
                                 aniNum = 0;
@@ -256,11 +251,6 @@ namespace ShootingStar
                                 ChangeSTATE(STATE.JUMP);
                             break;
                         case STATE.RUN:
-                            if (AtkCooldown <= 0.6f)
-                            {
-                                ChangeSTATE(STATE.SHOT_RUN);
-                                break;
-                            }
                             aniNum++;
                             if (aniNum >= Run.GetLength(1))
                                 aniNum = 1;
@@ -277,8 +267,6 @@ namespace ShootingStar
                                 ChangeSTATE(STATE.JUMP);
                             break;
                         case STATE.JUMP:
-                            if (AtkCooldown <= 0.6f)
-                                ChangeSTATE(STATE.SHOT_JUMP);
                             /*if (Land)
                                 ChangeSTATE(STATE.IDLE);*/
                             break;
@@ -288,7 +276,7 @@ namespace ShootingStar
                                 ChangeSTATE(STATE.IDLE);
                             break;
                         case STATE.SHOT_IDLE:
-                            if (AtkCooldown > 0.6f)
+                            if (AtkCooldown > 1f)
                             {
                                 ChangeSTATE(STATE.IDLE);
                                 break;
@@ -301,7 +289,7 @@ namespace ShootingStar
                                 ChangeSTATE(STATE.SHOT_JUMP);
                             break;
                         case STATE.SHOT_RUN:
-                            if (AtkCooldown > 0.6f)
+                            if (AtkCooldown > 1f)
                             {
                                 ChangeSTATE(STATE.RUN);
                                 break;
@@ -333,6 +321,7 @@ namespace ShootingStar
         {
             goLeft = false;
             goRight = false;
+            Land = false;
 
             Health = 100f;
 
@@ -340,6 +329,7 @@ namespace ShootingStar
             vector.Horizontal = 0f;
 
             Angle = 0;
+            AtkCooldown = 1f;
         }
 
         public override void Move()
@@ -368,7 +358,7 @@ namespace ShootingStar
                     Angle -= 3;
             }
 
-            if (AtkCooldown <= AtkDelay)
+            if (AtkCooldown < AtkDelay)
                 AtkCooldown += Interval;
 
             base.Move();
@@ -411,7 +401,7 @@ namespace ShootingStar
                 }
             }
         }
-        public void Control_Down(KeyEventArgs e)
+        public bool Control_Down(KeyEventArgs e)
         {
             if (state != STATE.REST)
             {
@@ -443,13 +433,7 @@ namespace ShootingStar
                     Guard();
                 }
 
-                if (AtkCooldown > AtkDelay)
-                {
-                    if (e.KeyCode == Keys.C)
-                    {
-                        AtkCooldown = 0f;
-                    }
-                }
+
 
                 if (Attackable)
                 {
@@ -468,14 +452,32 @@ namespace ShootingStar
                         aimDown = true;
                     }
 
+                    if (AtkCooldown >= AtkDelay)
+                    {
+                        if (e.KeyCode == Keys.C)
+                        {
+                            AtkCooldown = 0f;
+
+                            if (!Land)
+                                ChangeSTATE(STATE.SHOT_JUMP);
+                            else if (goLeft || goRight)
+                                ChangeSTATE(STATE.SHOT_RUN);
+                            else
+                                ChangeSTATE(STATE.SHOT_IDLE);
+
+                            return true;
+                        }
+                    }
                 }
             }
+
+            return false;
         }
 
 
         void Guard()
         {
-            if (state != STATE.JUMP && AtkCooldown <= 0.4f)
+            if (state != STATE.JUMP && AtkCooldown > 1f)
             {
                 ChangeSTATE(STATE.REST);
 
@@ -520,7 +522,8 @@ namespace ShootingStar
         {
             if (state != STATE.REST)
             {
-                Damage((float)(Math.Sqrt(Math.Pow(v.Vertical, 2) + Math.Pow(v.Horizontal, 2)) * _mass) / 20f);
+                if (!Attackable)
+                    Damage((float)(Math.Sqrt(Math.Pow(v.Vertical, 2) + Math.Pow(v.Horizontal, 2)) * _mass) / 20f);
                 base.Collision(v, _mass);
             }
         }
@@ -539,6 +542,14 @@ namespace ShootingStar
                 Health = 0;
         }
 
+
+        public void Drop_Star()
+        {
+            Health -= 20;
+
+            if (Health < 0)
+                Health = 0;
+        }
 
     }
 }
