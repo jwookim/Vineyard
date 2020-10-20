@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : CharacterController
 {
-    public Animator animator;
-    public float moveSpeed = 5f;
     Transform target;
     public Transform colliderCheck;
     public LayerMask colliderMask;
@@ -19,6 +17,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         target = null;
         atkDelay = 0f;
+        speed = 5f;
     }
 
 
@@ -58,7 +57,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            transform.Translate(transform.localScale.x * Vector2.right * Time.deltaTime * moveSpeed);
+            transform.Translate(transform.localScale.x * Vector2.right * Time.deltaTime * speed);
 
             animator.SetFloat("Speed", 5f);
         }

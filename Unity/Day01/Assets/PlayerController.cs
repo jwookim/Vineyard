@@ -4,17 +4,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController
 {
     public Rigidbody2D rigid;
-    public Animator animator;
 
     [SerializeField]
     Transform groundCheck;
 
     public bool isGrounded;
     public int JumpCount;
-    public float speed;
     public float radius = 0.2f;
     public LayerMask layerMask;
 
@@ -54,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                rigid.velocity = new Vector2(rigid.velocity.x, 0f);
                 rigid.AddForce(Vector2.up * 300f);
                 animator.SetTrigger("Jump");
                 JumpCount++;

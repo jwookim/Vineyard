@@ -55,8 +55,9 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\EnemyController.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\CharacterController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Sprites\Environment\Sunset magic\info.txt" />
