@@ -12,8 +12,9 @@ public class EnemyController : CharacterController
 
 
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         target = null;
         atkDelay = 0f;
@@ -21,8 +22,30 @@ public class EnemyController : CharacterController
     }
 
 
-    void Update()
+    protected override void Update()
     {
+
+        Move();
+
+    }
+
+
+    protected override void Attack()
+    {
+        atkDelay += Time.deltaTime;
+
+        if(atkDelay > 3f)
+        {
+            atkDelay = 0f;
+
+            animator.SetTrigger("Attack");
+            target.GetComponent<PlayerController>().Damage();
+        }
+    }
+
+    protected override void Move()
+    {
+        base.Move();
 
         Collider2D other = Physics2D.OverlapPoint(colliderCheck.position, colliderMask);
 
@@ -51,7 +74,7 @@ public class EnemyController : CharacterController
         else
             target = null;
 
-        if(target)
+        if (target)
         {
             Attack();
         }
@@ -60,20 +83,6 @@ public class EnemyController : CharacterController
             transform.Translate(transform.localScale.x * Vector2.right * Time.deltaTime * speed);
 
             animator.SetFloat("Speed", 5f);
-        }
-
-    }
-
-
-    void Attack()
-    {
-        atkDelay += Time.deltaTime;
-
-        if(atkDelay > 3f)
-        {
-            atkDelay = 0f;
-
-            animator.SetTrigger("Attack");
         }
     }
 }

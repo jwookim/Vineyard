@@ -56,8 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EnemyController.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\CharacterController.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\MenuController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Sprites\Environment\Sunset magic\info.txt" />

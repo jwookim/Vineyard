@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : CharacterController
 {
     public Rigidbody2D rigid;
+    public Transform hpBar;
 
     [SerializeField]
     Transform groundCheck;
@@ -17,8 +20,9 @@ public class PlayerController : CharacterController
     public LayerMask layerMask;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rigid = GetComponent<Rigidbody2D>();
         speed = 3f;
         JumpCount = 1;
@@ -26,13 +30,27 @@ public class PlayerController : CharacterController
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        Move();
+    }
+
+    protected override void Attack()
+    {
+        base.Attack();
+
+        animator.SetTrigger("Attack");
+    }
+
+    protected override void Move()
+    {
+        base.Move();
+
         //충돌되면 true 안되면 false
         //Physics2D.OverlapCircle : 원에 겹치면
         //Physics2D.OverlapCircle(중심점, 반지름, 레이어)
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, radius, layerMask);
-        
+
 
         float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -61,7 +79,20 @@ public class PlayerController : CharacterController
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            animator.SetTrigger("Attack");
+            Attack();
         }
+    }
+
+
+    public override void Damage()
+    {
+        if (hp > 0f)
+            hpBar.GetChild((int)Mathf.Ceil(hp) - 1).GetComponent<Image>().fillAmount -= 0.5f;
+
+        base.Damage();
+
+
+        if (hp <= 0f)
+            SceneManager.LoadScene("GameOver");
     }
 }
