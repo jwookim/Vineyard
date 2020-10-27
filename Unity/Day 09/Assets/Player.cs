@@ -7,9 +7,11 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     [SerializeField] private Animator animator;
 
+    float AttackDelay;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        AttackDelay = 2f;
     }
 
     private void FixedUpdate()
@@ -25,5 +27,23 @@ public class Player : MonoBehaviour
 
 
         transform.Rotate(Vector3.up * horizontal, Space.World);
+
+
+
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+            Attack();
+        }
+        AttackDelay += Time.deltaTime;
+    }
+
+    public void Attack()
+    {
+        if (AttackDelay >= 2f)
+        {
+            AttackDelay = 0f;
+
+            animator.SetTrigger("Attack");
+        }
     }
 }
