@@ -61,6 +61,7 @@
     <Compile Include="Assets\RPG Character Animation Pack\Code\CameraController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterInputController.cs" />
+    <Compile Include="Assets\Range.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterMovementController.cs" />
@@ -78,9 +79,9 @@
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterController.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
-    <Compile Include="Assets\Range.cs" />
     <Compile Include="Assets\GameController.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
+    <Compile Include="Assets\ObjectPoolManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\README.txt" />

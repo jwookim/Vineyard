@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemyPrefab;
+    [SerializeField] private ObjectPoolManager objectPoolManager;
+
     [SerializeField] float spawnTime;
     // Start is called before the first frame update
     void Start()
     {
+        objectPoolManager = GetComponent<ObjectPoolManager>();
+
         spawnTime = 0f;
     }
 
@@ -19,10 +22,19 @@ public class GameController : MonoBehaviour
         spawnTime += Time.deltaTime;
         if (spawnTime >= 5f)
         {
-            int num = Random.Range(0, 7);
-            Debug.Log(num);
-            Instantiate(EnemyPrefab, transform.GetChild(num).transform.position, Quaternion.identity);
-            spawnTime = 0f;
+            GameObject enemy = objectPoolManager.GetEnmy();
+
+            if (enemy != null)
+            {
+                int num = Random.Range(0, 7);
+                Debug.Log(num);
+                enemy.transform.position = transform.GetChild(num).transform.position;
+
+                enemy.SetActive(true);
+                
+                spawnTime = 0f;
+
+            }
         }
     }
 }
