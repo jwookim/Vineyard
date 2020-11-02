@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
             if (enemy != null)
             {
                 int num = Random.Range(0, 7);
-                Debug.Log(num);
                 enemy.transform.position = transform.GetChild(num).transform.position;
 
                 enemy.SetActive(true);

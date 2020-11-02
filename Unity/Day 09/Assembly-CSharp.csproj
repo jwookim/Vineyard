@@ -57,31 +57,33 @@
   <ItemGroup>
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\Scripts\Gravity.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\GUIControls.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\Code\PerfectLookAt\PerfectLookAtLegStabilizer.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\CameraController.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterInputController.cs" />
-    <Compile Include="Assets\Range.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterMovementController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\Scripts\SimpleStateMachine.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\PerfectLookAt\FABRIKSolver.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\IKHands.cs" />
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterWeaponController.cs" />
-    <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\PerfectLookAt\PerfectLookAt.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Math3d.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\PerfectLookAt\PerfectLookAtData.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
-    <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterController.cs" />
     <Compile Include="Assets\GameController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
     <Compile Include="Assets\ObjectPoolManager.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\Code\PerfectLookAt\PerfectLookAtLegStabilizer.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
+    <Compile Include="Assets\Range.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
+    <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterWeaponController.cs" />
+    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\NewInputSystemTest.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
+    <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterController.cs" />
+    <Compile Include="Assets\InputController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\README.txt" />
@@ -672,6 +674,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
