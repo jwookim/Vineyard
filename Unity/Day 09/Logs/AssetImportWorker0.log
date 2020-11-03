@@ -15,11 +15,11 @@ C:/Users/Administrator/Documents/GitHub/Vineyard/Unity/Day 09
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-1863
+1492
 Successfully changed project path to: C:/Users/Administrator/Documents/GitHub/Vineyard/Unity/Day 09
 C:/Users/Administrator/Documents/GitHub/Vineyard/Unity/Day 09
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 72.09 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 73.30 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.0b6 (24a0f8b56f72)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Resources/UnitySubsystems
@@ -35,77 +35,851 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56916
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56760
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001242 seconds.
+Registered in 0.001168 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 82.73 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 76.43 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.790 seconds
+- Completed reload, in  1.315 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001021 seconds.
+Registered in 0.000949 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 424.46 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 76.23 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.190 seconds
+- Completed reload, in  0.778 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.93 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1400 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 73.5 MB.
+System memory in use before: 73.6 MB.
 System memory in use after: 73.6 MB.
 
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1849.
-Total: 1.959500 ms (FindLiveObjects: 0.375600 ms CreateObjectMapping: 0.063800 ms MarkObjects: 1.432300 ms  DeleteObjects: 0.086800 ms)
+Total: 1.955600 ms (FindLiveObjects: 0.346000 ms CreateObjectMapping: 0.052800 ms MarkObjects: 1.503200 ms  DeleteObjects: 0.053000 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/NewInputSystemTest.cs
-  artifactKey: Guid(a2d013e830f1a7044974fc341cae7ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NewInputSystemTest.cs using Guid(a2d013e830f1a7044974fc341cae7ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb2e896c8ea4b68dbe294c218936ab41') in 0.022345 seconds
-  Import took 0.026835 seconds .
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 1.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 46.1 MB.
-System memory in use after: 46.2 MB.
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1849.
-Total: 2.045300 ms (FindLiveObjects: 0.398000 ms CreateObjectMapping: 0.061500 ms MarkObjects: 1.551700 ms  DeleteObjects: 0.033200 ms)
+  path: Assets/New Material.mat
+  artifactKey: Guid(b0e4911f872891c4eae6ad06bdb7ba05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(b0e4911f872891c4eae6ad06bdb7ba05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35f613974f518df5f5cd9116ad4cfba5') in 0.094476 seconds
+  Import took 0.098430 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 127.945889 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '007357d170f483ffde6ac0183206e95d') in 0.060011 seconds
-  Import took 0.173930 seconds .
+  Time since last request: 415.411971 seconds.
+  path: Assets/RPG Character Animation Pack/Animations
+  artifactKey: Guid(333a26b651c0a304f8ec5288c2dc61b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Animations using Guid(333a26b651c0a304f8ec5288c2dc61b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdeb098d651fdc992a607fc16f39c355') in 0.001609 seconds
+  Import took 0.007437 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/RPG Character Animation Pack/Code
+  artifactKey: Guid(dac96c5f2e69c5244b5e6cf4554a923e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Code using Guid(dac96c5f2e69c5244b5e6cf4554a923e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb74692f4063903a158a029042d1766f') in 0.001601 seconds
+  Import took 0.005985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/RPG Character Animation Pack/SuperCharacterController
+  artifactKey: Guid(4704c89c54beeac4c9bf1a9cdb9df149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/SuperCharacterController using Guid(4704c89c54beeac4c9bf1a9cdb9df149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21809fb49ec8aa403dd9db9281e12e75') in 0.001564 seconds
+  Import took 0.005888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/RPG Character Animation Pack/RPGCharacterMecanimAnimationPackReadMe.pdf
+  artifactKey: Guid(6ab556154e747c34dbb89f5c1b571668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/RPGCharacterMecanimAnimationPackReadMe.pdf using Guid(6ab556154e747c34dbb89f5c1b571668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70e7c833e6c77d9dc38f2acee611d732') in 0.027571 seconds
+  Import took 0.031314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/RPG Character Animation Pack/Code
+  artifactKey: Guid(dac96c5f2e69c5244b5e6cf4554a923e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Code using Guid(dac96c5f2e69c5244b5e6cf4554a923e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb74692f4063903a158a029042d1766f') in 0.001005 seconds
+  Import took 0.004765 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/RPG Character Animation Pack/Animations
+  artifactKey: Guid(333a26b651c0a304f8ec5288c2dc61b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Animations using Guid(333a26b651c0a304f8ec5288c2dc61b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdeb098d651fdc992a607fc16f39c355') in 0.001115 seconds
+  Import took 0.004931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/RPG Character Animation Pack/Models
+  artifactKey: Guid(c1a94f9b295f6e540b5f7cb12d0febf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Models using Guid(c1a94f9b295f6e540b5f7cb12d0febf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acee5ae28b79e15e6f218c12561f9bc9') in 0.001857 seconds
+  Import took 0.005862 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/RPG Character Animation Pack/Scenes
+  artifactKey: Guid(3d656d47583400741aa7ef887013a34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Scenes using Guid(3d656d47583400741aa7ef887013a34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98fd39eebb3d2abb78c1a8b8788e8466') in 0.001232 seconds
+  Import took 0.005504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/RPG Character Animation Pack/PerfectLookAt-UserGuide.pdf
+  artifactKey: Guid(70b46e5332c4f7c44b812e3ceb31793b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/PerfectLookAt-UserGuide.pdf using Guid(70b46e5332c4f7c44b812e3ceb31793b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '475131031297cff1a07fa0a1cf1f82c9') in 0.001770 seconds
+  Import took 0.005912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/RPG Character Animation Pack/Elements
+  artifactKey: Guid(765f387bbd2ed4044b98873ccfb1ae3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements using Guid(765f387bbd2ed4044b98873ccfb1ae3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39a3cdc91bb530b0d87d8dab20879caf') in 0.001293 seconds
+  Import took 0.005241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/RPG Character Animation Pack/Project Settings.zip
+  artifactKey: Guid(8f501e4026ba7574b9f4a603e441ec17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Project Settings.zip using Guid(8f501e4026ba7574b9f4a603e441ec17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34a392e531c77a39500c12a44f955dfe') in 0.009003 seconds
+  Import took 0.012823 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/RPG Character Animation Pack/Materials
+  artifactKey: Guid(0be3e0c5550ab5245a84635814d81d90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Materials using Guid(0be3e0c5550ab5245a84635814d81d90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5cdec310e67629af6fb85a29a04097b') in 0.001586 seconds
+  Import took 0.005467 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003827 seconds.
+  path: Assets/RPG Character Animation Pack/Project Settings.zip
+  artifactKey: Guid(8f501e4026ba7574b9f4a603e441ec17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Project Settings.zip using Guid(8f501e4026ba7574b9f4a603e441ec17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34a392e531c77a39500c12a44f955dfe') in 0.001398 seconds
+  Import took 0.005529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 435.164671 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74f606e13ebf72d5d114f07d9917d27e') in 0.004462 seconds
+  Import took 0.008968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000807 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74f606e13ebf72d5d114f07d9917d27e') in 0.001781 seconds
+  Import took 0.005850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 129.028093 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Controller.psd
+  artifactKey: Guid(a89b87919aade4c498f4e0df342ab278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Controller.psd using Guid(a89b87919aade4c498f4e0df342ab278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c02be2aac83002c14da0d0d941d95948') in 0.028157 seconds
+  Import took 0.033219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_01.png
+  artifactKey: Guid(8dd9c98cbc4581f4fb73e8920b223544) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_01.png using Guid(8dd9c98cbc4581f4fb73e8920b223544) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3adc305915ac609acfe74ebbd5cb492f') in 0.036901 seconds
+  Import took 0.041162 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_03_C.png
+  artifactKey: Guid(42b1c203036f79f45850a8b6b4aa8ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_03_C.png using Guid(42b1c203036f79f45850a8b6b4aa8ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2625f9404990657497ee863d3f2f6f0') in 0.040232 seconds
+  Import took 0.044248 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Lion.png
+  artifactKey: Guid(41fddf620bf183a408098aa0bd7a1670) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Lion.png using Guid(41fddf620bf183a408098aa0bd7a1670) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59492de97905f2a0d05cb6f22fb7fca6') in 0.008549 seconds
+  Import took 0.012420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/FX_Textures/FX_Arrow.png
+  artifactKey: Guid(0f7191054ff297e4fae1e1592efe7fbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/FX_Textures/FX_Arrow.png using Guid(0f7191054ff297e4fae1e1592efe7fbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82bbcd09f8f861d8fd0de9f42333772f') in 0.006400 seconds
+  Import took 0.010537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Lion.png
+  artifactKey: Guid(d5ecef340be7946408a8b8e7ef1291ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Lion.png using Guid(d5ecef340be7946408a8b8e7ef1291ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38471862a9f9b07da0799e7ec58018c4') in 0.008749 seconds
+  Import took 0.012374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Cross.png
+  artifactKey: Guid(8b3dee3fc7b6e5c46bd910912360c533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Cross.png using Guid(8b3dee3fc7b6e5c46bd910912360c533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58c9afc4f8d60c07bff6fa7fffaa86b8') in 0.007626 seconds
+  Import took 0.011206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_01_C.png
+  artifactKey: Guid(05d9eda4b33607a49ac805968d3e21ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_01_C.png using Guid(05d9eda4b33607a49ac805968d3e21ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afecaa4195ee43bc39f81dd05cb883c1') in 0.033627 seconds
+  Import took 0.037548 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_01.png
+  artifactKey: Guid(b97621a6d0abc3743a6ef00747c3224f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_01.png using Guid(b97621a6d0abc3743a6ef00747c3224f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b59f8a319d60393db0345ea5e848c1ac') in 0.013827 seconds
+  Import took 0.017661 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/RPG Character Animation Pack/SuperCharacterController/Textures/Tile.png
+  artifactKey: Guid(7078aef5fa3e09245bacb87bd3340fff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/SuperCharacterController/Textures/Tile.png using Guid(7078aef5fa3e09245bacb87bd3340fff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '958f0b0d5f1ce312038647996277ad2d') in 0.013983 seconds
+  Import took 0.018155 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Head.png
+  artifactKey: Guid(d1a6c378eb5da604c86c54b9ed18b158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Head.png using Guid(d1a6c378eb5da604c86c54b9ed18b158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89ab894a422ad0cf3edcedc5c315ea84') in 0.008706 seconds
+  Import took 0.012473 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_02.png
+  artifactKey: Guid(1f57832b72039cc4ab565104ca131c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_02.png using Guid(1f57832b72039cc4ab565104ca131c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd689a1acafb4f03a7c036b07ff9fae6c') in 0.008123 seconds
+  Import took 0.012034 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Large_Brick_01.png
+  artifactKey: Guid(10a65e33d9df3aa4ca20fa4f0f3b4bf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Large_Brick_01.png using Guid(10a65e33d9df3aa4ca20fa4f0f3b4bf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcff995c0bc4e11f610c41870aa77a54') in 0.013111 seconds
+  Import took 0.017601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_02.png
+  artifactKey: Guid(179e42e26b92c8a408b2724262267876) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_02.png using Guid(179e42e26b92c8a408b2724262267876) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ac92e294bd35e73a642d124cc8dbab9') in 0.013058 seconds
+  Import took 0.017244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_03.png
+  artifactKey: Guid(92daa924349453f47a5cfc3fbe84707b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Mud_03.png using Guid(92daa924349453f47a5cfc3fbe84707b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'faac838840f7ba1eeb8cf3e650b41364') in 0.013606 seconds
+  Import took 0.017525 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000137 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_03_B.png
+  artifactKey: Guid(f49f627af78c74843923759d1c40fa86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_03_B.png using Guid(f49f627af78c74843923759d1c40fa86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67a590c600159c122ce0c67fdf368ceb') in 0.033171 seconds
+  Import took 0.037653 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_03_Normals.png
+  artifactKey: Guid(56c42ef5b1b131e4b995923bfd490ec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_03_Normals.png using Guid(56c42ef5b1b131e4b995923bfd490ec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0bc99b532b0c580827c0adcc90c53eb') in 0.022211 seconds
+  Import took 0.026113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_03.png
+  artifactKey: Guid(affa1d7bc2f89314aae1f6532d89bcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_03.png using Guid(affa1d7bc2f89314aae1f6532d89bcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab78291ee78ef3ccd123df92fce99ae9') in 0.013992 seconds
+  Import took 0.018653 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Head.png
+  artifactKey: Guid(a137b7df65a80a64892c94bb1896760b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Head.png using Guid(a137b7df65a80a64892c94bb1896760b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15cbfa76a0f5d9b2cad280a1cdf8b6f5') in 0.007656 seconds
+  Import took 0.012066 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Head.png
+  artifactKey: Guid(465fe52631f4cec469540e597d7d65de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Head.png using Guid(465fe52631f4cec469540e597d7d65de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48744563be7ac1409613a2fd6adb9686') in 0.007631 seconds
+  Import took 0.011559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_04_A.png
+  artifactKey: Guid(aaf9424602452d6409ff6e72a7b18f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_04_A.png using Guid(aaf9424602452d6409ff6e72a7b18f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '781ae8d657ee2d4358f50a43e771edd6') in 0.034104 seconds
+  Import took 0.038078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Dungeon_01.png
+  artifactKey: Guid(ae02a64bacfd7874f90e711560908f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Dungeon_01.png using Guid(ae02a64bacfd7874f90e711560908f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '971bd98faef702b1c286e3cb7390e745') in 0.013536 seconds
+  Import took 0.017349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Textures/Stage/Tree.psd
+  artifactKey: Guid(65c23fe5593cff942bfd307bf25cdd3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Textures/Stage/Tree.psd using Guid(65c23fe5593cff942bfd307bf25cdd3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d37d2106679111b85b9f9b54c3e8ad1') in 0.006654 seconds
+  Import took 0.010643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_01_Dark.png
+  artifactKey: Guid(5e1b44b6b0ff2ee4cb607a807ab32950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_01_Dark.png using Guid(5e1b44b6b0ff2ee4cb607a807ab32950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '220ccb6f049cfc563b3f0823192e83fb') in 0.013325 seconds
+  Import took 0.017101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Cross.png
+  artifactKey: Guid(9317ac6f6bd71d548b5f4ac164935690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Cross.png using Guid(9317ac6f6bd71d548b5f4ac164935690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '671b9b361e1bfab63c4a8dd8d4234817') in 0.007714 seconds
+  Import took 0.011497 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Controls2.psd
+  artifactKey: Guid(71cebfefac3f1b7489f3d7e5aece34dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Controls2.psd using Guid(71cebfefac3f1b7489f3d7e5aece34dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '156daac61614324fb59d9c6956d16b7e') in 0.008186 seconds
+  Import took 0.012160 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/ControlsCamera2.psd
+  artifactKey: Guid(2f9af0cc411880a4dbdc1d39385d5652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/ControlsCamera2.psd using Guid(2f9af0cc411880a4dbdc1d39385d5652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ab16aa0a6a8a5b5fbb60f882a8c2f75') in 0.007403 seconds
+  Import took 0.011467 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_02.png
+  artifactKey: Guid(c28ad7b3304101f419618040bf7ffdb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_02.png using Guid(c28ad7b3304101f419618040bf7ffdb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c53a286e3e7f746a79bc9b6ad09e5ac2') in 0.013660 seconds
+  Import took 0.017569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Evil_01.png
+  artifactKey: Guid(5483f1a576ffa6e439438df08762919d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Evil_01.png using Guid(5483f1a576ffa6e439438df08762919d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b10e9270ae8ed7a55bce1d58f8f10c4') in 0.013216 seconds
+  Import took 0.017158 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Evil_Normal.png
+  artifactKey: Guid(aa3f47482bbe27440af98ea5723a8f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Evil_Normal.png using Guid(aa3f47482bbe27440af98ea5723a8f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12cb84d0c5aa7ceed8f2e531874a091') in 0.021105 seconds
+  Import took 0.025058 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_Normal.png
+  artifactKey: Guid(0e6ba8a94503377419f2b78d5951298f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_Normal.png using Guid(0e6ba8a94503377419f2b78d5951298f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35433684ddb8c53a59171ec94b00e45c') in 0.019864 seconds
+  Import took 0.023639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Brick_Normal.png
+  artifactKey: Guid(2201873fd1cce694bb2347a8c13e652d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Brick_Normal.png using Guid(2201873fd1cce694bb2347a8c13e652d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4d87ef531c1873fbbf429eae05ebd4a') in 0.021157 seconds
+  Import took 0.024998 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_02.png
+  artifactKey: Guid(e2d1459f5307d6944a0849703603c751) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_02.png using Guid(e2d1459f5307d6944a0849703603c751) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f1e2fb3975d3be168feaea1402d02e6') in 0.013520 seconds
+  Import took 0.017523 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_02_A.png
+  artifactKey: Guid(15824d4b0cec9da479fa593d05e15a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_02_A.png using Guid(15824d4b0cec9da479fa593d05e15a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99ce3da6f347452556eb4a78b543f127') in 0.033971 seconds
+  Import took 0.037677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Controller.psd
+  artifactKey: Guid(a89b87919aade4c498f4e0df342ab278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Controller.psd using Guid(a89b87919aade4c498f4e0df342ab278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c02be2aac83002c14da0d0d941d95948') in 0.005654 seconds
+  Import took 0.009422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Glass_Crossed.png
+  artifactKey: Guid(7b7e7e1465cbb024f9efc58b722bec2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Glass_Crossed.png using Guid(7b7e7e1465cbb024f9efc58b722bec2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d65b8f0090839c964b3e6e79b9a731') in 0.062852 seconds
+  Import took 0.067466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Head.png
+  artifactKey: Guid(d47a6d17f3808b141be55d17533d09ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Green_Head.png using Guid(d47a6d17f3808b141be55d17533d09ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c6030a1ffc3b58a74465fe5b53134e9') in 0.007736 seconds
+  Import took 0.011365 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_01_B.png
+  artifactKey: Guid(419c8de0e871baf4cb5fcaf45ad6377a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_01_B.png using Guid(419c8de0e871baf4cb5fcaf45ad6377a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cb5f591a292930674ddffa9e384e2d6') in 0.033775 seconds
+  Import took 0.037648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Normal_02.png
+  artifactKey: Guid(d03da1677b8b6874ea15e3326437eb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Normal_02.png using Guid(d03da1677b8b6874ea15e3326437eb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4492f8e55adc65daf7864769e4087582') in 0.063914 seconds
+  Import took 0.069323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_01.png
+  artifactKey: Guid(636738433ebdc7246bc1fb7e2a55b335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_01.png using Guid(636738433ebdc7246bc1fb7e2a55b335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8efd981145047c5d6bd1e7c24d94f983') in 0.007824 seconds
+  Import took 0.011645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Dungeon_Normal.png
+  artifactKey: Guid(84643877aa3958c4994d25ed2ca0142a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Dungeon_Normal.png using Guid(84643877aa3958c4994d25ed2ca0142a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9804c0913144044582af56e295fe81a') in 0.020009 seconds
+  Import took 0.023851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_03.png
+  artifactKey: Guid(6622055b198e5ed4fbacea7f74553e0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_03.png using Guid(6622055b198e5ed4fbacea7f74553e0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94f8d5ac93640e6aefa0924e0fda4a32') in 0.020663 seconds
+  Import took 0.024549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Emmisive.png
+  artifactKey: Guid(ddc131df32f11f54a98daf8633aee1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Emmisive.png using Guid(ddc131df32f11f54a98daf8633aee1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21e743e386efed80cca0bc32d1f46a1e') in 0.005097 seconds
+  Import took 0.008977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_02_B.png
+  artifactKey: Guid(f5de05efcda7b4a4ab6d224988c3983a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_02_B.png using Guid(f5de05efcda7b4a4ab6d224988c3983a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99fdaec3f8997c5fecd923dbb4461e48') in 0.034109 seconds
+  Import took 0.038135 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Large_Brick_Normal.png
+  artifactKey: Guid(02c646b629fe67a419da183fab83c853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Large_Brick_Normal.png using Guid(02c646b629fe67a419da183fab83c853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd78fa1318a0134c5207236d925ef7abb') in 0.020958 seconds
+  Import took 0.025351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_02_C.png
+  artifactKey: Guid(ee3ff03016e42ae4697303db1c12a228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_02_C.png using Guid(ee3ff03016e42ae4697303db1c12a228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0ceedc761cc8301d0b11e6fee39d475') in 0.035140 seconds
+  Import took 0.039731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Controls.psd
+  artifactKey: Guid(19663e3fea6f609468d37dbdcd231930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Controls.psd using Guid(19663e3fea6f609468d37dbdcd231930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c800a418ea04a674823c8a341144532') in 0.008784 seconds
+  Import took 0.013434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Lion.png
+  artifactKey: Guid(11cc7415ebfa4b54ba93365786a4a52c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Red_Lion.png using Guid(11cc7415ebfa4b54ba93365786a4a52c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be10e16c0f078b174ed86562b0ef0d4') in 0.007851 seconds
+  Import took 0.012052 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Textures/Stage/Rock.psd
+  artifactKey: Guid(8a66cc0dee0e31448aa4e5faa6890dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Textures/Stage/Rock.psd using Guid(8a66cc0dee0e31448aa4e5faa6890dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '087e53a3c32181870d9f69e649a2fcef') in 0.006573 seconds
+  Import took 0.011284 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_04.png
+  artifactKey: Guid(4ddcad10f074e3947be38efd28c3177a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_04.png using Guid(4ddcad10f074e3947be38efd28c3177a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16fdfdb0cbb1783836234b79d12b9226') in 0.014522 seconds
+  Import took 0.018600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Normal.png
+  artifactKey: Guid(9e3d9d2d63c13c843b1e2ed12027bfc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Normal.png using Guid(9e3d9d2d63c13c843b1e2ed12027bfc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3353b4456806caa9af6515b429660601') in 0.019933 seconds
+  Import took 0.024811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/RPG Character Animation Pack/SuperCharacterController/Scenes/TestZone/SkyboxProbe-0.exr
+  artifactKey: Guid(988994aa14014914e804798adc68b147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/SuperCharacterController/Scenes/TestZone/SkyboxProbe-0.exr using Guid(988994aa14014914e804798adc68b147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '772719c4d91802323bb2221ce865a073') in 0.022260 seconds
+  Import took 0.026908 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000227 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5fbf529b1873966214108e33019d293') in 0.001882 seconds
-  Import took 0.008085 seconds .
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/White.png
+  artifactKey: Guid(fd0f504a214c9c349ab4d1f6a6673b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/White.png using Guid(fd0f504a214c9c349ab4d1f6a6673b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88b5a5189872cb1fb63a47600235c950') in 0.005573 seconds
+  Import took 0.009549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Textures/Stage/Stage.psd
+  artifactKey: Guid(c4bf6c3ea91797f4e9ba58cb9c6fbb47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Textures/Stage/Stage.psd using Guid(c4bf6c3ea91797f4e9ba58cb9c6fbb47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13cec8b32c2e32b4ed4f7ef842b7156d') in 0.006244 seconds
+  Import took 0.010677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Cross.png
+  artifactKey: Guid(745269375cb3a8c43be46377d4fd86c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Purple_Cross.png using Guid(745269375cb3a8c43be46377d4fd86c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73a134b066e37efd149a62a946ac7859') in 0.007654 seconds
+  Import took 0.011746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_01.png
+  artifactKey: Guid(023a7d6bc5fbf764f94d182c42369e61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_01.png using Guid(023a7d6bc5fbf764f94d182c42369e61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f499812a098da715a3b3f177dd7ffd3c') in 0.017950 seconds
+  Import took 0.022578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/Target.psd
+  artifactKey: Guid(ff52602033753744aa65216dcf0a9b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/Target.psd using Guid(ff52602033753744aa65216dcf0a9b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a111f40a03d2cb8c70d5fb21ee11292d') in 0.006130 seconds
+  Import took 0.010117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Brick_01.png
+  artifactKey: Guid(24f1ea296c9e695449086de7c2eca5e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Brick_01.png using Guid(24f1ea296c9e695449086de7c2eca5e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88b84629c4e6dd8f31768e692943a266') in 0.014094 seconds
+  Import took 0.018241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Lion.png
+  artifactKey: Guid(ca203c138a5181d4f9ee1a60130c4d87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Lion.png using Guid(ca203c138a5181d4f9ee1a60130c4d87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd396ddb16e4e72384f8a8f169c69956') in 0.008315 seconds
+  Import took 0.012636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Base_Normals.png
+  artifactKey: Guid(ae6da1f30745f024683bad2d094f8220) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Base_Normals.png using Guid(ae6da1f30745f024683bad2d094f8220) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8873a910f5a4a530d910f9f7e34b01ca') in 0.020291 seconds
+  Import took 0.024821 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_01_A.png
+  artifactKey: Guid(270fd5c64f7118c4495be93b7ce2530c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_01_A.png using Guid(270fd5c64f7118c4495be93b7ce2530c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e25becf9a1b277f59a3b01d33887bdb') in 0.011862 seconds
+  Import took 0.016450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_03.png
+  artifactKey: Guid(54905948d52986b42af483d5d88a084b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_03.png using Guid(54905948d52986b42af483d5d88a084b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f4214afe0957a93942db96e516c199b') in 0.013509 seconds
+  Import took 0.017518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_03.png
+  artifactKey: Guid(97d4d124b4550134e818fc2112e0e697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_03.png using Guid(97d4d124b4550134e818fc2112e0e697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cae651609798c4257fb66892c5599ada') in 0.013813 seconds
+  Import took 0.018513 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_02.png
+  artifactKey: Guid(fe32eda3b4a762f48b8e466aadc3b32e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_02.png using Guid(fe32eda3b4a762f48b8e466aadc3b32e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d48501fc2cb87017d10fa5f7d13facf') in 0.013803 seconds
+  Import took 0.018261 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Normal_01.png
+  artifactKey: Guid(ee4ca7d229aa8f04cab686907c5f3396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Normal_01.png using Guid(ee4ca7d229aa8f04cab686907c5f3396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '083d5e9b6a1cf904a82c97ff5964d99b') in 0.021752 seconds
+  Import took 0.026964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Stucco_01.png
+  artifactKey: Guid(d53e919cf857ea44bb1888968d771535) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Stucco_01.png using Guid(d53e919cf857ea44bb1888968d771535) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b81824e78987fd2a636c2f4ccf3af90b') in 0.013538 seconds
+  Import took 0.018162 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/FX_Textures/Smoke_01.png
+  artifactKey: Guid(608b0bba5c9806149ae5d24a33c606de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/FX_Textures/Smoke_01.png using Guid(608b0bba5c9806149ae5d24a33c606de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a7594e17d689b4d7cdc63bb58372ec0') in 0.006450 seconds
+  Import took 0.011761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_02_Normal.png
+  artifactKey: Guid(4ccece7cca7868e46bd90e6a42245241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_02_Normal.png using Guid(4ccece7cca7868e46bd90e6a42245241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6312f0305050f8109c63dbd2b73f48a1') in 0.021894 seconds
+  Import took 0.025735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_03_Normals.png
+  artifactKey: Guid(e5793db5a62ee0e488d76958c7e4b85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_03_Normals.png using Guid(e5793db5a62ee0e488d76958c7e4b85f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08d800355b6ed262e1b5ec1d839fc2fe') in 0.019982 seconds
+  Import took 0.024327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_04.png
+  artifactKey: Guid(b6eb5cf5fab23044fbabaed394a7d277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Tile_04.png using Guid(b6eb5cf5fab23044fbabaed394a7d277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13219d1a26f6a404ab7d0c4f3c7c5584') in 0.013061 seconds
+  Import took 0.016884 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_04_C.png
+  artifactKey: Guid(51148e3057e25994c80f5321340afc7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_04_C.png using Guid(51148e3057e25994c80f5321340afc7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa2c56a801621ceb6a4de2c31be5aa0') in 0.035837 seconds
+  Import took 0.040082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/RPG Character Animation Pack/Textures/RPG-Character.psd
+  artifactKey: Guid(8d6091f14c0c6604595a64a4e031e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Textures/RPG-Character.psd using Guid(8d6091f14c0c6604595a64a4e031e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dbbc0140c181ba1ac06932929426b80') in 0.004653 seconds
+  Import took 0.009228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Cross.png
+  artifactKey: Guid(6488902f7a8a5ea44b0921438e443a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Flag_Symbols/PolygonFantasyKingdom_Texture_Blue_Cross.png using Guid(6488902f7a8a5ea44b0921438e443a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c53e15937cf849eeec4240f33f66b39e') in 0.008385 seconds
+  Import took 0.012566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/RPG Character Animation Pack/Elements/ControlsCamera.psd
+  artifactKey: Guid(ad78d32be4c840944a7562ff86c417c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RPG Character Animation Pack/Elements/ControlsCamera.psd using Guid(ad78d32be4c840944a7562ff86c417c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdb91f150360a8850f62d61fea98485b') in 0.009703 seconds
+  Import took 0.013985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_02_Normal.png
+  artifactKey: Guid(f67cc9afcb568de44b1cf2f7068fc475) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Grass_02_Normal.png using Guid(f67cc9afcb568de44b1cf2f7068fc475) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40db8c3c2b97c2926d63a74ae9a1877e') in 0.019738 seconds
+  Import took 0.023796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Stucco_Normal.png
+  artifactKey: Guid(9208b62c28e43d544a7c6a7c2da633ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Wall_Stucco_Normal.png using Guid(9208b62c28e43d544a7c6a7c2da633ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac8269c8f7c1e168de15f5a444e1837f') in 0.021107 seconds
+  Import took 0.025197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/FX_Textures/FX_SunBeam_Particles.png
+  artifactKey: Guid(481a4bf8633827b4998c05ee4d9ff706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/FX_Textures/FX_SunBeam_Particles.png using Guid(481a4bf8633827b4998c05ee4d9ff706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51e5829dd1434cc83e9b1dad5c7ddf17') in 0.006738 seconds
+  Import took 0.011035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_03_A.png
+  artifactKey: Guid(b673e45a7b841c74eb1c847eef94e748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/PolygonFantasyKingdom_Texture_03_A.png using Guid(b673e45a7b841c74eb1c847eef94e748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e52eb9f94a21316adf3b4e42953ef41') in 0.033732 seconds
+  Import took 0.038436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_01.png
+  artifactKey: Guid(b1ed37ad147137f4b90d3bb40799e3ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_01.png using Guid(b1ed37ad147137f4b90d3bb40799e3ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96a5c0f027aea4c41b5303fdf492d834') in 0.013339 seconds
+  Import took 0.017454 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_01.png
+  artifactKey: Guid(c6ccd03103233674ca80877613801a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Ground/PFK_Texture_Ground_Sand_01.png using Guid(c6ccd03103233674ca80877613801a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef94fdaae46c0cfab12fd079e6f1bc45') in 0.012890 seconds
+  Import took 0.016825 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_04_B.png
+  artifactKey: Guid(58c1d8ea78ba39045aa42c44a430c28e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Alts/PolygonFantasyKingdom_Texture_04_B.png using Guid(58c1d8ea78ba39045aa42c44a430c28e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d24db600325406c02a998793141cf61') in 0.034667 seconds
+  Import took 0.038843 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_02.png
+  artifactKey: Guid(54c7cb070fcec4a41b7ac5e2cfb7055b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Castle/PolygonFantasyKingdon_Texture_Roof_Slat_02.png using Guid(54c7cb070fcec4a41b7ac5e2cfb7055b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6314a149746927043e64f3f7bcd2a8b0') in 0.013297 seconds
+  Import took 0.017388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Paintings_01.png
+  artifactKey: Guid(5ebf91eeb29c9034f8ce66726a8671f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Paintings_01.png using Guid(5ebf91eeb29c9034f8ce66726a8671f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907d12f08187d0aa5512fba8055a1e1d') in 0.013668 seconds
+  Import took 0.017504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_03.png
+  artifactKey: Guid(782a02e7886cd2d4c8585a3425a67930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Horse_03.png using Guid(782a02e7886cd2d4c8585a3425a67930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '579683b7bc4cb1b8765144210f1be356') in 0.008050 seconds
+  Import took 0.011951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017009 seconds.
+  path: Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Paintings_01.png
+  artifactKey: Guid(5ebf91eeb29c9034f8ce66726a8671f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyKingdom/Textures/Misc/PolygonFantasyKingdom_Texture_Paintings_01.png using Guid(5ebf91eeb29c9034f8ce66726a8671f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907d12f08187d0aa5512fba8055a1e1d') in 0.005988 seconds
+  Import took 0.010126 seconds .
 
 ========================================================================
 Received Prepare
@@ -113,9 +887,10 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001098 seconds.
+Registered in 0.001059 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 73.51 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 81.44 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
@@ -124,49 +899,34 @@ Mono: successfully reloaded assembly
 - Completed reload, in  0.773 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001136 seconds.
+Registered in 0.001742 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 15.50 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.984 seconds
+- Completed reload, in  0.711 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.87 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 46.9 MB.
-System memory in use after: 47.0 MB.
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 50.2 MB.
+System memory in use after: 50.3 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1853.
-Total: 1.921300 ms (FindLiveObjects: 0.294800 ms CreateObjectMapping: 0.050400 ms MarkObjects: 1.541100 ms  DeleteObjects: 0.034400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.306981 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a7d838a23c37538d788d0f6dd1684f5') in 0.012150 seconds
-  Import took 0.017207 seconds .
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1911.
+Total: 1.781200 ms (FindLiveObjects: 0.326600 ms CreateObjectMapping: 0.053600 ms MarkObjects: 1.365600 ms  DeleteObjects: 0.034900 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.346806 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c055614d95fc0b3169ad58d2987f67') in 0.002240 seconds
-  Import took 0.006434 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001621 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d28b50e2908369af07def9d5e8ff033') in 0.001069 seconds
-  Import took 0.005337 seconds .
+  Time since last request: 25.838135 seconds.
+  path: Assets/NpcController.cs
+  artifactKey: Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NpcController.cs using Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbe2208c85d598a00e6b3dd72b6c1728') in 0.008337 seconds
+  Import took 0.012257 seconds .
 
 ========================================================================
 Received Prepare
@@ -174,141 +934,21 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001055 seconds.
+Registered in 0.001635 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 78.39 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 82.05 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.119 seconds
+- Completed reload, in  0.821 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000991 seconds.
+Registered in 0.001122 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.95 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.688 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.97 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.4 MB.
-System memory in use after: 47.5 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1857.
-Total: 4.604000 ms (FindLiveObjects: 0.432700 ms CreateObjectMapping: 0.089900 ms MarkObjects: 4.024500 ms  DeleteObjects: 0.055300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.469265 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6f02bffa1f226dab68de348331ba3eb') in 0.013343 seconds
-  Import took 0.017937 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.082322 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aec038cd38b7fdcb99bc3499fc321e9d') in 0.001369 seconds
-  Import took 0.005459 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.022169 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aec038cd38b7fdcb99bc3499fc321e9d') in 0.001194 seconds
-  Import took 0.005638 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001054 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.19 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.133 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001021 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.903 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.08 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.7 MB.
-System memory in use after: 47.8 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1861.
-Total: 1.865100 ms (FindLiveObjects: 0.324500 ms CreateObjectMapping: 0.061000 ms MarkObjects: 1.439600 ms  DeleteObjects: 0.039100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.248483 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c73f2a02d6bee4f4dc7422df3fdaf70') in 0.014485 seconds
-  Import took 0.020952 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000160 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e53d38413ed4fe824f2d820113655ab0') in 0.001322 seconds
-  Import took 0.005359 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.048377 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c73f2a02d6bee4f4dc7422df3fdaf70') in 0.002440 seconds
-  Import took 0.007434 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001057 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 77.69 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.828 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001035 seconds.
-Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -316,85 +956,16 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.072 seconds
+- Completed reload, in  0.693 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.82 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.9 MB.
-System memory in use after: 48.0 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1865.
-Total: 3.904500 ms (FindLiveObjects: 0.468000 ms CreateObjectMapping: 0.102100 ms MarkObjects: 3.235200 ms  DeleteObjects: 0.097200 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.530929 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94a2830414189b6896abd35353468c6e') in 0.043754 seconds
-  Import took 0.060813 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001922 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6d20d0e766584fdf9c2ed71d5b39d1') in 0.004822 seconds
-  Import took 0.011758 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001058 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 75.82 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.887 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001118 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.108 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.5 MB.
-System memory in use after: 47.6 MB.
+System memory in use before: 50.4 MB.
+System memory in use after: 50.5 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1869.
-Total: 1.798300 ms (FindLiveObjects: 0.294400 ms CreateObjectMapping: 0.050900 ms MarkObjects: 1.416700 ms  DeleteObjects: 0.035700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.322005 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a65bd0393c1e92c9c4b0d97e5660e8fb') in 0.012897 seconds
-  Import took 0.017387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26b0881c4da75b533c4482820e440ed4') in 0.001351 seconds
-  Import took 0.005395 seconds .
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1915.
+Total: 1.938500 ms (FindLiveObjects: 0.342500 ms CreateObjectMapping: 0.054500 ms MarkObjects: 1.506000 ms  DeleteObjects: 0.034400 ms)
 
 ========================================================================
 Received Prepare
@@ -402,992 +973,54 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001094 seconds.
+Registered in 0.001050 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.74 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 73.25 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.880 seconds
+- Completed reload, in  0.837 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
 Registered in 0.001096 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.96 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.143 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.9 MB.
-System memory in use after: 48.0 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1873.
-Total: 1.964700 ms (FindLiveObjects: 0.289200 ms CreateObjectMapping: 0.049700 ms MarkObjects: 1.593700 ms  DeleteObjects: 0.031500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.757613 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efa4644d3627b1665a9d715e7721ffdb') in 0.013214 seconds
-  Import took 0.018792 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000247 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1d4ebac590b0ab5a1a83b21cea62482') in 0.001628 seconds
-  Import took 0.005869 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001043 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 73.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.915 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001045 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.162 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.9 MB.
-System memory in use after: 48.0 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1877.
-Total: 4.888700 ms (FindLiveObjects: 0.624300 ms CreateObjectMapping: 0.148100 ms MarkObjects: 4.045200 ms  DeleteObjects: 0.068900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.509736 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9708855d6584e186e7006b47f682110c') in 0.013191 seconds
-  Import took 0.017666 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dcdc174a57d4fa0cca23baa32ed76a5') in 0.001392 seconds
-  Import took 0.005317 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001053 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.47 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.276 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001117 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.179 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.7 MB.
-System memory in use after: 47.7 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1881.
-Total: 1.824500 ms (FindLiveObjects: 0.287000 ms CreateObjectMapping: 0.052600 ms MarkObjects: 1.453600 ms  DeleteObjects: 0.030800 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.225845 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80abbac014821c96da6ec34d2c49109c') in 0.012879 seconds
-  Import took 0.017170 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002730 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80abbac014821c96da6ec34d2c49109c') in 0.001907 seconds
-  Import took 0.006079 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.075074 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f99e49beef17390b2f926c48183be29') in 0.001135 seconds
-  Import took 0.005176 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019055 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f99e49beef17390b2f926c48183be29') in 0.001254 seconds
-  Import took 0.005343 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001113 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.87 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.006 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001127 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.227 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.0 MB.
-System memory in use after: 48.1 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1885.
-Total: 3.678800 ms (FindLiveObjects: 0.594600 ms CreateObjectMapping: 0.131400 ms MarkObjects: 2.887400 ms  DeleteObjects: 0.063300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.520534 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9762333a9baa3408b5880140e53e628d') in 0.012531 seconds
-  Import took 0.016990 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c584817a4503d78aa9533049b7660a82') in 0.001202 seconds
-  Import took 0.005120 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001048 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.50 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.007 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001114 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.249 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.93 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.4 MB.
-System memory in use after: 47.5 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1889.
-Total: 1.993800 ms (FindLiveObjects: 0.289900 ms CreateObjectMapping: 0.049800 ms MarkObjects: 1.621200 ms  DeleteObjects: 0.032200 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.071988 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dcac96d57243391d1492464c88a68c1') in 0.012534 seconds
-  Import took 0.016942 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000239 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97b8f441b1d09b29064f2a9bdfd79e1b') in 0.001363 seconds
-  Import took 0.005158 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001089 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.46 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.061 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001052 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.289 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.8 MB.
-System memory in use after: 47.9 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1893.
-Total: 1.883700 ms (FindLiveObjects: 0.366700 ms CreateObjectMapping: 0.051700 ms MarkObjects: 1.434200 ms  DeleteObjects: 0.030100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.127770 seconds.
-  path: Assets/InputController.inputactions
-  artifactKey: Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.inputactions using Guid(9e8ab0d12414c3745a191e6da6500797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1822395860932f5c2f30854ad5db7d85') in 0.012636 seconds
-  Import took 0.017098 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000240 seconds.
-  path: Assets/InputController.cs
-  artifactKey: Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputController.cs using Guid(ecf7d56b43da31845a87dacf1b3e4f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de369f7ae357f4fab8cc3588e0dd6e66') in 0.001429 seconds
-  Import took 0.005575 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001109 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 78.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.078 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001245 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.013 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.95 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.0 MB.
-System memory in use after: 48.1 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1897.
-Total: 4.549800 ms (FindLiveObjects: 0.595900 ms CreateObjectMapping: 0.135900 ms MarkObjects: 3.751200 ms  DeleteObjects: 0.064400 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001057 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 78.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.105 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001538 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.076 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.6 MB.
-System memory in use after: 47.6 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1901.
-Total: 2.409100 ms (FindLiveObjects: 0.479400 ms CreateObjectMapping: 0.065900 ms MarkObjects: 1.825900 ms  DeleteObjects: 0.036900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 57.477782 seconds.
-  path: Assets/NewInputSystemTest.cs
-  artifactKey: Guid(a2d013e830f1a7044974fc341cae7ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NewInputSystemTest.cs using Guid(a2d013e830f1a7044974fc341cae7ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '159bbb4b507c44c0e33f0d83961d9997') in 0.002382 seconds
-  Import took 0.007033 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001495 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 83.59 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.329 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001771 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.602 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.91 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.9 MB.
-System memory in use after: 48.0 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1905.
-Total: 1.958100 ms (FindLiveObjects: 0.340100 ms CreateObjectMapping: 0.071800 ms MarkObjects: 1.508200 ms  DeleteObjects: 0.036100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 232.160009 seconds.
-  path: Assets/Scenes/InputTest.unity
-  artifactKey: Guid(78aa08e7e2190734388a80371d01a5cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/InputTest.unity using Guid(78aa08e7e2190734388a80371d01a5cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe548cae6e7b6f41b6f65860426933ab') in 0.008415 seconds
-  Import took 0.013010 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003573 seconds.
-  path: Assets/Scenes/InputTest.unity
-  artifactKey: Guid(78aa08e7e2190734388a80371d01a5cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/InputTest.unity using Guid(78aa08e7e2190734388a80371d01a5cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe548cae6e7b6f41b6f65860426933ab') in 0.001774 seconds
-  Import took 0.006294 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001047 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 75.52 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.539 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001134 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.495 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.0 MB.
-System memory in use after: 48.1 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1909.
-Total: 1.885600 ms (FindLiveObjects: 0.309300 ms CreateObjectMapping: 0.052100 ms MarkObjects: 1.488700 ms  DeleteObjects: 0.034600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 287.235212 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd211219c1c9ab715aa297b97323d0d66') in 0.001910 seconds
-  Import took 0.006096 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.025006 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd211219c1c9ab715aa297b97323d0d66') in 0.001319 seconds
-  Import took 0.005543 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001061 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 74.47 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.248 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001125 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.517 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.08 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.7 MB.
-System memory in use after: 47.8 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1913.
-Total: 1.980200 ms (FindLiveObjects: 0.462000 ms CreateObjectMapping: 0.081400 ms MarkObjects: 1.400200 ms  DeleteObjects: 0.034600 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001094 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.265 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001164 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.519 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.1 MB.
-System memory in use after: 48.1 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1917.
-Total: 1.985600 ms (FindLiveObjects: 0.301200 ms CreateObjectMapping: 0.053200 ms MarkObjects: 1.592600 ms  DeleteObjects: 0.038000 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001614 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.66 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.619 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001174 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.566 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.99 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.5 MB.
-System memory in use after: 47.6 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1921.
-Total: 2.429400 ms (FindLiveObjects: 0.383500 ms CreateObjectMapping: 0.064100 ms MarkObjects: 1.922400 ms  DeleteObjects: 0.058100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 110.527226 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a89450af47d5e056ab09a520e344da3') in 0.002495 seconds
-  Import took 0.007108 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001787 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 69.71 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.652 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001076 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.592 seconds
+- Completed reload, in  1.081 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.8 MB.
-System memory in use after: 47.9 MB.
+System memory in use before: 51.0 MB.
+System memory in use after: 51.1 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1925.
-Total: 1.977200 ms (FindLiveObjects: 0.296100 ms CreateObjectMapping: 0.051000 ms MarkObjects: 1.597200 ms  DeleteObjects: 0.032300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 42.651067 seconds.
-  path: Assets/GameController.cs
-  artifactKey: Guid(e8566d3d0700d2e49b51675dfa7c33ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameController.cs using Guid(e8566d3d0700d2e49b51675dfa7c33ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f45af42763124b610dbd67d5b1215321') in 0.001931 seconds
-  Import took 0.005970 seconds .
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1919.
+Total: 1.701800 ms (FindLiveObjects: 0.297400 ms CreateObjectMapping: 0.053700 ms MarkObjects: 1.316800 ms  DeleteObjects: 0.033300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.025601 seconds.
-  path: Assets/GameController.cs
-  artifactKey: Guid(e8566d3d0700d2e49b51675dfa7c33ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameController.cs using Guid(e8566d3d0700d2e49b51675dfa7c33ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f45af42763124b610dbd67d5b1215321') in 0.075193 seconds
-  Import took 0.114582 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001140 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 70.76 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.305 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001145 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.254 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.1 MB.
-System memory in use after: 48.2 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1929.
-Total: 5.049200 ms (FindLiveObjects: 0.969300 ms CreateObjectMapping: 0.260100 ms MarkObjects: 3.781800 ms  DeleteObjects: 0.036100 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001094 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 74.61 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.720 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.002072 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.87 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.618 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.05 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.6 MB.
-System memory in use after: 47.7 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1933.
-Total: 1.830200 ms (FindLiveObjects: 0.307100 ms CreateObjectMapping: 0.057300 ms MarkObjects: 1.428400 ms  DeleteObjects: 0.036700 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001046 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.80 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.727 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001378 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.674 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.04 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.0 MB.
-System memory in use after: 48.1 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1937.
-Total: 1.864300 ms (FindLiveObjects: 0.340500 ms CreateObjectMapping: 0.058800 ms MarkObjects: 1.427800 ms  DeleteObjects: 0.035600 ms)
+  Time since last request: 255.704811 seconds.
+  path: Assets/NpcController.cs
+  artifactKey: Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NpcController.cs using Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a40c8ecc41f40b33b0cc4680266c6ba9') in 0.002242 seconds
+  Import took 0.006464 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 146.541545 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdb949eb20611945fbc64aa924db9021') in 0.002417 seconds
-  Import took 0.007161 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001058 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 76.01 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.768 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001102 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.740 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.92 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.1 MB.
-System memory in use after: 48.2 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1941.
-Total: 2.228700 ms (FindLiveObjects: 0.380800 ms CreateObjectMapping: 0.070800 ms MarkObjects: 1.740400 ms  DeleteObjects: 0.035200 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.275324 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b3c71ae27d868837ad19d209d136ec') in 0.002503 seconds
-  Import took 0.007091 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001117 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 70.09 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.117 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001369 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.752 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.7 MB.
-System memory in use after: 47.8 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1945.
-Total: 1.841600 ms (FindLiveObjects: 0.304300 ms CreateObjectMapping: 0.053200 ms MarkObjects: 1.449800 ms  DeleteObjects: 0.033600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 124.505267 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97dc5e0f7bebfe189612435bba852b9f') in 0.002008 seconds
-  Import took 0.006152 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001054 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 69.48 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.816 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001094 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.835 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.09 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.1 MB.
-System memory in use after: 48.2 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1949.
-Total: 2.567700 ms (FindLiveObjects: 0.390800 ms CreateObjectMapping: 0.075600 ms MarkObjects: 2.061700 ms  DeleteObjects: 0.038400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.189127 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761346fdc02c9799262fa17870e09b53') in 0.002272 seconds
-  Import took 0.006968 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001083 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 74.81 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.860 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001068 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.261 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.53 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.2 MB.
-System memory in use after: 48.2 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1953.
-Total: 2.530600 ms (FindLiveObjects: 0.416400 ms CreateObjectMapping: 0.062200 ms MarkObjects: 1.997000 ms  DeleteObjects: 0.053400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 332.547019 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfb6f282637a78dd3d4892145baf8071') in 0.002186 seconds
-  Import took 0.007093 seconds .
+  Time since last request: 165.857983 seconds.
+  path: Assets/NpcController.cs
+  artifactKey: Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NpcController.cs using Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dbfd687826fda0325daf89f5578412d') in 0.001920 seconds
+  Import took 0.007548 seconds .
 
 ========================================================================
 Received Prepare
@@ -1396,18 +1029,20 @@ Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Registered in 0.001056 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 70.72 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 423.41 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.260 seconds
+- Completed reload, in  1.185 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001155 seconds.
+Registered in 0.001116 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -1415,24 +1050,24 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.980 seconds
+- Completed reload, in  0.753 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.94 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 1.07 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.9 MB.
-System memory in use after: 48.0 MB.
+System memory in use before: 51.4 MB.
+System memory in use after: 51.4 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1957.
-Total: 2.355100 ms (FindLiveObjects: 0.382200 ms CreateObjectMapping: 0.064900 ms MarkObjects: 1.865200 ms  DeleteObjects: 0.041100 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1923.
+Total: 3.794200 ms (FindLiveObjects: 0.704800 ms CreateObjectMapping: 0.217100 ms MarkObjects: 2.807900 ms  DeleteObjects: 0.062700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 43.698949 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20eb91e0b4ab96214f51512b0cc65efb') in 0.002286 seconds
-  Import took 0.006941 seconds .
+  Time since last request: 145.293988 seconds.
+  path: Assets/NpcController.cs
+  artifactKey: Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NpcController.cs using Guid(31b2969b845e5214b973efca4bccc71a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '607cc18fe5fa5a26dba0d419ed160f44') in 0.001910 seconds
+  Import took 0.008679 seconds .
 
 ========================================================================
 Received Prepare
@@ -1440,142 +1075,38 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001904 seconds.
+Registered in 0.001397 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 70.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 81.63 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.310 seconds
+- Completed reload, in  0.904 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001152 seconds.
+Registered in 0.001113 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.06 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.973 seconds
-Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.2 MB.
-System memory in use after: 48.3 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1961.
-Total: 2.248900 ms (FindLiveObjects: 0.356700 ms CreateObjectMapping: 0.062700 ms MarkObjects: 1.767700 ms  DeleteObjects: 0.060600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 62.008833 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '867b897a14c310d067f64e856d49407c') in 0.002245 seconds
-  Import took 0.006958 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001068 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 74.13 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.946 seconds
+- Completed reload, in  1.151 seconds
 Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001081 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.99 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.000 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.6 MB.
-System memory in use after: 47.7 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1965.
-Total: 1.891000 ms (FindLiveObjects: 0.422000 ms CreateObjectMapping: 0.064600 ms MarkObjects: 1.369300 ms  DeleteObjects: 0.034000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 61.036808 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13e24e48237b33732c2af16d30e5f462') in 0.002413 seconds
-  Import took 0.006988 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001065 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 91.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.548 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001067 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.923 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.0 MB.
-System memory in use after: 48.1 MB.
+System memory in use before: 51.5 MB.
+System memory in use after: 51.6 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1969.
-Total: 1.914500 ms (FindLiveObjects: 0.331600 ms CreateObjectMapping: 0.055100 ms MarkObjects: 1.492800 ms  DeleteObjects: 0.034100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.971612 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd81def9995c795b5f8f5917ff526c7c') in 0.001895 seconds
-  Import took 0.005793 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.121155 seconds.
-  path: Assets/Player.cs
-  artifactKey: Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player.cs using Guid(0ad2466d6a9dbb8439c0b136a4822f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd81def9995c795b5f8f5917ff526c7c') in 0.001346 seconds
-  Import took 0.005475 seconds .
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1927.
+Total: 1.701900 ms (FindLiveObjects: 0.289400 ms CreateObjectMapping: 0.052600 ms MarkObjects: 1.323800 ms  DeleteObjects: 0.034700 ms)
 
 ========================================================================
 Received Prepare
@@ -1583,19 +1114,21 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001088 seconds.
+Registered in 0.001217 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.43 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 77.89 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.001 seconds
+- Completed reload, in  0.910 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000997 seconds.
+Registered in 0.001106 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Administrator\Documents\GitHub\Vineyard\Unity\Day 09\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -1603,52 +1136,23 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.908 seconds
+- Completed reload, in  1.177 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 48.2 MB.
-System memory in use after: 48.3 MB.
+System memory in use before: 51.1 MB.
+System memory in use after: 51.2 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1973.
-Total: 2.054800 ms (FindLiveObjects: 0.330100 ms CreateObjectMapping: 0.059600 ms MarkObjects: 1.624200 ms  DeleteObjects: 0.039900 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1931.
+Total: 2.201400 ms (FindLiveObjects: 0.392500 ms CreateObjectMapping: 0.059200 ms MarkObjects: 1.675300 ms  DeleteObjects: 0.072000 ms)
 
 ========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001100 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 73.14 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.071 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.001121 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.82 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.942 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 47.8 MB.
-System memory in use after: 47.9 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1977.
-Total: 1.780200 ms (FindLiveObjects: 0.297200 ms CreateObjectMapping: 0.052300 ms MarkObjects: 1.397500 ms  DeleteObjects: 0.032300 ms)
+Received Import Request.
+  Time since last request: 3973.530991 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(b0e4911f872891c4eae6ad06bdb7ba05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(b0e4911f872891c4eae6ad06bdb7ba05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aa680df7fafd45f7958cdc009ed4812') in 0.048307 seconds
+  Import took 0.053578 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
