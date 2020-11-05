@@ -1,0 +1,45 @@
+{
+    "name": "InputControl",
+    "maps": [
+        {
+            "name": "PlayerControl",
+            "id": "ae63e122-80ff-48ac-9aa5-a65a54383b40",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "b49eccc4-1bc4-458e-b1c2-d9e31f98c636",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cfae3618-db5f-4344-81d9-8da1c8005e5d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
