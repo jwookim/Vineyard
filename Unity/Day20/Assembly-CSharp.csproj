@@ -58,6 +58,7 @@
     <Compile Include="Assets\Suriyun\Script\AnimatorController.cs" />
     <Compile Include="Assets\GameController.cs" />
     <Compile Include="Assets\GenericSingleton.cs" />
+    <Compile Include="Assets\ObjectPoolManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\UnityChanShader_v1.2.4\Shader\Unitychan_chara_fuku.shader" />
