@@ -59,6 +59,7 @@
     <Compile Include="Assets\RPG Character Animation Pack\Code\GUIControls.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\CameraController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterInputController.cs" />
+    <Compile Include="Assets\NpcController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterMovementController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\Scripts\SimpleStateMachine.cs" />
@@ -84,7 +85,8 @@
     <Compile Include="Assets\NewInputSystemTest.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\RPG Character Animation Pack\Code\RPGCharacterController.cs" />
-    <Compile Include="Assets\NpcController.cs" />
+    <Compile Include="Assets\Inventory.cs" />
+    <Compile Include="Assets\JsonManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\RPG Character Animation Pack\SuperCharacterController\SuperCharacterController\README.txt" />

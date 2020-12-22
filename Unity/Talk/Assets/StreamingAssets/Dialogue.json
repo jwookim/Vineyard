@@ -1,0 +1,22 @@
+{
+  "npc": [
+    {
+      "index": 0,
+      "talk": "ㅎㅇ",
+      "button": false,
+      "buttonCount": 0
+    },
+    {
+      "index": 1,
+      "talk": "ㅋㅋ",
+      "button": false,
+      "buttonCount": 0
+    },
+    {
+      "index": 2,
+      "talk": "ㅋㅋㄹㅃㅃ",
+      "button": true,
+      "buttonCount": 3
+    }
+  ]
+}
