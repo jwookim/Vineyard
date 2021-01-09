@@ -34,12 +34,14 @@ public class Objects : MonoBehaviour
         rigid.velocity = new Vector2(x, y);*/
 
         Debug.Log(angle);
-        Debug.Log(angle.GetType());
+        Debug.Log(rigid.velocity);
         rigid.velocity = Quaternion.Euler(0f, 0f, angle) * rigid.velocity;
+        Debug.Log(rigid.velocity);
+
     }
 
     public void ControlGravity(float volume)
     {
-        rigid.gravityScale += volume / 2f;
+        rigid.gravityScale = volume;
     }
 }

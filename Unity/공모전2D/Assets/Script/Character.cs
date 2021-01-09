@@ -47,7 +47,7 @@ public class Character : Objects
             rigid.velocity += new Vector2(Direct * Acceleration * Time.deltaTime, 0);
 
     }
-
+    /*
     protected void Braking()
     {
         curVelocity -= curVelocity * 0.8f * Time.deltaTime;
@@ -56,7 +56,7 @@ public class Character : Objects
     {
         transform.Translate(new Vector2(Time.deltaTime * curVelocity, 0));
     }
-
+    */
 
     
 

@@ -41,6 +41,14 @@ public class @InputControl : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rope"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb85e416-58e3-4fbc-be1f-0df74de0b4a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -73,6 +81,39 @@ public class @InputControl : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""temp"",
+                    ""id"": ""68aec510-5c69-4695-82a8-813c5f189461"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""436f2e9b-05cb-4963-89c6-b431f9fc002c"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""78833b63-d45f-4506-93c0-19c765d721dd"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -118,6 +159,17 @@ public class @InputControl : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a8e8666-3202-4aae-b837-6230ada7cfc4"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Rope"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -233,6 +285,7 @@ public class @InputControl : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Sight = m_Player.FindAction("Sight", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Rope = m_Player.FindAction("Rope", throwIfNotFound: true);
         // Objects
         m_Objects = asset.FindActionMap("Objects", throwIfNotFound: true);
         m_Objects_Rotate = m_Objects.FindAction("Rotate", throwIfNotFound: true);
@@ -289,6 +342,7 @@ public class @InputControl : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Sight;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Rope;
     public struct PlayerActions
     {
         private @InputControl m_Wrapper;
@@ -296,6 +350,7 @@ public class @InputControl : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Sight => m_Wrapper.m_Player_Sight;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Rope => m_Wrapper.m_Player_Rope;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,6 +369,9 @@ public class @InputControl : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Rope.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRope;
+                @Rope.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRope;
+                @Rope.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRope;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +385,9 @@ public class @InputControl : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Rope.started += instance.OnRope;
+                @Rope.performed += instance.OnRope;
+                @Rope.canceled += instance.OnRope;
             }
         }
     }
@@ -386,6 +447,7 @@ public class @InputControl : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnSight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRope(InputAction.CallbackContext context);
     }
     public interface IObjectsActions
     {

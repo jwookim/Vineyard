@@ -8,11 +8,14 @@ public class Player : Character, InputControl.IPlayerActions
 
     public InputControl inputActions;
 
+    GameObject gravityController;
+
     protected override void Awake()
     {
         base.Awake();
         inputActions = new InputControl();
         inputActions.Player.SetCallbacks(this);
+        gravityController = null;
     }
     // Start is called before the first frame update
     protected override void Start()
@@ -72,5 +75,10 @@ public class Player : Character, InputControl.IPlayerActions
         base.Rotation(angle);
 
         transform.rotation = Quaternion.identity;
+    }
+
+    public void OnRope(InputAction.CallbackContext context)
+    {
+        
     }
 }
