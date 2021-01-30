@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Sprite sprite;
+    public float Accel { get; protected set; }
+    public float Speed { get; protected set; }
+    public float Jump { get; protected set; }
 
-    // Update is called once per frame
-    void Update()
+
+}
+
+
+public class Shoes:Item
+{
+    public Shoes()
     {
-        
+        Accel = 10f;
+        Speed = 10f;
+        Jump = 10f;
     }
 }

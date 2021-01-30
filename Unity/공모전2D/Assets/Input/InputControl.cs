@@ -264,6 +264,33 @@ public class @InputControl : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Port"",
+            ""id"": ""35c174de-a654-49af-abe4-080e2af1fee1"",
+            ""actions"": [
+                {
+                    ""name"": ""Fix"",
+                    ""type"": ""Button"",
+                    ""id"": ""137d3dbb-e5d3-433b-b057-be7d0c4832c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6ef7b096-b5d8-4e39-9cd2-7feb80419d4f"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Fix"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -290,6 +317,9 @@ public class @InputControl : IInputActionCollection, IDisposable
         m_Objects = asset.FindActionMap("Objects", throwIfNotFound: true);
         m_Objects_Rotate = m_Objects.FindAction("Rotate", throwIfNotFound: true);
         m_Objects_Gravity = m_Objects.FindAction("Gravity", throwIfNotFound: true);
+        // Port
+        m_Port = asset.FindActionMap("Port", throwIfNotFound: true);
+        m_Port_Fix = m_Port.FindAction("Fix", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -433,6 +463,39 @@ public class @InputControl : IInputActionCollection, IDisposable
         }
     }
     public ObjectsActions @Objects => new ObjectsActions(this);
+
+    // Port
+    private readonly InputActionMap m_Port;
+    private IPortActions m_PortActionsCallbackInterface;
+    private readonly InputAction m_Port_Fix;
+    public struct PortActions
+    {
+        private @InputControl m_Wrapper;
+        public PortActions(@InputControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fix => m_Wrapper.m_Port_Fix;
+        public InputActionMap Get() { return m_Wrapper.m_Port; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PortActions set) { return set.Get(); }
+        public void SetCallbacks(IPortActions instance)
+        {
+            if (m_Wrapper.m_PortActionsCallbackInterface != null)
+            {
+                @Fix.started -= m_Wrapper.m_PortActionsCallbackInterface.OnFix;
+                @Fix.performed -= m_Wrapper.m_PortActionsCallbackInterface.OnFix;
+                @Fix.canceled -= m_Wrapper.m_PortActionsCallbackInterface.OnFix;
+            }
+            m_Wrapper.m_PortActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Fix.started += instance.OnFix;
+                @Fix.performed += instance.OnFix;
+                @Fix.canceled += instance.OnFix;
+            }
+        }
+    }
+    public PortActions @Port => new PortActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -453,5 +516,9 @@ public class @InputControl : IInputActionCollection, IDisposable
     {
         void OnRotate(InputAction.CallbackContext context);
         void OnGravity(InputAction.CallbackContext context);
+    }
+    public interface IPortActions
+    {
+        void OnFix(InputAction.CallbackContext context);
     }
 }

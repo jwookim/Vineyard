@@ -251,6 +251,33 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Port",
+            "id": "35c174de-a654-49af-abe4-080e2af1fee1",
+            "actions": [
+                {
+                    "name": "Fix",
+                    "type": "Button",
+                    "id": "137d3dbb-e5d3-433b-b057-be7d0c4832c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6ef7b096-b5d8-4e39-9cd2-7feb80419d4f",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Fix",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -23,6 +23,15 @@ public class Objects : MonoBehaviour
         
     }
 
+    protected virtual void OnEnable()
+    {
+
+    }
+
+    protected virtual void OnDisable()
+    {
+
+    }
 
     public virtual void Rotation(float angle)
     {
@@ -33,10 +42,7 @@ public class Objects : MonoBehaviour
 
         rigid.velocity = new Vector2(x, y);*/
 
-        Debug.Log(angle);
-        Debug.Log(rigid.velocity);
         rigid.velocity = Quaternion.Euler(0f, 0f, angle) * rigid.velocity;
-        Debug.Log(rigid.velocity);
 
     }
 

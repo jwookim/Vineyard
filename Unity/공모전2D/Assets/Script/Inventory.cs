@@ -2,17 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
-    // Start is called before the first frame update
-    void Start()
+    List<Item> items;
+
+    public Inventory()
     {
-        
+        items = new List<Item>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void AddItem(Item item)
     {
-        
+        items.Add(item);
+    }
+
+
+    public float GetSpeed()
+    {
+        float sum = 0f;
+        foreach(var item in items)
+        {
+            sum += item.Speed;
+        }
+        return sum;
+    }
+    public float GetAccel()
+    {
+        float sum = 0f;
+        foreach (var item in items)
+        {
+            sum += item.Accel;
+        }
+        return sum;
+    }
+    public float GetJump()
+    {
+        float sum = 0f;
+        foreach (var item in items)
+        {
+            sum += item.Jump;
+        }
+        return sum;
     }
 }

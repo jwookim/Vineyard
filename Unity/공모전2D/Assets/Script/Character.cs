@@ -4,60 +4,71 @@ using UnityEngine;
 
 public class Character : Objects
 {
+    const float AccelerationCycle = 0.2f;
+
+    public GameObject gravityController;
+
     protected float Direct;
-    protected float Velocity;
+    protected float Speed;
     protected float Acceleration;
-    protected float curVelocity;
     protected float Jump;
+    [SerializeField]
+    protected float totalSpeed;
+    [SerializeField]
+    protected float totalAccel;
+    protected float totalJump;
 
     protected override void Awake()
     {
         base.Awake();
+        Direct = 0f;
+        Speed = 20f;
+        Acceleration = 10f;
+        Jump = 10f;
+        totalSpeed = Speed;
+        totalAccel = Acceleration;
+        totalJump = Jump;
+        gravityController = null;
     }
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        Direct = 0f;
-        Velocity = 10f;
-        Acceleration = 5f;
-        curVelocity = 0;
-        Jump = 300f;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        Accelerate();
-        //Move();
     }
 
-    protected void Accelerate()
+    protected override void OnEnable()
     {
-        /*if(Direct == 0f)
+        base.OnEnable();
+
+
+        StartCoroutine(Accelerate());
+    }
+
+
+    IEnumerator Accelerate()
+    {
+        float speed;
+        while (true)
         {
-            Braking();
-            return;
-        }*/
+            if (gravityController == null)
+                speed = totalSpeed;
+            else
+                speed = totalSpeed * 2f;
 
-
-
-        if (Mathf.Abs(rigid.velocity.x) < Velocity)
-            rigid.velocity += new Vector2(Direct * Acceleration * Time.deltaTime, 0);
-
+            if (Mathf.Abs(rigid.velocity.x) < speed)
+                rigid.velocity += new Vector2(Direct * totalAccel * AccelerationCycle, 0);
+            yield return new WaitForSeconds(AccelerationCycle);
+        }
     }
-    /*
-    protected void Braking()
+
+    protected virtual void Attack()
     {
-        curVelocity -= curVelocity * 0.8f * Time.deltaTime;
-    }
-    protected void Move()
-    {
-        transform.Translate(new Vector2(Time.deltaTime * curVelocity, 0));
-    }
-    */
 
-    
-
+    }
 }

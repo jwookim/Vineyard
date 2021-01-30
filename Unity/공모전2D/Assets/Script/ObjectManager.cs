@@ -14,6 +14,7 @@ enum GravityScale
 public class ObjectManager : MonoBehaviour, InputControl.IObjectsActions
 {
     public List<Objects> objectList;
+    public List<ItemCapsule> dummyItem;
 
     InputControl inputActions;
 
@@ -23,6 +24,7 @@ public class ObjectManager : MonoBehaviour, InputControl.IObjectsActions
     void Awake()
     {
         objectList = new List<Objects>();
+        dummyItem = new List<ItemCapsule>();
 
         inputActions = new InputControl();
         inputActions.Objects.SetCallbacks(this);
@@ -49,15 +51,20 @@ public class ObjectManager : MonoBehaviour, InputControl.IObjectsActions
         GravityControl();
     }
 
+    public void Rotate(float angle, Vector2 port)
+    {
+        transform.RotateAround(port, Vector3.forward, angle);
+        foreach (var ob in objectList)
+        {
+            ob.Rotation(angle);
+        }
+
+    }
+
     public void OnRotate(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         if(context.started)
         {
-            transform.RotateAround(Vector2.zero, Vector3.forward, context.ReadValue<float>() * 30f);
-            foreach (var ob in objectList)
-            {
-                ob.Rotation(context.ReadValue<float>() * 30f);
-            }
         }
     }
 
@@ -90,4 +97,12 @@ public class ObjectManager : MonoBehaviour, InputControl.IObjectsActions
         }
     }
     
+
+    public void GenerateItem()
+    {
+        if (dummyItem.Count <= 0)
+        {
+            //Instantiate();
+        }
+    }
 }
