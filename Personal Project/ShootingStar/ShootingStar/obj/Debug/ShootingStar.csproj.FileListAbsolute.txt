@@ -28,3 +28,13 @@ C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\bin\D
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.Properties.Resources.resources
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.exe
 C:\Users\Administrator\Documents\GitHub\Vineyard\ShootingStar\ShootingStar\obj\Debug\ShootingStar.pdb
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\bin\Debug\ShootingStar.exe.config
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\bin\Debug\ShootingStar.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\bin\Debug\ShootingStar.pdb
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.Form1.resources
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.exe
+C:\Users\Admin\Documents\GitHub\Vineyard\Personal Project\ShootingStar\ShootingStar\obj\Debug\ShootingStar.pdb
