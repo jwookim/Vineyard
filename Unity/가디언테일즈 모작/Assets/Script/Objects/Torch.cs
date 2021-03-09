@@ -2,25 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torch : Fire, ISwitch
+public class Torch : Switch
 {
-    public bool push { get; set; }
-
-
-    //[SerializeField] private float timer;
+    Fire fire;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        fire = GetComponent<Fire>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public bool StateCheck()
-    {
-        return push;
+        onOff = fire.OnOff;
     }
 }

@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
 
     Collider doorCollider;
 
-    [SerializeField]List<ISwitch> switches = new List<ISwitch>();
+    [SerializeField]List<Switch> switches = new List<Switch>();
 
     bool trigger;
 
@@ -46,7 +46,7 @@ public class Door : MonoBehaviour
         bool check = true;
         foreach(var sw in switches)
         {
-            if(!sw.push)
+            if(!sw.onOff)
             {
                 check = false;
                 break;
