@@ -9,7 +9,7 @@ public class Torch : Switch
     protected override void Start()
     {
         base.Start();
-        fire = GetComponent<Fire>();
+        fire = transform.GetChild(0).GetComponent<Fire>();
     }
 
     // Update is called once per frame

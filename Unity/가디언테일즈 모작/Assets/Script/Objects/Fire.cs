@@ -6,9 +6,9 @@ public class Fire : MonoBehaviour
 {
     const float spreadRange = 1f;
 
-    GameObject Effect;
+    ParticleSystem Effect;
     [SerializeField] private bool onOff;
-    public bool OnOff { get { return onOff; } private set {; } }
+    public bool OnOff { get { return onOff; }}
 
     [SerializeField] float timeLimit;
 
@@ -16,7 +16,7 @@ public class Fire : MonoBehaviour
 
     private void Awake()
     {
-        Effect = transform.Find("Fire").gameObject;
+        Effect = GetComponent<ParticleSystem>();
     }
 
     // Start is called before the first frame update
@@ -41,13 +41,15 @@ public class Fire : MonoBehaviour
     {
         onOff = true;
         currentTime = timeLimit;
-        Effect.SetActive(true);
+        if (!Effect.isPlaying)
+            Effect.Play();
     }
     
     void Extinguish() // ¼ÒÈ­
     {
         onOff = false;
-        Effect.SetActive(false);
+        if (!Effect.isStopped)
+            Effect.Stop();
     }
 
     void Burn()
@@ -57,7 +59,6 @@ public class Fire : MonoBehaviour
         if (timeLimit > 0f)
         {
             currentTime -= Time.deltaTime;
-            Debug.Log(currentTime);
             if (currentTime <= 0f)
                 Extinguish();
         }

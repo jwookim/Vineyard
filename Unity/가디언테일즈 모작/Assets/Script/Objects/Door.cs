@@ -10,7 +10,9 @@ public class Door : MonoBehaviour
 
     Collider doorCollider;
 
-    [SerializeField]List<Switch> switches = new List<Switch>();
+    SwitchHub switchHub;
+
+    [SerializeField]List<Switch> switches;
 
     bool trigger;
 
@@ -18,6 +20,7 @@ public class Door : MonoBehaviour
     {
         door = transform.GetChild(0);
         doorCollider = GetComponent<Collider>();
+        switchHub = GetComponent<SwitchHub>();
     }
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,8 @@ public class Door : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         trigger = true;
+
+        Debug.Log(trigger);
     }
 
     private void OnTriggerExit(Collider other)
@@ -44,12 +49,15 @@ public class Door : MonoBehaviour
     void SwitchCheck()
     {
         bool check = true;
-        foreach(var sw in switches)
+        foreach (var sw in switches)
         {
-            if(!sw.onOff)
+            if (sw != null)
             {
-                check = false;
-                break;
+                if (!sw.onOff)
+                {
+                    check = false;
+                    break;
+                }
             }
         }
 
