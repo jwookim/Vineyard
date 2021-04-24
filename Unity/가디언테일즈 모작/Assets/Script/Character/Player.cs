@@ -5,12 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     const int PartyMax = 4;
+    [SerializeField] Character Leader;
     Character[] characters;
     Inventory inventory;
 
     private void Awake()
     {
-        characters = new Character[PartyMax];
+
+        characters = new Character[PartyMax - 1];
     }
     // Start is called before the first frame update
     private void Start()
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        Control();
     }
 
 
@@ -41,5 +43,34 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void Control()
+    {
+        Vector2 dir = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.UpArrow))
+            dir.y += 1f;
+
+        if (Input.GetKey(KeyCode.DownArrow))
+            dir.y -= 1f;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+            dir.x -= 1f;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+            dir.x += 1f;
+
+        Leader.MoveControl(dir);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+            Leader.doRun();
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            Leader.doWalk();
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Leader.Interaction();
     }
 }

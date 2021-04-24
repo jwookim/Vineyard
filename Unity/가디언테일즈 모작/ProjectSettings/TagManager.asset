@@ -4,20 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fire
+  - Object
+  - Obstacle
+  - ETC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Fire
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ETC
+  - Obstacle
+  - Brittle obj
+  - Hard obj
+  - Liftable
+  - Heavy
   - 
   - 
   - 
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1
+    uniqueID: 1940826329
+    locked: 0
+  - name: 2
+    uniqueID: 2895827527
     locked: 0

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    const float spreadRange = 1f;
+    const float spreadRange = 1.5f;
+    const float spreadTime = 0.8f;
 
     ParticleSystem Effect;
+    GameObject Light;
     [SerializeField] private bool onOff;
     public bool OnOff { get { return onOff; }}
 
@@ -14,14 +16,18 @@ public class Fire : MonoBehaviour
 
     float currentTime;
 
+    Coroutine SpreadCoroutine;
+
     private void Awake()
     {
         Effect = GetComponent<ParticleSystem>();
+        Light = transform.GetChild(0).gameObject;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        SpreadCoroutine = null;
         currentTime = 0f;
         if (onOff)
             Ignite();
@@ -40,22 +46,25 @@ public class Fire : MonoBehaviour
     public void Ignite() //Á¡È­
     {
         onOff = true;
+        Light.SetActive(true);
         currentTime = timeLimit;
         if (!Effect.isPlaying)
             Effect.Play();
+
+        if (SpreadCoroutine == null)
+            SpreadCoroutine = StartCoroutine(Spread());
     }
-    
+
     void Extinguish() // ¼ÒÈ­
     {
         onOff = false;
+        Light.SetActive(false);
         if (!Effect.isStopped)
             Effect.Stop();
     }
 
     void Burn()
     {
-        Spread();
-
         if (timeLimit > 0f)
         {
             currentTime -= Time.deltaTime;
@@ -64,18 +73,22 @@ public class Fire : MonoBehaviour
         }
     }
 
-    void Spread() // ¹øÁü
+    IEnumerator Spread() // ¹øÁü
     {
-        foreach(var tmp in Physics.OverlapSphere(transform.position, spreadRange))
+        yield return new WaitForSeconds(spreadTime);
+        while (onOff)
         {
-            if (tmp == GetComponent<Collider>())
-                continue;
-            switch (tmp.tag)
+            foreach (var tmp in Physics.OverlapSphere(transform.position, spreadRange, LayerMask.GetMask("Fire")))
             {
-                case "Fire":
-                    tmp.GetComponent<Fire>().Ignite();
-                    break;
+                if (tmp == GetComponent<Collider>())
+                    continue;
+
+                tmp.GetComponent<Fire>().Ignite();
             }
+
+            yield return null;
         }
+
+        SpreadCoroutine = null;
     }
 }

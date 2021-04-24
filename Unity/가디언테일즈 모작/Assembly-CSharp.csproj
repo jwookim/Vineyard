@@ -63,14 +63,16 @@
     <Compile Include="Assets\Script\Character\Player.cs" />
     <Compile Include="Assets\Script\Objects\Dust.cs" />
     <Compile Include="Assets\Script\Inventory.cs" />
-    <Compile Include="Assets\Script\Objects\Torchlight.cs" />
+    <Compile Include="Assets\Script\Objects\RemoteTorch.cs" />
     <Compile Include="Assets\Script\Objects\Switch.cs" />
     <Compile Include="Assets\Script\Character\SpriteSwap.cs" />
     <Compile Include="Assets\Script\Objects\Torch.cs" />
     <Compile Include="Assets\Script\Objects\Stove.cs" />
     <Compile Include="Assets\Script\Character\Character.cs" />
+    <Compile Include="Assets\Script\Objects\LiftableObject.cs" />
     <Compile Include="Assets\Script\Objects\Door.cs" />
     <Compile Include="Assets\Script\Sword.cs" />
+    <Compile Include="Assets\Script\Objects\Bush.cs" />
     <Compile Include="Assets\Script\Objects\ObjectPoolManger.cs" />
     <Compile Include="Assets\Script\Objects\SwitchButton.cs" />
     <Compile Include="Assets\Script\Objects\Fire.cs" />

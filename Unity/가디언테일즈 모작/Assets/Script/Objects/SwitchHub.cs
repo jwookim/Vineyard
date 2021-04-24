@@ -16,4 +16,23 @@ public class SwitchHub : MonoBehaviour
     {
         
     }
+
+
+    public bool Check()
+    {
+        bool check = true;
+        foreach (var sw in switches)
+        {
+            if (sw != null)
+            {
+                if (!sw.onOff)
+                {
+                    check = false;
+                    break;
+                }
+            }
+        }
+
+        return check;
+    }
 }

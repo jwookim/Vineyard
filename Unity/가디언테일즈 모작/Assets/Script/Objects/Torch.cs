@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Torch : Switch
 {
-    Fire fire;
+    protected Fire fire;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -13,7 +13,7 @@ public class Torch : Switch
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         onOff = fire.OnOff;
     }

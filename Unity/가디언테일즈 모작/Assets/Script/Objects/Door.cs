@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DOORTYPE
+{
+    During,
+    Timer,
+    Permanent
+}
+
 public class Door : MonoBehaviour
 {
     const float Speed = 4f;
@@ -12,9 +19,17 @@ public class Door : MonoBehaviour
 
     SwitchHub switchHub;
 
-    [SerializeField]List<Switch> switches;
+    [SerializeField] DOORTYPE doorType;
 
-    bool trigger;
+    [SerializeField] float openTime;
+    float currentTime;
+
+    Coroutine DoorCoroutine;
+    Coroutine TimerCoroutine;
+
+    bool collision;
+
+    bool isOpen;
 
     private void Awake()
     {
@@ -25,7 +40,11 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trigger = false;
+        isOpen = false;
+        collision = false;
+        currentTime = 0f;
+        DoorCoroutine = null;
+        TimerCoroutine = null;
     }
 
     // Update is called once per frame
@@ -36,58 +55,62 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        trigger = true;
+        collision = true;
 
-        Debug.Log(trigger);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        trigger = false;
+        collision = false;
     }
 
     void SwitchCheck()
     {
-        bool check = true;
-        foreach (var sw in switches)
-        {
-            if (sw != null)
-            {
-                if (!sw.onOff)
-                {
-                    check = false;
-                    break;
-                }
-            }
-        }
-
-        if (check)
+        if (switchHub.Check())
             DoorOpen();
         else
-            DoorClose();
+            TypeCheck();
     }
 
     void DoorOpen()
     {
-        if(!doorCollider.isTrigger)
+        currentTime = openTime;
+        if(!isOpen)
         {
-            doorCollider.isTrigger = true;
-            StopAllCoroutines();
-            StartCoroutine(OpenDoor());
+            if (doorType == DOORTYPE.Timer && TimerCoroutine == null)
+                TimerCoroutine = StartCoroutine(CloseTimer());
+            isOpen = true;
+            if (DoorCoroutine != null)
+            {
+                StopCoroutine(DoorCoroutine);
+                DoorCoroutine = null;
+            }
+            DoorCoroutine = StartCoroutine(OpenDoor());
         }
     }
 
     void DoorClose()
     {
-        if (doorCollider.isTrigger && !trigger)
+        if (!collision)
         {
-            doorCollider.isTrigger = false;
-            StopAllCoroutines();
-            StartCoroutine(CloseDoor());
+            isOpen = false;
+            if (DoorCoroutine != null)
+            {
+                StopCoroutine(DoorCoroutine);
+                DoorCoroutine = null;
+            }
+            DoorCoroutine = StartCoroutine(CloseDoor());
         }
     }
 
-
+    void TypeCheck()
+    {
+        if (isOpen)
+        {
+            if (doorType == DOORTYPE.During)
+                DoorClose();
+        }
+    }
 
     IEnumerator OpenDoor()
     {
@@ -95,6 +118,14 @@ public class Door : MonoBehaviour
         {
             door.position -= new Vector3(0f, Speed * Time.deltaTime, 0f);
             yield return null;
+        }
+
+        doorCollider.isTrigger = true;
+
+        if (doorType == DOORTYPE.Permanent)
+        {
+            switchHub.enabled = false;
+            this.enabled = false;
         }
     }
 
@@ -107,5 +138,23 @@ public class Door : MonoBehaviour
         }
 
         door.position = transform.position;
+        doorCollider.isTrigger = false;
+    }
+
+    IEnumerator CloseTimer()
+    {
+        while(currentTime > 0f)
+        {
+            currentTime -= Time.deltaTime;
+            Debug.Log(currentTime);
+            yield return null;
+        }
+
+        while (isOpen)
+        {
+            DoorClose();
+            yield return null;
+        }
+        TimerCoroutine = null;
     }
 }
