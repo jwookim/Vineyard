@@ -12,6 +12,13 @@ public enum DIRECT
     DIR_RIGHT
 }
 
+enum STATE
+{
+    STATE_NORMAL,
+    STATE_LIFT,
+    STATE_PUSH
+}
+
 public abstract class Character : MonoBehaviour
 {
     const float DustGenTime = 0.07f;  // 달리기 시 먼지 생성 시간
@@ -37,6 +44,7 @@ public abstract class Character : MonoBehaviour
 
     protected Action Attack;  // 공격 delegate
 
+    private STATE curState;
 
     private bool Controlable;  // 컨트롤 가능 여부
     private Coroutine MovingFunc;
@@ -55,6 +63,8 @@ public abstract class Character : MonoBehaviour
     protected virtual void Start()
     {
         curDir = DIRECT.DIR_FRONT;
+        curState = STATE.STATE_NORMAL;
+
         isRun = false;
 
         weapon = null;
@@ -330,7 +340,11 @@ public abstract class Character : MonoBehaviour
 
     public void Interaction()
     {
-        if (Controlable && InteractObject == null)
+        if(!Controlable)
+            return;
+
+
+        if (curState == STATE.STATE_NORMAL)
         {
             Vector3 forward = Vector3.zero;
             switch (curDir)
@@ -351,12 +365,11 @@ public abstract class Character : MonoBehaviour
             RaycastHit hit;
             LayerMask layer = LayerMask.GetMask("Liftable");
             if (Physics.BoxCast(transform.position, (transform.lossyScale - Vector3.one / 10) / 2, forward, out hit, Quaternion.identity, 0.5f, layer))
-            {
                 Lift(hit.transform.gameObject);
-                InteractObject = hit.transform.GetComponent<Objects>();
-            }
         }
 
+        else if (curState == STATE.STATE_LIFT)
+            Throw();
     }
 
     void Lift(GameObject obj)
@@ -364,6 +377,19 @@ public abstract class Character : MonoBehaviour
         Debug.Log(obj);
         if (obj.GetComponent<LiftableObject>().Lifting(this))
             InteractObject = obj.GetComponent<Objects>();
+
+        CoroutineStop();
+
+        MovingFunc = StartCoroutine(DuringLift());
+    }
+
+    void Throw()
+    {
+        if(InteractObject != null)
+        {
+            InteractObject.GetComponent<LiftableObject>().Throw(curDir, 1f + 0.5f * direction.magnitude);
+            InteractObject = null;
+        }
     }
 
     public void doRun()
@@ -382,7 +408,7 @@ public abstract class Character : MonoBehaviour
             MovingFunc = StartCoroutine(GeneralMoveCoroutine());
     }
 
-    protected void Stop()
+    protected void CoroutineStop()
     {
         isRun = false;
         direction = Vector2.zero;
@@ -391,6 +417,12 @@ public abstract class Character : MonoBehaviour
             StopCoroutine(MovingFunc);
             MovingFunc = null;
         }
+    }
+
+    protected void Stop()
+    {
+        isRun = false;
+        direction = Vector2.zero;
     }
 
     protected void Turn(DIRECT direct)
@@ -418,7 +450,6 @@ public abstract class Character : MonoBehaviour
 
     public void KnockBack(Vector2 actPos)
     {
-        Stop();
         if(Mathf.Abs(actPos.x) >= Mathf.Abs(actPos.y))
         {
             if (actPos.x > 0)
@@ -433,14 +464,13 @@ public abstract class Character : MonoBehaviour
             else
                 Turn(DIRECT.DIR_BACK);
         }
-        if (MovingFunc != null)
+        /*if (MovingFunc != null)
             StopCoroutine(MovingFunc);
-        MovingFunc = StartCoroutine(KnockBackCoroutine(actPos.normalized));
+        MovingFunc = */StartCoroutine(KnockBackCoroutine(actPos.normalized));
     }
 
     public void KnockBack()
     {
-        Stop();
         Vector3 actPos = Vector3.zero;
 
         switch(curDir)
@@ -458,9 +488,9 @@ public abstract class Character : MonoBehaviour
                 actPos.x -= 1f;
                 break;
         }
-        if (MovingFunc != null)
+        /*if (MovingFunc != null)
             StopCoroutine(MovingFunc);
-        MovingFunc = StartCoroutine(KnockBackCoroutine(actPos));
+        MovingFunc = */StartCoroutine(KnockBackCoroutine(actPos));
     }
 
     private void CollisionObject()
@@ -531,6 +561,8 @@ public abstract class Character : MonoBehaviour
 
     IEnumerator GeneralMoveCoroutine()
     {
+        curState = STATE.STATE_NORMAL;
+
         while (true)
         {
             if (direction != Vector2.zero)
@@ -544,7 +576,6 @@ public abstract class Character : MonoBehaviour
                 if (!Move(direction * scale) && isRun)
                 {
                     KnockBack();
-                    yield break;
                 }
             }
             animator.SetInteger("State", (int)direction.magnitude);
@@ -552,18 +583,26 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    IEnumerable DuringLift()
+    IEnumerator DuringLift()
     {
-        while(InteractObject != null && InteractObject.gameObject.activeSelf)
+        curState = STATE.STATE_LIFT;
+        while(InteractObject != null)
         {
-
+            if (!InteractObject.gameObject.activeSelf)
+            {
+                InteractObject = null;
+                break;
+            }
             Move(direction * DefaultSpeed);
             yield return null;
         }
+
+        CoroutineStop();
     }
 
     IEnumerator KnockBackCoroutine(Vector2 actPos)
     {
+        Stop();
         Controlable = false;
         animator.SetTrigger("Paralysis");
         float curTime = KnockBackTime;
@@ -577,14 +616,14 @@ public abstract class Character : MonoBehaviour
         }
         animator.SetTrigger("Return");
         Controlable = true;
-        MovingFunc = null;
+        //MovingFunc = null;
     }
 
     IEnumerator makeDust()
     {
         while (true)
         {
-            if (isRun && direction != Vector2.zero)
+            if (curState == STATE.STATE_NORMAL && isRun && direction != Vector2.zero)
                 ObjectPoolManger.Instance.GenerateDust(CharDir[(int)curDir].transform.Find("Shadow").position);
             yield return new WaitForSeconds(DustGenTime);
         }

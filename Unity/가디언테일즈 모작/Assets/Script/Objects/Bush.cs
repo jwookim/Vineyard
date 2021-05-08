@@ -30,10 +30,9 @@ public class Bush : LiftableObject
         }
     }
 
-    public override bool Collision()
+    public override void Collision()
     {
         Destroy();
-        return true;
     }
 
 }
