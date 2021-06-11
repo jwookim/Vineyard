@@ -56,7 +56,6 @@ public class Door : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         collision = true;
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -116,7 +115,7 @@ public class Door : MonoBehaviour
     {
         while(door.position.y >= transform.position.y - door.localScale.y)
         {
-            door.position -= new Vector3(0f, Speed * Time.deltaTime, 0f);
+            door.position -= new Vector3(0f, Speed * Time.deltaTime * GameManager.Instance.TimeScale, 0f);
             yield return null;
         }
 
@@ -133,7 +132,7 @@ public class Door : MonoBehaviour
     {
         while (door.position.y < transform.position.y)
         {
-            door.position += new Vector3(0f, Speed * Time.deltaTime, 0f);
+            door.position += new Vector3(0f, Speed * Time.deltaTime * GameManager.Instance.TimeScale, 0f);
             yield return null;
         }
 
@@ -145,7 +144,7 @@ public class Door : MonoBehaviour
     {
         while(currentTime > 0f)
         {
-            currentTime -= Time.deltaTime;
+            currentTime -= Time.deltaTime * GameManager.Instance.TimeScale;
             Debug.Log(currentTime);
             yield return null;
         }

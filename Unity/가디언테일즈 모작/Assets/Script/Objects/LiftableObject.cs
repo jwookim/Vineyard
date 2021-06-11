@@ -86,13 +86,15 @@ public abstract class LiftableObject : Objects
     {
         Vector3 Direct = velocity.normalized;
         int count = 2;
+        bool check;
         RaycastHit hit;
         while (count > 0)
         {
-            transform.Translate(velocity * Time.deltaTime);
+            check = false;
+            transform.Translate(velocity * Time.deltaTime * GameManager.Instance.TimeScale);
 
-            velocity -= velocity * Drag * Time.deltaTime;   // 감속
-            velocity.y -= gravityScale * Time.deltaTime;    // 중력 가속
+            velocity -= velocity * Drag * Time.deltaTime * GameManager.Instance.TimeScale;   // 감속
+            velocity.y -= Standard.gravityScale * Time.deltaTime * GameManager.Instance.TimeScale;    // 중력 가속
 
             /*foreach(var ob in Physics.OverlapBox(transform.position, transform.lossyScale * 0.6f))
             {
@@ -103,14 +105,24 @@ public abstract class LiftableObject : Objects
                     ob.GetComponent<Objects>().Collision();
             }*/
 
-            if(Physics.BoxCast(transform.position, transform.lossyScale * 0.5f, Direct, out hit ,Quaternion.identity, 0.1f))
+            if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, Vector3.down, out hit, Quaternion.identity, Standard.CollisionRange, LayerMask.GetMask("Obstacle")))
+            {
+                Collision();
+                if (--count > 0)
+                {
+                    velocity.y *= -1f;
+                    velocity *= Elasticity;
+                }
+                transform.position = new Vector3(transform.position.x, hit.transform.position.y + hit.transform.lossyScale.y * 0.5f + transform.lossyScale.y * 0.5f + 0.1f, transform.position.z);
+            }
+
+            if(Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, Direct, out hit ,Quaternion.identity, Standard.CollisionRange))
             {
                 if(hit.transform.tag == "Object")
-                    hit.transform.GetComponent<Objects>().Collision();
-                //Collision();
-                Debug.Log("벽" + count);
+                    check = hit.transform.GetComponent<Objects>().Collision();
+                Collision();
 
-                if (hit.transform.gameObject.activeSelf)
+                if (!check)
                 {
                     if (count > 1)
                     {
@@ -128,17 +140,6 @@ public abstract class LiftableObject : Objects
                 }
             }
 
-            if (Physics.BoxCast(transform.position, transform.lossyScale * 0.5f, Vector3.down, out hit, Quaternion.identity, 0.1f, LayerMask.GetMask("Obstacle")))
-            {
-                //Collision();
-                Debug.Log("땅" + count);
-                if (--count > 0)
-                {
-                    velocity.y *= -1f;
-                    velocity *= Elasticity;
-                }
-                transform.position = new Vector3(transform.position.x, hit.transform.position.y + hit.transform.lossyScale.y * 0.5f + transform.lossyScale.y * 0.5f + 0.1f, transform.position.z);
-            }
             yield return null;
         }
 

@@ -28,3 +28,8 @@ public class Singletone<T> : MonoBehaviour where T : Component
 
     }
 }
+
+public class Singletone
+{
+
+}

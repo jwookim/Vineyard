@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Bush : LiftableObject
 {
-    const float BurnTime = 3f;
-    protected Fire fire;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        fire = transform.GetChild(0).GetComponent<Fire>();
 
     }
 
@@ -18,21 +15,13 @@ public class Bush : LiftableObject
     protected override void Update()
     {
         base.Update();
-        BurnCheck();
     }
 
-    void BurnCheck()
-    {
-        if(fire.OnOff)
-        {
-            if (!IsInvoking("Destroy"))
-                Invoke("Destroy", BurnTime);
-        }
-    }
 
-    public override void Collision()
+    public override bool Collision()  // 충돌 시 파괴되었다는 의미로 true 반환
     {
         Destroy();
+        return true;
     }
 
 }

@@ -6,10 +6,14 @@ public class Fire : MonoBehaviour
 {
     const float spreadRange = 1.5f;
     const float spreadTime = 0.8f;
+    const float collapseTime = 3f;
 
     ParticleSystem Effect;
     GameObject Light;
     [SerializeField] private bool onOff;
+
+
+    [SerializeField] bool collabsible;
     public bool OnOff { get { return onOff; }}
 
     [SerializeField] float timeLimit;
@@ -53,6 +57,9 @@ public class Fire : MonoBehaviour
 
         if (SpreadCoroutine == null)
             SpreadCoroutine = StartCoroutine(Spread());
+
+        if(collabsible)
+            transform.parent.GetComponent<Objects>().Invoke("Destroy", collapseTime);
     }
 
     void Extinguish() // ¼ÒÈ­
@@ -67,7 +74,7 @@ public class Fire : MonoBehaviour
     {
         if (timeLimit > 0f)
         {
-            currentTime -= Time.deltaTime;
+            currentTime -= Time.deltaTime * GameManager.Instance.TimeScale;
             if (currentTime <= 0f)
                 Extinguish();
         }

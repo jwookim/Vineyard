@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Objects : MonoBehaviour
 {
-    protected const float gravityScale = 9.81f;
     protected bool Interactable;
     // Start is called before the first frame update
     protected virtual void Start()
@@ -20,12 +19,12 @@ public abstract class Objects : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        StopAllCoroutines();
-        CancelInvoke();
     }
 
     protected virtual void OnDisable()
     {
+        StopAllCoroutines();
+        CancelInvoke();
 
     }
 
@@ -34,12 +33,25 @@ public abstract class Objects : MonoBehaviour
         Collision();
     }*/
 
-    public virtual void Collision()
+    public virtual bool Collision()
     {
+        return false;
     }
 
-    protected void Destroy()
+    public virtual void Contact(Character ch)
+    {
+
+    }
+
+    public virtual void Interaction()
+    {
+
+    }
+
+    public void Destroy()
     {
         gameObject.SetActive(false);
     }
+
+
 }

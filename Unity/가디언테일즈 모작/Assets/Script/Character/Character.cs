@@ -26,10 +26,13 @@ public abstract class Character : MonoBehaviour
     const float DefaultSpeed = 0.5f;  // 기본 이동속도
     const float RunScale = 1.5f;  // 달리기 배율
 
-    const float CollisionRange = 0.55f;
-
     const float KnockBackTime = 0.5f;
     const float KnockBackSpeed = 1f;
+
+    const float TrapCooldown = 1f;
+    const float TrapPercentage = 10f;
+
+    const float AttackedCooldown = 0.5f;
 
     [SerializeField] private Animator animator;
     private GameObject[] CharDir = new GameObject[4];  // 방향별 모델링
@@ -51,6 +54,10 @@ public abstract class Character : MonoBehaviour
 
     private Objects InteractObject;
 
+    private Hashtable AttackedTime;
+
+    private float TrapHitTime;
+    
     protected float Speed;
     protected virtual void Awake()
     {
@@ -58,7 +65,6 @@ public abstract class Character : MonoBehaviour
         CharDir[(int)DIRECT.DIR_BACK] = gameObject.transform.Find("Back").gameObject;
         CharDir[(int)DIRECT.DIR_LEFT] = gameObject.transform.Find("Left").gameObject;
         CharDir[(int)DIRECT.DIR_RIGHT] = gameObject.transform.Find("Right").gameObject;
-
     }
     protected virtual void Start()
     {
@@ -80,6 +86,9 @@ public abstract class Character : MonoBehaviour
         MovingFunc = null;
 
         InteractObject = null;
+
+        AttackedTime = new Hashtable();
+        TrapHitTime = 0f;
     }
 
     protected virtual void OnEnable()
@@ -105,6 +114,19 @@ public abstract class Character : MonoBehaviour
     {
         if (MovingFunc == null)
             doWalk();
+
+        CooldownCheck();
+    }
+
+    private void CooldownCheck()
+    {
+        if (TrapHitTime > 0f)
+            TrapHitTime -= Time.deltaTime * GameManager.Instance.TimeScale;
+    }
+
+    protected float GetSize()
+    {
+        return transform.lossyScale.x * 0.5f;
     }
 
     /*protected void Run()
@@ -362,14 +384,42 @@ public abstract class Character : MonoBehaviour
                     forward.x = 1f;
                     break;
             }
-            RaycastHit hit;
-            LayerMask layer = LayerMask.GetMask("Liftable");
-            if (Physics.BoxCast(transform.position, (transform.lossyScale - Vector3.one / 10) / 2, forward, out hit, Quaternion.identity, 0.5f, layer))
-                Lift(hit.transform.gameObject);
+            RaycastHit[] hits;
+            GameObject target = null;
+            LayerMask layer = LayerMask.GetMask("Liftable") | LayerMask.GetMask("Pushable") | LayerMask.GetMask("ETC");
+            if ((hits = Physics.BoxCastAll(transform.position, (transform.lossyScale - Vector3.one / 10) / 2, forward, Quaternion.identity, 0.5f, layer)).Length > 0)
+            {
+                foreach(var hit in hits)
+                {
+                    if (target == null)
+                        target = hit.transform.gameObject;
+                    else if (Vector3.Distance(transform.position, target.transform.position) > Vector3.Distance(transform.position, hit.transform.position))
+                        target = hit.transform.gameObject;
+                }
+
+
+
+                if (target.layer == LayerMask.NameToLayer("Liftable"))
+                    Lift(target);
+                else if (target.layer == LayerMask.NameToLayer("Pushable"))
+                    Push(target);
+                else
+                    target.GetComponent<Objects>().Interaction();
+            }
         }
 
         else if (curState == STATE.STATE_LIFT)
             Throw();
+    }
+
+    public void InteractionCancel()
+    {
+        switch(curState)
+        {
+            case STATE.STATE_PUSH:
+                InteractObject = null;
+                break;
+        }
     }
 
     void Lift(GameObject obj)
@@ -383,6 +433,15 @@ public abstract class Character : MonoBehaviour
         MovingFunc = StartCoroutine(DuringLift());
     }
 
+    void Push(GameObject obj)
+    {
+        InteractObject = obj.GetComponent<Objects>();
+
+        CoroutineStop();
+
+        MovingFunc = StartCoroutine(DuringPush());
+    }
+
     void Throw()
     {
         if(InteractObject != null)
@@ -394,10 +453,7 @@ public abstract class Character : MonoBehaviour
 
     public void doRun()
     {
-        isRun = true;
-
-        if (MovingFunc == null)
-            MovingFunc = StartCoroutine(GeneralMoveCoroutine());
+            isRun = true;
     }
 
     public void doWalk()
@@ -445,6 +501,16 @@ public abstract class Character : MonoBehaviour
     {
         if (weapon != null)
             ;
+    }
+
+    public void HitbyTrap()
+    {
+        if (TrapHitTime <= 0f)
+        {
+            KnockBack();
+
+            TrapHitTime = TrapCooldown;
+        }
     }
 
 
@@ -495,19 +561,19 @@ public abstract class Character : MonoBehaviour
 
     private void CollisionObject()
     {
-        Ray ray = new Ray(transform.position, new Vector3(direction.x, 0f, direction.y));
         RaycastHit hit;
-        if (Physics.SphereCast(ray, 0.48f, out hit, CollisionRange))
+
+        if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(direction.x, 0f, direction.y), out hit, Quaternion.identity, Standard.CollisionRange + 0.1f))
             if (hit.transform.tag == "Object")
                 hit.transform.GetComponent<Objects>().Collision();
     }
 
-    private bool CollisionCheckX()
+    /*private bool CollisionCheckX()
     {
         bool check = true;
         if (direction.x != 0f)
         {
-            check = Physics.Raycast(transform.position + new Vector3(0f, 0.1f, 0f), new Vector3(direction.x, 0f, 0f), CollisionRange);
+            check = Physics.Raycast(transform.position + new Vector3(0f, 0.1f, 0f), new Vector3(direction.x, 0f, 0f), transform.lossyScale.x * 0.5f + Standard.CollisionRange);
 
         }
 
@@ -520,11 +586,11 @@ public abstract class Character : MonoBehaviour
 
         if (direction.y != 0f)
         {
-            check = Physics.Raycast(transform.position + new Vector3(0f, 0.1f, 0f), new Vector3(0f, 0f, direction.y), CollisionRange);
+            check = Physics.Raycast(transform.position + new Vector3(0f, 0.1f, 0f), new Vector3(0f, 0f, direction.y), transform.lossyScale.y * 0.5f + Standard.CollisionRange);
         }
 
         return check;
-    }
+    }*/
 
     /*private bool CollisionCheck()
     {
@@ -545,17 +611,107 @@ public abstract class Character : MonoBehaviour
 
         return check;
     }*/
+    protected bool StraightMove(Vector2 pos)
+    {
+        RaycastHit hit;
+        if(!Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(pos.x, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange))
+        {
+            transform.position += new Vector3(pos.x, 0f, pos.y) * Speed * Time.deltaTime * GameManager.Instance.TimeScale;
+            return true;
+        }
+        else
+        {
+            if (hit.transform.gameObject.tag == "Object")
+            {
+                hit.transform.GetComponent<Objects>().Contact(this);
+                return true;
+            }
+
+            Vector3 left, right;
+
+            switch (curDir)
+            {
+                case DIRECT.DIR_FRONT:
+                    left = Vector3.right;
+                    right = Vector3.left;
+                    break;
+                case DIRECT.DIR_BACK:
+                    left = Vector3.left;
+                    right = Vector3.right;
+                    break;
+                case DIRECT.DIR_LEFT:
+                    left = Vector3.back;
+                    right = Vector3.forward;
+                    break;
+                case DIRECT.DIR_RIGHT:
+                    left = Vector3.forward;
+                    right = Vector3.back;
+                    break;
+                default:
+                    left = Vector3.zero;
+                    right = Vector3.zero;
+                    break;
+            }
+
+            bool L = Physics.Raycast(transform.position + left * GetSize(), new Vector3(pos.x, 0f, pos.y), GetSize() + Standard.CollisionRange, LayerMask.GetMask("Obstacle"));
+            bool R = Physics.Raycast(transform.position + right * GetSize(), new Vector3(pos.x, 0f, pos.y), GetSize() + Standard.CollisionRange, LayerMask.GetMask("Obstacle"));
+
+            //Debug.Log(L + " " + R);
+            if (L && !R)
+                return DiagonalMove((pos + new Vector2(right.x, right.z)).normalized);
+            else if (!L && R)
+                return DiagonalMove((pos + new Vector2(left.x, left.z)).normalized);
+
+        }
+        return false;
+    }
+
+    protected bool DiagonalMove(Vector2 pos)
+    {
+        RaycastHit hit;
+        if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(pos.x, 0f, 0f), out hit, Quaternion.identity, Standard.CollisionRange))
+        {
+            if (hit.transform.gameObject.tag == "Object")
+            {
+                hit.transform.GetComponent<Objects>().Contact(this);
+            }
+            pos.x = 0f;
+        }
+
+        if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(0f, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange))
+        {
+            if (hit.transform.gameObject.tag == "Object")
+            {
+                hit.transform.GetComponent<Objects>().Contact(this);
+            }
+            pos.y = 0f;
+        }
+
+
+        transform.position += new Vector3(pos.x, 0f, pos.y) * Speed * Time.deltaTime * GameManager.Instance.TimeScale;
+
+        if (pos == Vector2.zero)
+            return false;
+        else
+            return true;
+    }
 
     protected bool Move(Vector2 pos)
     {
-        bool x = CollisionCheckX();
+        if (pos.x != 0f && pos.y != 0f)
+            return DiagonalMove(pos);
+        else
+            return StraightMove(pos);
+        
+
+        /*bool x = CollisionCheckX();
         bool y = CollisionCheckY();
 
         if (x && y)
             return false;
 
         transform.position += new Vector3(x ? 0f : pos.x, 0f, y ? 0f : pos.y) * Speed * Time.deltaTime;
-        return true;
+        return true;*/
     }
 
 
@@ -600,6 +756,50 @@ public abstract class Character : MonoBehaviour
         CoroutineStop();
     }
 
+    IEnumerator DuringPush()
+    {
+        curState = STATE.STATE_PUSH;
+        Controlable = false;
+        float timer = 0f;
+
+        Vector3 vector;
+
+        switch (curDir)
+        {
+            case DIRECT.DIR_FRONT:
+                vector = new Vector3(transform.position.x - InteractObject.transform.position.x, 0f, InteractObject.transform.lossyScale.z / 2f + transform.lossyScale.z / 2f);
+                break;
+            case DIRECT.DIR_BACK:
+                vector = new Vector3(transform.position.x - InteractObject.transform.position.x, 0f, -(transform.lossyScale.z / 2f + InteractObject.transform.lossyScale.z / 2f));
+                break;
+            case DIRECT.DIR_LEFT:
+                vector = new Vector3(InteractObject.transform.lossyScale.x / 2f + transform.lossyScale.x / 2f, 0f, transform.position.z - InteractObject.transform.position.z);
+                break;
+            case DIRECT.DIR_RIGHT:
+                vector = new Vector3(-(transform.lossyScale.x / 2f + InteractObject.transform.lossyScale.x / 2f), 0f, transform.position.z - InteractObject.transform.position.z);
+                break;
+            default:
+                vector = Vector3.zero;
+                break;
+        }
+
+        while (InteractObject != null)
+        {
+            timer += Time.deltaTime * GameManager.Instance.TimeScale;
+
+            transform.position = InteractObject.transform.position + vector;
+            if(timer >= 1f)
+            {
+                InteractObject.GetComponent<PushableObject>().Push(curDir);
+                timer = 0f;
+            }
+            yield return null;
+        }
+
+        Controlable = true;
+        CoroutineStop();
+    }
+
     IEnumerator KnockBackCoroutine(Vector2 actPos)
     {
         Stop();
@@ -609,9 +809,9 @@ public abstract class Character : MonoBehaviour
 
         while (curTime > 0f)
         {
-            curTime -= Time.deltaTime;
+            curTime -= Time.deltaTime * GameManager.Instance.TimeScale;
 
-            transform.position += new Vector3(actPos.x, 0f, actPos.y) * KnockBackSpeed * Time.deltaTime;
+            transform.position += new Vector3(actPos.x, 0f, actPos.y) * KnockBackSpeed * Time.deltaTime * GameManager.Instance.TimeScale;
             yield return null;
         }
         animator.SetTrigger("Return");

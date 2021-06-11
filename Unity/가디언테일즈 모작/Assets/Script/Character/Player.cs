@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    const int LeaderNum = 0;
     const int PartyMax = 4;
-    [SerializeField] Character Leader;
-    Character[] characters;
+    //[SerializeField] Character Leader;
+    Character[] party;
     Inventory inventory;
+
+    public bool controlable;
 
     private void Awake()
     {
+        party = new Character[PartyMax];
 
-        characters = new Character[PartyMax - 1];
     }
     // Start is called before the first frame update
     private void Start()
     {
-
+        party[LeaderNum] = FindObjectOfType<Character>();
+        controlable = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Control();
+        if (controlable)
+            Control();
     }
 
 
@@ -31,14 +36,14 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < PartyMax - 1; i++)
         {
-            if (characters[i] == null)
+            if (party[i] == null)
             {
                 for (int j = i + 1; j < PartyMax; j++)
                 {
-                    if (characters[j] != null)
+                    if (party[j] != null)
                     {
-                        characters[i] = characters[j];
-                        characters[j] = null;
+                        party[i] = party[j];
+                        party[j] = null;
                     }
                 }
             }
@@ -61,16 +66,30 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             dir.x += 1f;
 
-        Leader.MoveControl(dir);
+        party[LeaderNum].MoveControl(dir);
 
         if (Input.GetKey(KeyCode.LeftShift))
-            Leader.doRun();
+            party[LeaderNum].doRun();
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
-            Leader.doWalk();
+            party[LeaderNum].doWalk();
 
 
         if (Input.GetKeyDown(KeyCode.Space))
-            Leader.Interaction();
+            party[LeaderNum].Interaction();
+
+        if (Input.GetKeyUp(KeyCode.Space))
+            party[LeaderNum].InteractionCancel();
+    }
+
+    public void Placement(Vector3 pos)
+    {
+        foreach(var ch in party)
+        {
+            if(ch != null)
+            {
+                ch.transform.position = pos;
+            }
+        }
     }
 }
