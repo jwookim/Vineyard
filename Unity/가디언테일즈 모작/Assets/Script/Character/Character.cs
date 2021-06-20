@@ -30,9 +30,9 @@ public abstract class Character : MonoBehaviour
     const float KnockBackSpeed = 1f;
 
     const float TrapCooldown = 1f;
-    const float TrapPercentage = 10f;
+    const float TrapDmg = 10f;
 
-    const float AttackedCooldown = 0.5f;
+    const float DmgCooldown = 0.5f;
 
     [SerializeField] private Animator animator;
     private GameObject[] CharDir = new GameObject[4];  // 방향별 모델링
@@ -57,8 +57,19 @@ public abstract class Character : MonoBehaviour
     private Hashtable AttackedTime;
 
     private float TrapHitTime;
-    
+
+
+
+    ////////////// 스테이터스 ////////////////
+
     protected float Speed;
+
+
+    protected float MaxHp;
+
+    protected float curHp;
+
+    //////////////////////
     protected virtual void Awake()
     {
         CharDir[(int)DIRECT.DIR_FRONT] = gameObject.transform.Find("Front").gameObject;
