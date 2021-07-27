@@ -56,8 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HeroEditor4D\Common\Editor\LayerManagerEditor.cs" />
-    <Compile Include="Assets\HeroEditor4D\Common\Editor\SpriteCollectionEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+    <Compile Include="Assets\PhysSound\Scripts\Editor\CreatePhysSoundMaterial.cs" />
+    <Compile Include="Assets\PhysSound\Scripts\Editor\PhysSoundMaterialEditor.cs" />
+    <Compile Include="Assets\PhysSound\Scripts\Editor\PhysSoundTerrainEditor.cs" />
+    <Compile Include="Assets\PhysSound\Scripts\Editor\PhysSoundObjectEditor.cs" />
+    <Compile Include="Assets\PhysSound\Scripts\Editor\PhysSoundTypeEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -295,11 +301,11 @@
     <Reference Include="HeroEditor.Common">
       <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Assets/HeroEditor4D/Common/HeroEditor.Common.dll</HintPath>
     </Reference>
-    <Reference Include="HeroEditor.Common.Editor">
-      <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Assets/HeroEditor4D/Common/Editor/HeroEditor.Common.Editor.dll</HintPath>
+    <Reference Include="JMOAssets">
+      <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -657,9 +663,6 @@
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
       <HintPath>C:/Users/Admin/Documents/GitHub/Vineyard/Unity/가디언테일즈 모작/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>

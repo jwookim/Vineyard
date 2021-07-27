@@ -8,10 +8,15 @@ public abstract class LiftableObject : Objects
     protected const float Elasticity = 0.5f;
     protected const float Drag = 0.2f;
     const float ThrowSpeed = 7f;
+    const float LiftHeight = 0.8f;
     Character lifting;
-    // Start is called before the first frame update
-    protected override void Start()
+
+    [SerializeField] protected AudioClip Audio_Collision;
+
+    protected override void Awake()
     {
+        base.Awake();
+        gameObject.layer = LayerMask.NameToLayer("Liftable");
     }
 
     // Update is called once per frame
@@ -39,7 +44,7 @@ public abstract class LiftableObject : Objects
     {
         if(lifting!=null)
         {
-            transform.position = lifting.transform.position + new Vector3(0f, 1f, 0f);
+            transform.position = lifting.transform.position + new Vector3(0f, LiftHeight, 0f);
         }
     }
 
@@ -63,7 +68,7 @@ public abstract class LiftableObject : Objects
 
     public void Throw(DIRECT dir, float Speed)
     {
-        Debug.Log(Speed);
+        //Debug.Log(Speed);
         lifting = null;
         switch(dir)
         {
@@ -88,6 +93,16 @@ public abstract class LiftableObject : Objects
         int count = 2;
         bool check;
         RaycastHit hit;
+
+        Vector3 HorizontalExtents = transform.lossyScale * Standard.halfExtentsScale;
+        if (velocity.x != 0)
+            HorizontalExtents.x = 0f;
+        else if (velocity.z != 0)
+            HorizontalExtents.z = 0f;
+
+        Vector3 VerticalExtents = transform.lossyScale * Standard.halfExtentsScale;
+        VerticalExtents.y = 0f;
+
         while (count > 0)
         {
             check = false;
@@ -104,19 +119,28 @@ public abstract class LiftableObject : Objects
                 if(ob.tag == "Object")
                     ob.GetComponent<Objects>().Collision();
             }*/
-
-            if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, Vector3.down, out hit, Quaternion.identity, Standard.CollisionRange, LayerMask.GetMask("Obstacle")))
+            if (velocity.y < 0f)
             {
-                Collision();
-                if (--count > 0)
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, Standard.CollisionRange + GetHalfSize(), LayerMask.GetMask("Ground") | LayerMask.GetMask("Stairs")))
                 {
-                    velocity.y *= -1f;
-                    velocity *= Elasticity;
+                    Collision();
+                    transform.position += new Vector3(0f, transform.lossyScale.y / 2f - hit.distance, 0f);
+                    if (--count > 0)
+                    {
+                        velocity.y *= -1f;
+                        velocity *= Elasticity;
+
+                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Stairs"))
+                            transform.position += new Vector3(0f, 0.5f, 0f);
+
+                    }
+
+                    audioSource.clip = Audio_Collision;
+                    audioSource.Play();
                 }
-                transform.position = new Vector3(transform.position.x, hit.transform.position.y + hit.transform.lossyScale.y * 0.5f + transform.lossyScale.y * 0.5f + 0.1f, transform.position.z);
             }
 
-            if(Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, Direct, out hit ,Quaternion.identity, Standard.CollisionRange))
+            if(Physics.BoxCast(transform.position, HorizontalExtents, Direct, out hit ,Quaternion.identity, Standard.CollisionRange + GetHalfSize()) && hit.transform.gameObject.layer != LayerMask.NameToLayer("Stairs") && hit.transform.gameObject.layer != LayerMask.NameToLayer("Cliff"))
             {
                 if(hit.transform.tag == "Object")
                     check = hit.transform.GetComponent<Objects>().Collision();

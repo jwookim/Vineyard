@@ -7,6 +7,13 @@ public abstract class PushableObject : Objects
     const float MoveDistance = 1f;
     const float MoveSpeed = 2f;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        gameObject.layer = LayerMask.NameToLayer("Pushable");
+    }
+
+    [SerializeField] AudioClip Audio_Drag;
     public void Push(DIRECT dir)
     {
         StopAllCoroutines();
@@ -20,37 +27,51 @@ public abstract class PushableObject : Objects
         float distance = MoveDistance;
         float tmp = distance;
 
+        Vector3 Extents = transform.lossyScale * Standard.halfExtentsScale;
+
         switch(dir)
         {
             case DIRECT.DIR_FRONT:
                 vector = new Vector3(0f, 0f, -1f);
+                Extents.z = 0f;
                 break;
             case DIRECT.DIR_BACK:
                 vector = new Vector3(0f, 0f, 1f);
+                Extents.z = 0f;
                 break;
             case DIRECT.DIR_LEFT:
                 vector = new Vector3(-1f, 0f, 0f);
+                Extents.x = 0f;
                 break;
             case DIRECT.DIR_RIGHT:
                 vector = new Vector3(1f, 0f, 0f);
+                Extents.x = 0f;
                 break;
             default:
                 vector = Vector3.zero;
                 break;
         }
 
-        while (!Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, vector, Quaternion.identity, Standard.CollisionRange) && distance > 0f)
+        if (!Physics.BoxCast(transform.position, Extents, vector, Quaternion.identity, Standard.CollisionRange + GetHalfSize()))
         {
-            tmp = distance - Time.deltaTime * MoveSpeed * GameManager.Instance.TimeScale;
+            audioSource.clip = Audio_Drag;
+            audioSource.Play();
 
-            if (tmp > 0)
-                transform.Translate(vector * Time.deltaTime * MoveSpeed * GameManager.Instance.TimeScale);
-            else
-                transform.Translate(vector * distance);
+            while (!Physics.BoxCast(transform.position, Extents, vector, Quaternion.identity, Standard.CollisionRange + GetHalfSize()) && distance > 0f)
+            {
+                tmp = distance - Time.deltaTime * MoveSpeed * GameManager.Instance.TimeScale;
 
-            distance = tmp;
+                if (tmp > 0)
+                    transform.Translate(vector * Time.deltaTime * MoveSpeed * GameManager.Instance.TimeScale);
+                else
+                    transform.Translate(vector * distance);
 
-            yield return null;
+                distance = tmp;
+
+                yield return null;
+            }
+
+            audioSource.Stop();
         }
     }
 }

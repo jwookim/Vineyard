@@ -8,12 +8,15 @@ public class Fire : MonoBehaviour
     const float spreadTime = 0.8f;
     const float collapseTime = 3f;
 
-    ParticleSystem Effect;
+    GameObject Effect;
     GameObject Light;
     [SerializeField] private bool onOff;
 
 
     [SerializeField] bool collabsible;
+
+    [SerializeField] AudioClip Audio_Burn;
+    AudioSource audioSource;
     public bool OnOff { get { return onOff; }}
 
     [SerializeField] float timeLimit;
@@ -24,13 +27,15 @@ public class Fire : MonoBehaviour
 
     private void Awake()
     {
-        Effect = GetComponent<ParticleSystem>();
-        Light = transform.GetChild(0).gameObject;
+        Effect = transform.Find("Particle").gameObject;
+        Light = transform.Find("Light").gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource.clip = Audio_Burn;
         SpreadCoroutine = null;
         currentTime = 0f;
         if (onOff)
@@ -49,25 +54,27 @@ public class Fire : MonoBehaviour
 
     public void Ignite() //점화
     {
-        onOff = true;
-        Light.SetActive(true);
+        if (!onOff)
+        {
+            audioSource.Play();
+            onOff = true;
+            Light.SetActive(true);
+            Effect.SetActive(true);
+
+            if (SpreadCoroutine == null)
+                SpreadCoroutine = StartCoroutine(Spread());
+
+            if (collabsible)
+                transform.parent.GetComponent<Objects>().Invoke("Destroy", collapseTime);
+        }
         currentTime = timeLimit;
-        if (!Effect.isPlaying)
-            Effect.Play();
-
-        if (SpreadCoroutine == null)
-            SpreadCoroutine = StartCoroutine(Spread());
-
-        if(collabsible)
-            transform.parent.GetComponent<Objects>().Invoke("Destroy", collapseTime);
     }
 
     void Extinguish() // 소화
     {
         onOff = false;
         Light.SetActive(false);
-        if (!Effect.isStopped)
-            Effect.Stop();
+        Effect.SetActive(false);
     }
 
     void Burn()

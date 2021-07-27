@@ -5,12 +5,15 @@ using UnityEngine;
 public class ObjectPoolManger : Singletone<ObjectPoolManger>
 {
     [SerializeField] private GameObject dustPrefab;
+    [SerializeField] private GameObject DestroyEffectPrefab;
 
     private Stack<GameObject> dustList;
+    private Stack<GameObject> DestroyEffectList;
     // Start is called before the first frame update
     void Start()
     {
         dustList = new Stack<GameObject>();
+        DestroyEffectList = new Stack<GameObject>();
     }
 
     // Update is called once per frame
@@ -41,5 +44,26 @@ public class ObjectPoolManger : Singletone<ObjectPoolManger>
         obj.transform.position = position;
         obj.SetActive(true);
 
+    }
+
+    public void StorageDestroyEffect(GameObject obj)
+    {
+        DestroyEffectList.Push(obj);
+    }
+
+    public GameObject GenerateDestroyEffect()
+    {
+        GameObject obj;
+        try
+        {
+            obj = DestroyEffectList.Pop();
+        }
+        catch
+        {
+            obj = Instantiate(DestroyEffectPrefab);
+        }
+
+
+        return obj;
     }
 }

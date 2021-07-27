@@ -23,8 +23,9 @@ public abstract class Character : MonoBehaviour
 {
     const float DustGenTime = 0.07f;  // 달리기 시 먼지 생성 시간
 
-    const float DefaultSpeed = 0.5f;  // 기본 이동속도
+    const float DefaultSpeed = 4f;  // 기본 이동속도
     const float RunScale = 1.5f;  // 달리기 배율
+    const float StairSlow = 0.3f; // 계단 위 감속
 
     const float KnockBackTime = 0.5f;
     const float KnockBackSpeed = 1f;
@@ -33,6 +34,7 @@ public abstract class Character : MonoBehaviour
     const float TrapDmg = 10f;
 
     const float DmgCooldown = 0.5f;
+
 
     [SerializeField] private Animator animator;
     private GameObject[] CharDir = new GameObject[4];  // 방향별 모델링
@@ -58,7 +60,7 @@ public abstract class Character : MonoBehaviour
 
     private float TrapHitTime;
 
-
+    private bool onStair;
 
     ////////////// 스테이터스 ////////////////
 
@@ -88,7 +90,7 @@ public abstract class Character : MonoBehaviour
 
         direction = Vector2.zero;
 
-        Speed = 10f;
+        Speed = DefaultSpeed;
 
         Attack = null;
 
@@ -100,6 +102,8 @@ public abstract class Character : MonoBehaviour
 
         AttackedTime = new Hashtable();
         TrapHitTime = 0f;
+
+        onStair = false;
     }
 
     protected virtual void OnEnable()
@@ -135,7 +139,7 @@ public abstract class Character : MonoBehaviour
             TrapHitTime -= Time.deltaTime * GameManager.Instance.TimeScale;
     }
 
-    protected float GetSize()
+    protected float GetHalfSize()
     {
         return transform.lossyScale.x * 0.5f;
     }
@@ -397,7 +401,7 @@ public abstract class Character : MonoBehaviour
             }
             RaycastHit[] hits;
             GameObject target = null;
-            LayerMask layer = LayerMask.GetMask("Liftable") | LayerMask.GetMask("Pushable") | LayerMask.GetMask("ETC");
+            LayerMask layer = LayerMask.GetMask("Liftable") | LayerMask.GetMask("Pushable") | LayerMask.GetMask("Breakable") | LayerMask.GetMask("ETC object") | LayerMask.GetMask("Cliff");
             if ((hits = Physics.BoxCastAll(transform.position, (transform.lossyScale - Vector3.one / 10) / 2, forward, Quaternion.identity, 0.5f, layer)).Length > 0)
             {
                 foreach(var hit in hits)
@@ -414,6 +418,10 @@ public abstract class Character : MonoBehaviour
                     Lift(target);
                 else if (target.layer == LayerMask.NameToLayer("Pushable"))
                     Push(target);
+                else if (target.layer == LayerMask.NameToLayer("Breakable"))
+                    BreakRock(target);
+                else if (target.layer == LayerMask.NameToLayer("Cliff"))
+                    Jump(target);
                 else
                     target.GetComponent<Objects>().Interaction();
             }
@@ -435,7 +443,7 @@ public abstract class Character : MonoBehaviour
 
     void Lift(GameObject obj)
     {
-        Debug.Log(obj);
+        //Debug.Log(obj);
         if (obj.GetComponent<LiftableObject>().Lifting(this))
             InteractObject = obj.GetComponent<Objects>();
 
@@ -462,9 +470,54 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    void Jump(GameObject obj)
+    {
+        Vector3 dir = Vector3.zero;
+        switch(curDir)
+        {
+            case DIRECT.DIR_BACK:
+                dir.z += (obj.transform.position - transform.position).z + 0.5f;
+                break;
+            case DIRECT.DIR_FRONT:
+                dir.z += (obj.transform.position - transform.position).z - 0.5f;
+                break;
+            case DIRECT.DIR_LEFT:
+                dir.x += (obj.transform.position - transform.position).x - 0.5f;
+                break;
+            case DIRECT.DIR_RIGHT:
+                dir.x += (obj.transform.position - transform.position).x + 0.5f;
+                break;
+        }
+
+        RaycastHit hit;
+        Vector3 Extents = Standard.halfExtentsScale * transform.lossyScale;
+        Extents.y = 0f;
+
+        if (Physics.BoxCast(transform.position + dir, Extents, Vector3.down, out hit))
+        {
+            if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Ground") || hit.distance <= 0.5f)
+                return;
+        }
+        else
+            return;
+
+
+        CoroutineStop();
+
+        MovingFunc = StartCoroutine(DuringJump(dir));
+    }
+
+    void BreakRock(GameObject obj)
+    {
+        Debug.Log(obj);
+        CoroutineStop();
+
+        MovingFunc = StartCoroutine(BlockBreak(obj));
+    }
+
     public void doRun()
     {
-            isRun = true;
+        isRun = true;
     }
 
     public void doWalk()
@@ -570,6 +623,15 @@ public abstract class Character : MonoBehaviour
         MovingFunc = */StartCoroutine(KnockBackCoroutine(actPos));
     }
 
+    private void Landing()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+            transform.position += new Vector3(0f, GetHalfSize() - hit.distance, 0f);
+
+        onStair = false;
+    }
+
     private void CollisionObject()
     {
         RaycastHit hit;
@@ -622,12 +684,21 @@ public abstract class Character : MonoBehaviour
 
         return check;
     }*/
-    protected bool StraightMove(Vector2 pos)
+    private bool StraightMove(Vector2 pos)
     {
         RaycastHit hit;
-        if(!Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(pos.x, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange))
+        Vector3 Extents = transform.lossyScale * Standard.halfExtentsScale;
+
+        if (pos.x != 0f)
+            Extents.x = 0f;
+        else
+            Extents.z = 0f;
+
+        Physics.BoxCast(transform.position, Extents, new Vector3(pos.x, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange + GetHalfSize());
+        
+        if (hit.transform == null || hit.transform.gameObject.layer == LayerMask.NameToLayer("Stairs"))
         {
-            transform.position += new Vector3(pos.x, 0f, pos.y) * Speed * Time.deltaTime * GameManager.Instance.TimeScale;
+            transform.position += new Vector3(pos.x, 0f, pos.y) * Time.deltaTime * GameManager.Instance.TimeScale;
             return true;
         }
         else
@@ -663,43 +734,55 @@ public abstract class Character : MonoBehaviour
                     right = Vector3.zero;
                     break;
             }
+            left *= Standard.halfExtentsScale * 2f;
+            right *= Standard.halfExtentsScale * 2f;
 
-            bool L = Physics.Raycast(transform.position + left * GetSize(), new Vector3(pos.x, 0f, pos.y), GetSize() + Standard.CollisionRange, LayerMask.GetMask("Obstacle"));
-            bool R = Physics.Raycast(transform.position + right * GetSize(), new Vector3(pos.x, 0f, pos.y), GetSize() + Standard.CollisionRange, LayerMask.GetMask("Obstacle"));
+            bool L = Physics.Raycast(transform.position + left * GetHalfSize(), new Vector3(pos.x, 0f, pos.y), GetHalfSize() + Standard.CollisionRange/*, LayerMask.GetMask("Obstacle")*/);
+            bool R = Physics.Raycast(transform.position + right * GetHalfSize(), new Vector3(pos.x, 0f, pos.y), GetHalfSize() + Standard.CollisionRange/*, LayerMask.GetMask("Obstacle")*/);
 
             //Debug.Log(L + " " + R);
             if (L && !R)
-                return DiagonalMove((pos + new Vector2(right.x, right.z)).normalized);
+                return DiagonalMove((pos.normalized + new Vector2(right.x, right.z)).normalized * pos.magnitude);
             else if (!L && R)
-                return DiagonalMove((pos + new Vector2(left.x, left.z)).normalized);
+                return DiagonalMove((pos.normalized + new Vector2(left.x, left.z)).normalized * pos.magnitude);
 
         }
         return false;
     }
 
-    protected bool DiagonalMove(Vector2 pos)
+    private bool DiagonalMove(Vector2 pos)
     {
         RaycastHit hit;
-        if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(pos.x, 0f, 0f), out hit, Quaternion.identity, Standard.CollisionRange))
+
+        Vector3 ExtentX = transform.lossyScale * Standard.halfExtentsScale;
+        Vector3 ExtentY = ExtentX;
+
+        ExtentX.x = 0f;
+        ExtentY.z = 0f;
+
+        if (Physics.BoxCast(transform.position, ExtentX, new Vector3(pos.x, 0f, 0f), out hit, Quaternion.identity, Standard.CollisionRange + GetHalfSize()))
         {
             if (hit.transform.gameObject.tag == "Object")
             {
                 hit.transform.GetComponent<Objects>().Contact(this);
             }
-            pos.x = 0f;
+
+            if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Stairs"))
+                pos.x = 0f;
         }
 
-        if (Physics.BoxCast(transform.position, transform.lossyScale * Standard.halfExtentsScale, new Vector3(0f, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange))
+        if (Physics.BoxCast(transform.position, ExtentY, new Vector3(0f, 0f, pos.y), out hit, Quaternion.identity, Standard.CollisionRange + GetHalfSize()))
         {
             if (hit.transform.gameObject.tag == "Object")
             {
                 hit.transform.GetComponent<Objects>().Contact(this);
             }
-            pos.y = 0f;
+            if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Stairs"))
+                pos.y = 0f;
         }
 
 
-        transform.position += new Vector3(pos.x, 0f, pos.y) * Speed * Time.deltaTime * GameManager.Instance.TimeScale;
+        transform.position += new Vector3(pos.x, 0f, pos.y) * Time.deltaTime * GameManager.Instance.TimeScale;
 
         if (pos == Vector2.zero)
             return false;
@@ -709,11 +792,23 @@ public abstract class Character : MonoBehaviour
 
     protected bool Move(Vector2 pos)
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, transform.lossyScale.y * 2f, LayerMask.GetMask("Stairs")))
+        {
+            onStair = true;
+            transform.position += new Vector3(0f, GetHalfSize() - hit.distance, 0f);
+        }
+        else if (onStair)
+            Landing();
+
+        if (onStair)
+            pos *= StairSlow;
+
         if (pos.x != 0f && pos.y != 0f)
             return DiagonalMove(pos);
         else
             return StraightMove(pos);
-        
+
 
         /*bool x = CollisionCheckX();
         bool y = CollisionCheckY();
@@ -736,7 +831,7 @@ public abstract class Character : MonoBehaviour
             {
                 if (isRun)
                     CollisionObject();
-                float scale = DefaultSpeed;
+                float scale = Speed;
                 if (isRun)
                     scale *= RunScale;
 
@@ -761,6 +856,7 @@ public abstract class Character : MonoBehaviour
                 break;
             }
             Move(direction * DefaultSpeed);
+            animator.SetInteger("State", (int)direction.magnitude);
             yield return null;
         }
 
@@ -806,6 +902,69 @@ public abstract class Character : MonoBehaviour
             }
             yield return null;
         }
+
+        Controlable = true;
+        CoroutineStop();
+    }
+
+    IEnumerator DuringJump(Vector3 dir)
+    {
+        Controlable = false;
+        float DropSpeed = 4f;
+        float time = 0f;
+
+        RaycastHit hit;
+
+        animator.SetBool("Jump", true);
+
+        while (time < 1f)
+        {
+            time += Time.deltaTime;
+            DropSpeed -= Standard.gravityScale * Time.deltaTime;
+            dir.y = DropSpeed;
+
+            transform.position += dir * Time.deltaTime;
+
+            yield return null;
+        }
+
+        while (!Physics.Raycast(transform.position, Vector3.down, out hit, Standard.CollisionRange + GetHalfSize(), LayerMask.GetMask("Ground") | LayerMask.GetMask("Stairs")))
+        {
+            DropSpeed -= Standard.gravityScale * Time.deltaTime;
+
+            transform.position += new Vector3(0f, DropSpeed * Time.deltaTime, 0f);
+
+            yield return null;
+        }
+
+        transform.position += new Vector3(0f, transform.lossyScale.y / 2f - hit.distance, 0f);
+
+        animator.SetBool("Jump", false);
+        Controlable = true;
+        CoroutineStop();
+    }
+
+    IEnumerator BlockBreak(GameObject target)
+    {
+        Controlable = false;
+        Vector3 dir = target.transform.position - transform.position;
+        float timer = 0.1f;
+
+        transform.position += -dir * Time.deltaTime * 10f;
+        timer += Time.deltaTime;
+
+
+        target.GetComponent<BreakableObject>().Destroy();
+
+        while(timer>0)
+        {
+            yield return null;
+            timer -= Time.deltaTime;
+
+            transform.position += dir * Time.deltaTime * 10f;
+        }
+
+        transform.position = target.transform.position;
 
         Controlable = true;
         CoroutineStop();

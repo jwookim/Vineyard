@@ -14,16 +14,16 @@ TagManager:
   - Fire
   - Water
   - UI
-  - ETC
   - Obstacle
-  - 
-  - 
+  - Ground
+  - Stairs
+  - Cliff
   - Liftable
   - Pushable
+  - ETC object
+  - Breakable
   - 
-  - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 

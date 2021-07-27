@@ -20,19 +20,15 @@ public class SwitchHub : MonoBehaviour
 
     public bool Check()
     {
-        bool check = true;
+        if (switches.Count == 0)
+            return false;
+
         foreach (var sw in switches)
         {
-            if (sw != null)
-            {
-                if (!sw.onOff)
-                {
-                    check = false;
-                    break;
-                }
-            }
+            if (sw != null && !sw.onOff)
+                return false;
         }
 
-        return check;
+        return true;
     }
 }

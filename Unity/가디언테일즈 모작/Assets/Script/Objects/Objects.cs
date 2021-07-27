@@ -5,6 +5,16 @@ using UnityEngine;
 public abstract class Objects : MonoBehaviour
 {
     protected bool Interactable;
+
+    protected AudioSource audioSource;
+
+    [SerializeField] protected AudioClip Audio_Destroy;
+
+    protected virtual void Awake()
+    {
+        tag = "Object";
+        audioSource = GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -50,8 +60,15 @@ public abstract class Objects : MonoBehaviour
 
     public void Destroy()
     {
+        GameObject effect = ObjectPoolManger.Instance.GenerateDestroyEffect();
+        effect.transform.position = transform.position;
+        effect.GetComponent<DestroyEffect>().Activate(Audio_Destroy);
+
         gameObject.SetActive(false);
     }
 
-
+    protected float GetHalfSize()
+    {
+        return transform.lossyScale.x * 0.5f;
+    }
 }

@@ -11,6 +11,9 @@ public enum DOORTYPE
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] AudioClip Audio_Drag;
+    AudioSource audioSource;
+
     const float Speed = 4f;
 
     Transform door;
@@ -22,6 +25,7 @@ public class Door : MonoBehaviour
     [SerializeField] DOORTYPE doorType;
 
     [SerializeField] float openTime;
+
     float currentTime;
 
     Coroutine DoorCoroutine;
@@ -36,6 +40,7 @@ public class Door : MonoBehaviour
         door = transform.GetChild(0);
         doorCollider = GetComponent<Collider>();
         switchHub = GetComponent<SwitchHub>();
+        audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,7 @@ public class Door : MonoBehaviour
         currentTime = 0f;
         DoorCoroutine = null;
         TimerCoroutine = null;
+        audioSource.clip = Audio_Drag;
     }
 
     // Update is called once per frame
@@ -83,6 +89,7 @@ public class Door : MonoBehaviour
             {
                 StopCoroutine(DoorCoroutine);
                 DoorCoroutine = null;
+                audioSource.Stop();
             }
             DoorCoroutine = StartCoroutine(OpenDoor());
         }
@@ -97,6 +104,7 @@ public class Door : MonoBehaviour
             {
                 StopCoroutine(DoorCoroutine);
                 DoorCoroutine = null;
+                audioSource.Stop();
             }
             DoorCoroutine = StartCoroutine(CloseDoor());
         }
@@ -113,6 +121,7 @@ public class Door : MonoBehaviour
 
     IEnumerator OpenDoor()
     {
+        audioSource.Play();
         while(door.position.y >= transform.position.y - door.localScale.y)
         {
             door.position -= new Vector3(0f, Speed * Time.deltaTime * GameManager.Instance.TimeScale, 0f);
@@ -130,6 +139,7 @@ public class Door : MonoBehaviour
 
     IEnumerator CloseDoor()
     {
+        audioSource.Play();
         while (door.position.y < transform.position.y)
         {
             door.position += new Vector3(0f, Speed * Time.deltaTime * GameManager.Instance.TimeScale, 0f);

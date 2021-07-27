@@ -11,4 +11,8 @@ public class Sword2H : Weapon
         type = WEAPON.WEAPON_SWORD;
         sprite = Resources.Load("Sprites/Equipment/MeleeWeapon1H/Basic/Sword/Sword2H.png") as Sprite;
     }
+
+    public override void WeaponSkill()
+    {
+    }
 }

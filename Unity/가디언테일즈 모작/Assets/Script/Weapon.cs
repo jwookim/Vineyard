@@ -11,7 +11,7 @@ public enum WEAPON
     WEAPON_BOW
 }
 
-public abstract class Weapon
+public abstract class Weapon : MonoBehaviour
 {
     public Sprite sprite { get; protected set; }
     public Character user { get; protected set; }
@@ -20,5 +20,8 @@ public abstract class Weapon
     protected float Atk;
     protected float Def;
     protected int Cooldown;
-    protected int CooldownBoost;
+    protected int SkillChargeBoost;
+
+
+    public abstract void WeaponSkill();
 }
