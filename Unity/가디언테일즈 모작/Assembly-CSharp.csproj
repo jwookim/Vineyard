@@ -96,6 +96,7 @@
     <Compile Include="Assets\PhysSound\Scripts\PhysSoundMaterial.cs" />
     <Compile Include="Assets\Script\Objects\Door.cs" />
     <Compile Include="Assets\PhysSound\Scripts\Utilities\Range.cs" />
+    <Compile Include="Assets\Script\Objects\Projectile\Projectile.cs" />
     <Compile Include="Assets\PhysSound\Scripts\PhysSoundTempAudioPool.cs" />
     <Compile Include="Assets\Script\Objects\ThornsBlock.cs" />
     <Compile Include="Assets\SD_Project\Standard Assets\Image Effects (Pro Only)\NoiseEffect.cs" />
