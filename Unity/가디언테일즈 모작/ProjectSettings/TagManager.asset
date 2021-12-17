@@ -7,6 +7,7 @@ TagManager:
   - Object
   - Obstacle
   - ETC
+  - Character
   layers:
   - Default
   - TransparentFX

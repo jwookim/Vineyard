@@ -1,0 +1,911 @@
+Using pre-set license
+Built from '2020.2/staging' branch; Version is '2020.2.0b7 (1b1252580c64) revision 1774162'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'ko' Physical Memory: 8145 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.2.0b7\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Admin/Documents/GitHub/Vineyard/Unity/라이트닝 팩맨
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56639
+Successfully changed project path to: C:/Users/Admin/Documents/GitHub/Vineyard/Unity/라이트닝 팩맨
+C:/Users/Admin/Documents/GitHub/Vineyard/Unity/라이트닝 팩맨
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 58.90 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.0b7 (1b1252580c64)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Admin/Documents/GitHub/Vineyard/Unity/라이트닝 팩맨/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c81)
+    Vendor:   
+    VRAM:     1977 MB
+    Driver:   30.0.14.7212
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56928
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004455 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 50.18 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.492 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002456 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Spine.Unity.Editor.SpinePreferences:GetOrCreateSettings () (at Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs:121)
+Spine.Unity.Editor.SpinePreferences:Load () (at Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs:106)
+Spine.Unity.Editor.SpineEditorUtilities:Initialize () (at Assets/Spine/Editor/spine-unity/Editor/Utility/SpineEditorUtilities.cs:109)
+Spine.Unity.Editor.SpineEditorUtilities:.cctor () (at Assets/Spine/Editor/spine-unity/Editor/Utility/SpineEditorUtilities.cs:100)
+System.Reflection.MonoCMethod:InternalInvoke (object,object[])
+System.RuntimeType:CreateInstanceMono (bool)
+System.RuntimeType:CreateInstanceSlow (bool,bool,bool,System.Threading.StackCrawlMark&)
+System.RuntimeType:CreateInstanceDefaultCtor (bool,bool,bool,System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,bool)
+System.Activator:CreateInstance (System.Type)
+UnityEditor.AssetPostprocessingInternal:GetMeshProcessorsHashString ()
+
+[Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs line 121]
+
+UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+Rethrow as TypeInitializationException: The type initializer for 'Spine.Unity.Editor.SpineEditorUtilities' threw an exception.
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <9577ac7a62ef43179789031239ba8798>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceMono (System.Boolean nonPublic) [0x000a8] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceSlow (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00009] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceDefaultCtor (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00027] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Boolean nonPublic) [0x00020] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 
+  at UnityEditor.AssetPostprocessingInternal.GetMeshProcessorsHashString () [0x00035] in <b01046f8b5314fae9e67f2e947544d2e>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEditor.AssetPostprocessingInternal:GetMeshProcessorsHashString()
+
+(Filename: Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs Line: 121)
+
+UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+Rethrow as TypeInitializationException: The type initializer for 'Spine.Unity.Editor.SpineEditorUtilities' threw an exception.
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <9577ac7a62ef43179789031239ba8798>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceMono (System.Boolean nonPublic) [0x000a8] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceSlow (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00009] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceDefaultCtor (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00027] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Boolean nonPublic) [0x00020] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 
+  at UnityEditor.AssetPostprocessingInternal.GetTextureProcessorsHashString () [0x00035] in <b01046f8b5314fae9e67f2e947544d2e>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEditor.AssetPostprocessingInternal:GetTextureProcessorsHashString()
+
+(Filename: Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs Line: 121)
+
+UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+Rethrow as TypeInitializationException: The type initializer for 'Spine.Unity.Editor.SpineEditorUtilities' threw an exception.
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <9577ac7a62ef43179789031239ba8798>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceMono (System.Boolean nonPublic) [0x000a8] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceSlow (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00009] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceDefaultCtor (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00027] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Boolean nonPublic) [0x00020] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 
+  at UnityEditor.AssetPostprocessingInternal.GetAudioProcessorsHashString () [0x00035] in <b01046f8b5314fae9e67f2e947544d2e>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEditor.AssetPostprocessingInternal:GetAudioProcessorsHashString()
+
+(Filename: Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs Line: 121)
+
+UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+Rethrow as TypeInitializationException: The type initializer for 'Spine.Unity.Editor.SpineEditorUtilities' threw an exception.
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <9577ac7a62ef43179789031239ba8798>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceMono (System.Boolean nonPublic) [0x000a8] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceSlow (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00009] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceDefaultCtor (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00027] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Boolean nonPublic) [0x00020] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 
+  at UnityEditor.AssetPostprocessingInternal.GetSpeedTreeProcessorsHashString () [0x00035] in <b01046f8b5314fae9e67f2e947544d2e>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEditor.AssetPostprocessingInternal:GetSpeedTreeProcessorsHashString()
+
+(Filename: Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs Line: 121)
+
+UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+Rethrow as TypeInitializationException: The type initializer for 'Spine.Unity.Editor.SpineEditorUtilities' threw an exception.
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <9577ac7a62ef43179789031239ba8798>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceMono (System.Boolean nonPublic) [0x000a8] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceSlow (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00009] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.RuntimeType.CreateInstanceDefaultCtor (System.Boolean publicOnly, System.Boolean skipCheckThis, System.Boolean fillCache, System.Threading.StackCrawlMark& stackMark) [0x00027] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Boolean nonPublic) [0x00020] in <9577ac7a62ef43179789031239ba8798>:0 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 
+  at UnityEditor.AssetPostprocessingInternal.GetPrefabProcessorsHashString () [0x00035] in <b01046f8b5314fae9e67f2e947544d2e>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEditor.AssetPostprocessingInternal:GetPrefabProcessorsHashString()
+
+(Filename: Assets/Spine/Editor/spine-unity/Editor/Windows/SpinePreferences.cs Line: 121)
+
+ReleaseAllScriptCaches did not release all script caches!
+
+Remaining caches:
+    spine-unity-editor:Spine.Unity.Editor:SpinePreferences
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 58.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+UnityEngine.UnityException: Creating asset at path Assets/Editor/SpineSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at Spine.Unity.Editor.SpinePreferences.GetOrCreateSettings () [0x00057] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:121 
+  at Spine.Unity.Editor.SpinePreferences.Load () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Windows\SpinePreferences.cs:106 
+  at Spine.Unity.Editor.SpineEditorUtilities.Initialize () [0x00000] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:109 
+  at Spine.Unity.Editor.SpineEditorUtilities..cctor () [0x0001e] in C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Assets\Spine\Editor\spine-unity\Editor\Utility\SpineEditorUtilities.cs:100 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.440 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2056 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 112.7 MB.
+System memory in use after: 111.7 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2502.
+Total: 3.927900 ms (FindLiveObjects: 0.919500 ms CreateObjectMapping: 0.195700 ms MarkObjects: 1.961700 ms  DeleteObjects: 0.850000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/resource/AudioClip/03_quest_complete_d_01.wav
+  artifactKey: Guid(4c1a29bdd9c23e3458ad31e81b9f78c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_quest_complete_d_01.wav using Guid(4c1a29bdd9c23e3458ad31e81b9f78c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa1d935abbc3fb7df94ddacd640ec652') in 0.133444 seconds
+  Import took 0.139926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000471 seconds.
+  path: Assets/resource/AudioClip/03_quest_complete_a_01.wav
+  artifactKey: Guid(f2c6e8247ecb4df4481297ee743198c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_quest_complete_a_01.wav using Guid(f2c6e8247ecb4df4481297ee743198c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ade5e56f226c1a5ef27f35894c2f2ed3') in 0.014006 seconds
+  Import took 0.020382 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 214.493920 seconds.
+  path: Assets/resource/AudioClip/01_game_die_01.wav
+  artifactKey: Guid(00f2070d33ca6434e9efe3e5108cdfbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/01_game_die_01.wav using Guid(00f2070d33ca6434e9efe3e5108cdfbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9a9bcb6889da5b6f3848ac78ae0854f') in 0.011294 seconds
+  Import took 0.017075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 370.679321 seconds.
+  path: Assets/resource/AudioClip/01_linda_scream_01.wav
+  artifactKey: Guid(a747e14c3e6e97048aa1eba93cd1802e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/01_linda_scream_01.wav using Guid(a747e14c3e6e97048aa1eba93cd1802e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e652cf3193fbe635e300d449cddce43a') in 0.011597 seconds
+  Import took 0.017247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 685.388993 seconds.
+  path: Assets/resource/AudioClip/03_bright_fame_01.wav
+  artifactKey: Guid(0bb50206cd26b294c8feef1e52d1db00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_bright_fame_01.wav using Guid(0bb50206cd26b294c8feef1e52d1db00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cda9dcdef4c8011a77ad5bfc406a2f01') in 0.026403 seconds
+  Import took 0.032628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000516 seconds.
+  path: Assets/resource/AudioClip/03_dark_fame_01.wav
+  artifactKey: Guid(713ac26b6a4c7f543bbbfce38e10343b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dark_fame_01.wav using Guid(713ac26b6a4c7f543bbbfce38e10343b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0716edcd73a7acb29b141a754636d7') in 0.012333 seconds
+  Import took 0.018685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000582 seconds.
+  path: Assets/resource/AudioClip/03_bright_fame_01.wav
+  artifactKey: Guid(0bb50206cd26b294c8feef1e52d1db00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_bright_fame_01.wav using Guid(0bb50206cd26b294c8feef1e52d1db00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cda9dcdef4c8011a77ad5bfc406a2f01') in 0.012047 seconds
+  Import took 0.017059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000584 seconds.
+  path: Assets/resource/AudioClip/03_dark_fame_01.wav
+  artifactKey: Guid(713ac26b6a4c7f543bbbfce38e10343b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dark_fame_01.wav using Guid(713ac26b6a4c7f543bbbfce38e10343b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0716edcd73a7acb29b141a754636d7') in 0.014384 seconds
+  Import took 0.018732 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13717.931530 seconds.
+  path: Assets/Script/GameManager.cs
+  artifactKey: Guid(8f986967aa77afa4fa5c30361ef3d3fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/GameManager.cs using Guid(8f986967aa77afa4fa5c30361ef3d3fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5834ba6f4a00d9b87c4fb8dab77d8ab') in 0.030417 seconds
+  Import took 0.106106 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010972 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 95.33 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.945 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007581 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.391 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.89 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 73 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 106.9 MB.
+System memory in use after: 105.8 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 2517.
+Total: 5.974300 ms (FindLiveObjects: 0.783700 ms CreateObjectMapping: 0.157300 ms MarkObjects: 3.287900 ms  DeleteObjects: 1.743200 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003924 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 75.09 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.806 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002830 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.513 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 104 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.1 MB.
+System memory in use after: 107.1 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 2554.
+Total: 5.072700 ms (FindLiveObjects: 0.856000 ms CreateObjectMapping: 0.125200 ms MarkObjects: 2.871100 ms  DeleteObjects: 1.219000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 374.228464 seconds.
+  path: Assets/resource/AudioClip/03_quest_detail_popup_01.wav
+  artifactKey: Guid(1efd5d9261e16074dad8b2bda1fa52cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_quest_detail_popup_01.wav using Guid(1efd5d9261e16074dad8b2bda1fa52cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81954633dc831065fb579c671ebc6abb') in 0.204513 seconds
+  Import took 1.873017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 416.447310 seconds.
+  path: Assets/resource/AudioClip/03_gimmick_jingle_01.wav
+  artifactKey: Guid(ca504e8ad373eb84f930eb116098cd3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_gimmick_jingle_01.wav using Guid(ca504e8ad373eb84f930eb116098cd3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da4bc273a10c49ed3e13bad5097f6a2f') in 0.017388 seconds
+  Import took 0.024029 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011318 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 95.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.667 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005623 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.333 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 72 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.6 MB.
+System memory in use after: 106.6 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 2560.
+Total: 4.144300 ms (FindLiveObjects: 0.895900 ms CreateObjectMapping: 0.094300 ms MarkObjects: 2.003700 ms  DeleteObjects: 1.148500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 109.898961 seconds.
+  path: Assets/resource/AudioClip/camera_sound.wav
+  artifactKey: Guid(f7cf388c229ad8243a15d9e6b824b4d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/camera_sound.wav using Guid(f7cf388c229ad8243a15d9e6b824b4d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3078b29d50b30b646771aa6a22bd7e8') in 0.056189 seconds
+  Import took 0.062304 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 186.616512 seconds.
+  path: Assets/resource/AudioClip/01_lana_01.wav
+  artifactKey: Guid(1382ab5f10b9a7c4484b86ff1049f60e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/01_lana_01.wav using Guid(1382ab5f10b9a7c4484b86ff1049f60e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '234a638980c00db89a0eea97116c5af3') in 3.986671 seconds
+  Import took 3.995250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 311.595450 seconds.
+  path: Assets/resource/AudioClip/02_victim_knock_01.wav
+  artifactKey: Guid(89ca45df945e60f4293741433557ef63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/02_victim_knock_01.wav using Guid(89ca45df945e60f4293741433557ef63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a6f9d4cf905e819fcd672cf252706ff') in 0.024108 seconds
+  Import took 0.033508 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004437 seconds.
+  path: Assets/resource/AudioClip/02_victim_knock_01.wav
+  artifactKey: Guid(89ca45df945e60f4293741433557ef63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/02_victim_knock_01.wav using Guid(89ca45df945e60f4293741433557ef63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a6f9d4cf905e819fcd672cf252706ff') in 0.020661 seconds
+  Import took 0.030163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 522.154934 seconds.
+  path: Assets/resource/AudioClip/01_potion_01.wav
+  artifactKey: Guid(fec502b80cfe4bd4fbdcc3e697325b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/01_potion_01.wav using Guid(fec502b80cfe4bd4fbdcc3e697325b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4a051dc84ed99c61e142af2b60a3791') in 0.271045 seconds
+  Import took 3.261943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.963556 seconds.
+  path: Assets/resource/AudioClip/01_stage_clear_01.wav
+  artifactKey: Guid(7afdbcd36f9ab644d8dab417e4977e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/01_stage_clear_01.wav using Guid(7afdbcd36f9ab644d8dab417e4977e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5c8020230e29bd318e1f745567d506f') in 0.026547 seconds
+  Import took 0.038920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 460.986607 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_emphasize_01.wav
+  artifactKey: Guid(58131b3cb23be8b4a8f729e49f4866ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_emphasize_01.wav using Guid(58131b3cb23be8b4a8f729e49f4866ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae46c2f5332909d1a0e8fadd4e8aa73b') in 0.174496 seconds
+  Import took 1.164693 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.326169 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_negative_01.wav
+  artifactKey: Guid(d48058e0d1b08b244910fdaafc90af3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_negative_01.wav using Guid(d48058e0d1b08b244910fdaafc90af3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c749379d56333b5de7233112bbcfd95') in 0.022674 seconds
+  Import took 0.029679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_negative_02.wav
+  artifactKey: Guid(1a94bfdfb32f10841ada6f3406218860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_negative_02.wav using Guid(1a94bfdfb32f10841ada6f3406218860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3c5cfe3b04ba1af29b29cbc5c48af69') in 0.012575 seconds
+  Import took 0.017691 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.110544 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_positive_01.wav
+  artifactKey: Guid(2ee1fbb00e0c4014ead8bc5c344ae550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_positive_01.wav using Guid(2ee1fbb00e0c4014ead8bc5c344ae550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dd6a6a8cfba0d020a24cc0c7bf248d6') in 0.029963 seconds
+  Import took 0.041894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.828763 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_sadness_01.wav
+  artifactKey: Guid(060eaf6ccdc95e14e8b983d53544af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_sadness_01.wav using Guid(060eaf6ccdc95e14e8b983d53544af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '281d5f5d14419bf3baf39aba9bae8d3e') in 0.021264 seconds
+  Import took 0.029863 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009419 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_sadness_01.wav
+  artifactKey: Guid(060eaf6ccdc95e14e8b983d53544af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_sadness_01.wav using Guid(060eaf6ccdc95e14e8b983d53544af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '281d5f5d14419bf3baf39aba9bae8d3e') in 0.021924 seconds
+  Import took 0.031246 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.802290 seconds.
+  path: Assets/resource/AudioClip/03_dialogue_tipsy_01.wav
+  artifactKey: Guid(b00ca0015bab39249a7d8a5f8d2e5d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_dialogue_tipsy_01.wav using Guid(b00ca0015bab39249a7d8a5f8d2e5d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '015f459bcb760bd57e36408399b7b3d5') in 0.021142 seconds
+  Import took 0.030521 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.788355 seconds.
+  path: Assets/resource/AudioClip/03_get_purplecoin_01.wav
+  artifactKey: Guid(e310363cc7bb0404c98190087c94e83b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/AudioClip/03_get_purplecoin_01.wav using Guid(e310363cc7bb0404c98190087c94e83b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd368efe99f4c123eba9b8142b021ae8') in 0.013259 seconds
+  Import took 0.019871 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011667 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 84.99 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.890 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005815 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.923 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 72 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.1 MB.
+System memory in use after: 107.1 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 2566.
+Total: 6.477700 ms (FindLiveObjects: 0.797500 ms CreateObjectMapping: 0.075000 ms MarkObjects: 3.415600 ms  DeleteObjects: 2.186700 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010890 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 94.21 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.581 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006612 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.89 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.656 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 72 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.1 MB.
+System memory in use after: 107.1 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 2571.
+Total: 4.339700 ms (FindLiveObjects: 0.779000 ms CreateObjectMapping: 0.086700 ms MarkObjects: 2.262400 ms  DeleteObjects: 1.210200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 245.632294 seconds.
+  path: Assets/resource/spine/Emotion
+  artifactKey: Guid(20cd328c9424a40458a5af1612c00ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion using Guid(20cd328c9424a40458a5af1612c00ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0cffabe2dca54f7b6ef0eb44fd2f48d') in 0.010639 seconds
+  Import took 0.020913 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019272 seconds.
+  path: Assets/resource/spine/Emotion
+  artifactKey: Guid(20cd328c9424a40458a5af1612c00ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion using Guid(20cd328c9424a40458a5af1612c00ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0cffabe2dca54f7b6ef0eb44fd2f48d') in 0.007702 seconds
+  Import took 0.015420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.697457 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion.atlas.txt
+  artifactKey: Guid(47b14c5e1221a35498878b772cbf87fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion.atlas.txt using Guid(47b14c5e1221a35498878b772cbf87fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e10a83f3645ed79770ab58be6702cf9d') in 0.029782 seconds
+  Import took 0.036350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000425 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion_SkeletonData.asset
+  artifactKey: Guid(0d9eaa40c2e381b45b4db577c43d547d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion_SkeletonData.asset using Guid(0d9eaa40c2e381b45b4db577c43d547d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a306c67048bf76b990ed240da7c17a6c') in 0.138990 seconds
+  Import took 0.144341 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion_Material.mat
+  artifactKey: Guid(3675aa8c3c6c2f84cba935b0f4d439dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion_Material.mat using Guid(3675aa8c3c6c2f84cba935b0f4d439dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1074e078358bece8f3731e823a6cfca9') in 0.055934 seconds
+  Import took 0.061670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000422 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion.png
+  artifactKey: Guid(4f2a1ec0056d7e140b8ee5a7c9c7bcf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion.png using Guid(4f2a1ec0056d7e140b8ee5a7c9c7bcf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9aa75632e217fe58bd16281bb81c418b') in 0.122451 seconds
+  Import took 0.128716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.084927 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion.skel.bytes
+  artifactKey: Guid(2512214e90ed0a940b7291c248040a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion.skel.bytes using Guid(2512214e90ed0a940b7291c248040a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b755bb21ad93016a190411a7e53822a8') in 0.010585 seconds
+  Import took 0.016884 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion_Atlas.asset
+  artifactKey: Guid(9482a5917159c5a41b8693600fc872e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion_Atlas.asset using Guid(9482a5917159c5a41b8693600fc872e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7201bcaf6d40c6f686b4ac8e746bc0de') in 0.007196 seconds
+  Import took 0.013114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion_SkeletonData.json
+  artifactKey: Guid(cdc02af9c2112a44aa201db17cad3255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion_SkeletonData.json using Guid(cdc02af9c2112a44aa201db17cad3255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23487c5dc3506176e5190f80d0b2f563') in 0.017563 seconds
+  Import took 0.023443 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000544 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion_Atlas.json
+  artifactKey: Guid(962285543a1fe4c4c9523fe92d8bbe15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion_Atlas.json using Guid(962285543a1fe4c4c9523fe92d8bbe15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38f766871d1d3cbc2c843a3ba537f65f') in 0.006065 seconds
+  Import took 0.014370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.057371 seconds.
+  path: Assets/resource/spine/Emotion/human_emotion.skel.bytes
+  artifactKey: Guid(2512214e90ed0a940b7291c248040a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/resource/spine/Emotion/human_emotion.skel.bytes using Guid(2512214e90ed0a940b7291c248040a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b755bb21ad93016a190411a7e53822a8') in 0.006813 seconds
+  Import took 0.018125 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011708 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 91.09 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.371 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005880 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.765 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.53 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.3 MB.
+System memory in use after: 107.2 MB.
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2611.
+Total: 4.215400 ms (FindLiveObjects: 0.734600 ms CreateObjectMapping: 0.117000 ms MarkObjects: 2.089600 ms  DeleteObjects: 1.272600 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010104 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 93.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.563 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006208 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.020 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 107.5 MB.
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2616.
+Total: 5.575200 ms (FindLiveObjects: 1.062000 ms CreateObjectMapping: 0.208200 ms MarkObjects: 2.593400 ms  DeleteObjects: 1.709300 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010437 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 94.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.936 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006885 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.925 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.1 MB.
+System memory in use after: 107.0 MB.
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2621.
+Total: 6.318800 ms (FindLiveObjects: 1.051000 ms CreateObjectMapping: 0.206700 ms MarkObjects: 3.019300 ms  DeleteObjects: 2.039600 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004882 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 59.04 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  7.710 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002663 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.173 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.06 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.4 MB.
+System memory in use after: 107.5 MB.
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2626.
+Total: 4.284300 ms (FindLiveObjects: 0.723600 ms CreateObjectMapping: 0.088500 ms MarkObjects: 2.171300 ms  DeleteObjects: 1.299400 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b7/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003952 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 53.18 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  7.250 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002176 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Admin\Documents\GitHub\Vineyard\Unity\라이트닝 팩맨\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.993 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 74 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 107.6 MB.
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2631.
+Total: 6.520600 ms (FindLiveObjects: 0.998100 ms CreateObjectMapping: 0.161200 ms MarkObjects: 3.461600 ms  DeleteObjects: 1.897300 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
