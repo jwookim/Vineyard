@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,12 @@ public enum DIRECT
     LEFT,
     RIGHT
 }
+
+enum MOTION
+{
+    Idle,
+    Run
+}
 public abstract class Character : SpriteObj
 {
     protected const float defaultSpeed = 2f;
@@ -16,6 +23,14 @@ public abstract class Character : SpriteObj
 
     protected Vector3 curDir;
 
+    [SerializeField] SkeletonDataAsset normal_front;
+    [SerializeField] SkeletonDataAsset normal_back;
+    [SerializeField] SkeletonDataAsset normal_side;
+
+
+    SkeletonDataAsset curSkel;
+
+    SkeletonMecanim skeletonMecanim;
 
     private float Speed;
 
@@ -23,6 +38,8 @@ public abstract class Character : SpriteObj
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        skeletonMecanim = transform.GetChild(0).GetComponent<SkeletonMecanim>();
+        curSkel = null;
         curDir = Vector3.zero;
         Speed = defaultSpeed;
         moveDistance = 1f;
@@ -44,6 +61,13 @@ public abstract class Character : SpriteObj
         else if (curDir == Vector3.left)
             transform.localScale = Vector3.one;
 
+        if (dir == Vector3.up)
+            ChangeSkel(normal_back);
+        else if (dir == Vector3.down)
+            ChangeSkel(normal_front);
+        else
+            ChangeSkel(normal_side);
+
         curDir = dir;
     }
 
@@ -52,6 +76,22 @@ public abstract class Character : SpriteObj
     {
         Turn(-curDir);
         moveDistance = 1f - moveDistance;
+    }
+
+    protected void ChangeSkel(SkeletonDataAsset skel)
+    {
+        if (curSkel == skel)
+            return;
+
+        curSkel = skel;
+
+        skeletonMecanim.skeletonDataAsset = curSkel;
+        skeletonMecanim.Initialize(true);
+    }
+
+    void ChangeAnime(MOTION motion)
+    {
+
     }
 
     private void Move()
