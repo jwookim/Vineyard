@@ -5,10 +5,9 @@ using UnityEngine;
 
 public enum DIRECT
 {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+    FRONT,
+    BACK,
+    SIDE
 }
 
 enum MOTION
@@ -19,26 +18,34 @@ enum MOTION
 public abstract class Character : SpriteObj
 {
     protected const float defaultSpeed = 2f;
-    protected const float slowSpeed = 1f;
+    protected const float runSpeed = 2.5f;
+    protected const float slowSpeed = 1.5f;
 
     protected Vector3 curDir;
 
-    [SerializeField] SkeletonDataAsset normal_front;
-    [SerializeField] SkeletonDataAsset normal_back;
-    [SerializeField] SkeletonDataAsset normal_side;
+    [SerializeField] protected SkeletonDataAsset normal_front;
+    [SerializeField] protected SkeletonDataAsset normal_back;
+    [SerializeField] protected SkeletonDataAsset normal_side;
 
 
     SkeletonDataAsset curSkel;
 
     SkeletonMecanim skeletonMecanim;
 
-    private float Speed;
+    protected float Speed;
 
     protected float moveDistance;
+
+    protected Animator animator;
     // Start is called before the first frame update
-    protected virtual void Start()
+
+    protected virtual void Awake()
     {
         skeletonMecanim = transform.GetChild(0).GetComponent<SkeletonMecanim>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
+    }
+    protected virtual void Start()
+    {
         curSkel = null;
         curDir = Vector3.zero;
         Speed = defaultSpeed;
@@ -49,6 +56,15 @@ public abstract class Character : SpriteObj
     protected virtual void Update()
     {
         Move();
+    }
+
+
+    public virtual void Initialization()
+    {
+        transform.localScale = Vector3.one;
+        curDir = Vector3.zero;
+        moveDistance = 1f;
+        Speed = defaultSpeed;
     }
 
     protected virtual void Turn(Vector3 dir)
@@ -62,13 +78,16 @@ public abstract class Character : SpriteObj
             transform.localScale = Vector3.one;
 
         if (dir == Vector3.up)
-            ChangeSkel(normal_back);
+            ChangeSkel(DIRECT.BACK);
         else if (dir == Vector3.down)
-            ChangeSkel(normal_front);
+            ChangeSkel(DIRECT.FRONT);
         else
-            ChangeSkel(normal_side);
+            ChangeSkel(DIRECT.SIDE);
 
         curDir = dir;
+
+        animator.SetInteger("Vertical", (int)curDir.y);
+        animator.SetInteger("Horizontal", (int)curDir.x);
     }
 
 
@@ -78,28 +97,41 @@ public abstract class Character : SpriteObj
         moveDistance = 1f - moveDistance;
     }
 
+    protected virtual void ChangeSkel(DIRECT direct)
+    {
+        switch(direct)
+        {
+            case DIRECT.FRONT:
+                ChangeSkel(normal_front);
+                break;
+            case DIRECT.BACK:
+                ChangeSkel(normal_back);
+                break;
+            case DIRECT.SIDE:
+                ChangeSkel(normal_side);
+                break;
+        }
+    }
+
     protected void ChangeSkel(SkeletonDataAsset skel)
     {
         if (curSkel == skel)
             return;
 
+        /*if (curSkel == null)
+            curSkel = skel;*/
         curSkel = skel;
 
         skeletonMecanim.skeletonDataAsset = curSkel;
         skeletonMecanim.Initialize(true);
     }
 
-    void ChangeAnime(MOTION motion)
-    {
-
-    }
 
     private void Move()
     {
-        
 
         float deltaTime = Time.deltaTime * Speed * GameManager.Instance.timeScale;
-        Vector3 moveVec = curDir;
+        Vector3 moveVec;
 
         while (deltaTime > 0f)
         {
@@ -107,12 +139,14 @@ public abstract class Character : SpriteObj
             {
                 transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), transform.position.z);
                 DicisionDir();
-                if (GameManager.Instance.mapCheck(transform.position + curDir))
+                if (GameManager.Instance.mapCheck(transform.position + curDir) || curDir == Vector3.zero)
                 {
+                    animator.SetBool("Move", false);
                     break;
                 }
             }
 
+            moveVec = curDir;
             if (deltaTime >= moveDistance)
             {
                 deltaTime -= moveDistance;
@@ -128,9 +162,30 @@ public abstract class Character : SpriteObj
             }
 
             transform.position += moveVec;
+            animator.SetBool("Move", true);
 
         }
 
     }
-    protected abstract void DicisionDir();
+
+    private void ReversalPosition()
+    {
+        Vector3 point = Vector3.zero;
+        if(transform.position.x <= 0f)
+            point = transform.position + new Vector3(GameManager.Instance.Max_x - 1, 0f);
+        else if(transform.position.x >= GameManager.Instance.Max_x - 1)
+            point = transform.position - new Vector3(GameManager.Instance.Max_x - 1, 0f);
+
+        if (transform.position.y <= 0f)
+            point = transform.position + new Vector3(0f, GameManager.Instance.Max_y - 1);
+        else if (transform.position.y >= GameManager.Instance.Max_y - 1)
+            point = transform.position + new Vector3(0f, GameManager.Instance.Max_y - 1);
+
+        if (point != Vector3.zero && !GameManager.Instance.mapCheck(point))
+            transform.position = point;
+    }
+    protected virtual void DicisionDir()
+    {
+        ReversalPosition();
+    }
 }

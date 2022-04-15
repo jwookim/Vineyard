@@ -407,7 +407,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -494,6 +494,27 @@ TextureImporter:
       bones: []
       spriteID: 25e937cde0a03a050800000000000000
       internalID: 5810499003182456402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_ui_1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 405
+        width: 66
+        height: 66
+      alignment: 9
+      pivot: {x: 0.29121837, y: -0.3469474}
+      border: {x: 36, y: 29, z: 15, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ab90ad7db7aeaa0800000000000000
+      internalID: -6130951775705253261
       vertices: []
       indices: 
       edges: []

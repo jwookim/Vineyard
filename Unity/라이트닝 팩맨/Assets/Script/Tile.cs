@@ -44,12 +44,12 @@ public class Tile : MonoBehaviour
         Gizmos.color = Color.red;
         if (isHit)
         {
-            Gizmos.DrawRay(transform.position, transform.forward * hit.distance);
-            Gizmos.DrawWireCube(transform.position + transform.forward * hit.distance, transform.lossyScale/2f);
+            Gizmos.DrawRay(transform.position, Vector3.back * hit.distance);
+            Gizmos.DrawWireCube(transform.position + Vector3.back * hit.distance, transform.lossyScale/2f);
         }
         else
         {
-            Gizmos.DrawRay(transform.position, transform.forward * 1f);
+            Gizmos.DrawRay(transform.position, Vector3.back * 1f);
         }
     }
 

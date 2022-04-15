@@ -9,6 +9,12 @@ public class Invader_knight : Enemy
     {
         base.Start();
     }
+
+
+    protected override void ChangeSkel(DIRECT direct)
+    {
+        OriginChangeSkel(direct);
+    }
     protected override Vector3 TargetCoord()
     {
         return GameManager.Instance.GetPlayerFrontCoord(chasingDist);

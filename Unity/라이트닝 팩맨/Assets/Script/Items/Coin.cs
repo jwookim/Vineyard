@@ -6,11 +6,12 @@ public class Coin : Item
 {
     const float rotateTime = 1f;
     const float rotateSpeed = 3f;
+    const int coinScore = 10;
 
     protected override void Start()
     {
         base.Start();
-        score = 10;
+        score = coinScore;
     }
 
 
@@ -21,16 +22,18 @@ public class Coin : Item
 
         float limit = rotateTime;
         Quaternion defaultRotation = transform.GetChild(0).rotation;
-        while(limit > 0f)
+        Vector3 defaultPosition = transform.GetChild(0).position;
+        while (limit > 0f)
         {
             transform.GetChild(0).Rotate(Vector3.up * Time.deltaTime * rotateSpeed * 360f, Space.Self);
-            transform.position += new Vector3(0f, Time.deltaTime, 0f);
+            transform.GetChild(0).position += new Vector3(0f, 0.5f, -0.5f) * Time.deltaTime;
             limit -= Time.deltaTime;
             yield return null;
         }
 
-        transform.GetChild(0).rotation = defaultRotation;
         audioSource.Stop();
         gameObject.SetActive(false);
+        transform.GetChild(0).rotation = defaultRotation;
+        transform.GetChild(0).position = defaultPosition;
     }
 }

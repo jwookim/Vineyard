@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Elixir : Item
 {
+    const int ElixirScore = 50;
     protected override void Start()
     {
         base.Start();
-        score = 50;
+        score = ElixirScore;
     }
     protected override IEnumerator DirectingGetItem()
     {

@@ -53,7 +53,9 @@
     <UnityVersion>2020.2.0b7</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\JsonClass.cs" />
     <Compile Include="Assets\Script\Items\Elixir.cs" />
+    <Compile Include="Assets\Script\InvaderShip.cs" />
     <Compile Include="Assets\Script\Character\Enemy.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Character\Invader_knight.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Assets\Script\Tile.cs" />
     <Compile Include="Assets\Script\Character\Invader_soldier.cs" />
     <Compile Include="Assets\Script\Singleton.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Spine\version.txt" />

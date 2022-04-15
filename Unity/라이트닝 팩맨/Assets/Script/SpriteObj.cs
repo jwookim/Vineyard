@@ -7,11 +7,13 @@ public abstract class SpriteObj : MonoBehaviour
 
     public void toProspective()
     {
-        transform.GetChild(0).rotation = Quaternion.Euler(transform.rotation.x, -45f, transform.rotation.z);
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).rotation = Quaternion.Euler(-45f, transform.rotation.y, transform.rotation.z);
     }
 
     public void toOrthograghpic()
     {
-        transform.GetChild(0).rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
     }
 }

@@ -7,7 +7,7 @@ public abstract class Item : SpriteObj
     const float size = 0.5f;
 
     protected int score;
-    protected bool activate;
+    public bool activate { get; protected set; }
 
 
     protected AudioSource audioSource;
@@ -44,8 +44,8 @@ public abstract class Item : SpriteObj
     protected virtual void intoPocket()
     {
         activate = false;
-        GameManager.Instance.increaseScore(score);
         StartCoroutine(DirectingGetItem());
+        GameManager.Instance.increaseScore(score);
     }
 
     protected abstract IEnumerator DirectingGetItem();

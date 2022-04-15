@@ -14,6 +14,6 @@ public class Invader_assassin : Enemy
 
     public override void SetScatterPoint(int xMax, int yMax)
     {
-        ScatterPoint = new Vector3(1f, GameManager.Instance.Max_y - 2f, 0f);
+        ScatterPoint = new Vector3(GameManager.Instance.Max_x - 2f, 1f, 0f);
     }
 }

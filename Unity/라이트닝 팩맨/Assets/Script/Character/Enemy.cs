@@ -1,12 +1,14 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum MODE
+public enum MODE
 {
     CHASE,
     SCATTER,
     FRIGHTENED,
+    COLLAPSE,
     EATEN
 }
 public abstract class Enemy : Character
@@ -14,23 +16,36 @@ public abstract class Enemy : Character
     List<Vector3> aroundCheck;
     MODE curMode;
 
-    
+    private float modeDuration;
     // Start is called before the first frame update
 
     protected Vector3 ScatterPoint;
 
-    private void Awake()
+
+    [SerializeField] protected SkeletonDataAsset dead_front;
+    [SerializeField] protected SkeletonDataAsset dead_back;
+    [SerializeField] protected SkeletonDataAsset dead_side;
+
+    [SerializeField] private AudioClip deadSound;
+    [SerializeField] private AudioClip attackSound;
+    protected override void Awake()
     {
         aroundCheck = new List<Vector3>();
+        base.Awake();
     }
 
     protected override void Start()
     {
         base.Start();
-        Turn(Vector3.up);
-        curMode = MODE.CHASE;
+        Initialization();
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if (curMode == MODE.COLLAPSE)
+            DurationCheck();
+    }
     protected abstract Vector3 TargetCoord();
 
     private Vector3 calcDestination()
@@ -49,6 +64,7 @@ public abstract class Enemy : Character
     }
     protected override void DicisionDir()
     {
+        base.DicisionDir();
 
         if (!GameManager.Instance.mapCheck(transform.position + Vector3.up))
             aroundCheck.Add(Vector3.up);
@@ -103,17 +119,152 @@ public abstract class Enemy : Character
         aroundCheck.Clear();
     }
 
+    protected override void ChangeSkel(DIRECT direct)
+    {
+        if (curMode != MODE.EATEN)
+            base.ChangeSkel(direct);
+        else
+        {
+            switch (direct)
+            {
+                case DIRECT.FRONT:
+                    ChangeSkel(dead_front);
+                    break;
+                case DIRECT.BACK:
+                    ChangeSkel(dead_back);
+                    break;
+                case DIRECT.SIDE:
+                    ChangeSkel(dead_side);
+                    break;
+            }
+        }
+    }
+
+    protected void OriginChangeSkel(DIRECT direct)
+    {
+        base.ChangeSkel(direct);
+    }
 
     private void ChangeMode(MODE mode)
     {
-        if(mode != curMode)
-            curMode = mode;
+        if (mode == curMode)
+            return;
+
+        MODE tmp = curMode;
+        curMode = mode;
+
+        switch(mode)
+        {
+            case MODE.CHASE:
+                Speed = defaultSpeed;
+                break;
+            case MODE.SCATTER:
+                if (tmp == MODE.CHASE)
+                    TurnBack();
+                Speed = defaultSpeed;
+                break;
+            case MODE.COLLAPSE:
+                Speed = 0f;
+                modeDuration = 2.5f;
+                break;
+            case MODE.FRIGHTENED:
+                TurnBack();
+                Speed = slowSpeed;
+                break;
+            case MODE.EATEN:
+                Speed = slowSpeed;
+
+                if (curDir == Vector3.up)
+                    ChangeSkel(DIRECT.BACK);
+                else if (curDir == Vector3.down)
+                    ChangeSkel(DIRECT.FRONT);
+                else
+                    ChangeSkel(DIRECT.SIDE);
+                break;
+        }
+
+
+        animator.SetInteger("Mode", (int)mode);
+    }
+
+    public virtual void ChangeOrder(MODE mode)
+    {
+        if (curMode == MODE.CHASE || curMode == MODE.SCATTER)
+            ChangeMode(mode);
     }
 
     public abstract void SetScatterPoint(int xMax, int yMax);
 
+    void DurationCheck()
+    {
+        modeDuration -= Time.deltaTime * GameManager.Instance.timeScale;
+
+        if (modeDuration <= 0f)
+        {
+            ChangeMode(MODE.EATEN);
+            modeDuration = 0f;
+        }
+    }
+
+    public void Suprise()
+    {
+        if (curMode == MODE.CHASE || curMode == MODE.SCATTER)
+            ChangeMode(MODE.FRIGHTENED);
+    }
+
+    public void CalmDown()
+    {
+        if (curMode == MODE.FRIGHTENED)
+            ChangeMode(GameManager.Instance.getMode());
+    }
+
     public void Dead()
     {
-        ChangeMode(MODE.EATEN);
+        gameObject.GetComponent<AudioSource>().clip = deadSound;
+        gameObject.GetComponent<AudioSource>().Play();
+        GameManager.Instance.killVillain();
+        ChangeMode(MODE.COLLAPSE);
+
+        ChangeSkel(DIRECT.SIDE);
+    }
+
+    IEnumerator Attack()
+    {
+        GameManager.Instance.HitLana();
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<AudioSource>().clip = attackSound;
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+
+    public override void Initialization()
+    {
+        base.Initialization();
+        //Turn(Vector3.up);
+        ChangeMode(GameManager.Instance.getMode());
+
+        if (curDir == Vector3.up)
+            ChangeSkel(DIRECT.BACK);
+        else if (curDir == Vector3.down)
+            ChangeSkel(DIRECT.FRONT);
+        else
+            ChangeSkel(DIRECT.SIDE);
+    }
+
+    public bool EatenCheck()
+    {
+        return curMode == MODE.EATEN ? true : false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (curMode == MODE.FRIGHTENED)
+                Dead();
+
+            if (curMode == MODE.CHASE || curMode == MODE.SCATTER)
+                StartCoroutine(Attack());
+        }
     }
 }
