@@ -22,7 +22,7 @@ public abstract class Item : SpriteObj
             CollisionCheck();
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         activate = true;
     }

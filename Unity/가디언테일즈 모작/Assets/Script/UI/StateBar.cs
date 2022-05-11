@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class StateBar : MonoBehaviour
 {
     GameObject HpBar;
-    GameObject SpBar;
 
     public GameObject parent;
 
@@ -14,7 +13,6 @@ public class StateBar : MonoBehaviour
     private void Awake()
     {
         HpBar = transform.Find("HpBar").gameObject;
-        SpBar = transform.Find("SpBar").gameObject;
     }
 
     private void Start()
@@ -22,12 +20,11 @@ public class StateBar : MonoBehaviour
     }
 
 
-    public void Activate(float Hpguage, float Spguage)
+    public void Activate(float Hpguage)
     {
         gameObject.SetActive(true);
 
         HpUpdate(Hpguage);
-        SpUpdate(Spguage);
     }
 
 
@@ -47,11 +44,4 @@ public class StateBar : MonoBehaviour
         }
     }
 
-    public void SpUpdate(float guage)
-    {
-        if (gameObject.activeSelf)
-        {
-            SpBar.GetComponent<Image>().fillAmount = guage;
-        }
-    }
 }

@@ -43,9 +43,11 @@ public class MenuManager : MonoBehaviour
         if (!check)
             return;
 
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
             ScoreView();
-        else if(Input.anyKeyDown)
+        else if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             StopCoroutine(blinkText);
             blinkText = StartCoroutine(PressBlinkText());

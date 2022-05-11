@@ -57,30 +57,47 @@
     <Compile Include="Assets\Script\Items\Elixir.cs" />
     <Compile Include="Assets\Script\InvaderShip.cs" />
     <Compile Include="Assets\Script\Character\Enemy.cs" />
+    <Compile Include="Assets\Script\ActScene\EventScene2.cs" />
+    <Compile Include="Assets\Script\ActScene\ClearScene.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Character\Invader_knight.cs" />
+    <Compile Include="Assets\Script\ActScene\FailScene.cs" />
     <Compile Include="Assets\Script\Items\Item.cs" />
     <Compile Include="Assets\Script\Character\Lana.cs" />
+    <Compile Include="Assets\Script\temp\jsonSave.cs" />
+    <Compile Include="Assets\Script\SlowArea.cs" />
     <Compile Include="Assets\Script\Character\Invader_magician.cs" />
     <Compile Include="Assets\Script\SpriteObj.cs" />
     <Compile Include="Assets\Script\Character\Character.cs" />
     <Compile Include="Assets\Script\Character\Invader_assassin.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
     <Compile Include="Assets\Script\Items\Coin.cs" />
     <Compile Include="Assets\Script\Tile.cs" />
+    <Compile Include="Assets\Script\SoundEffectManager.cs" />
     <Compile Include="Assets\Script\Character\Invader_soldier.cs" />
+    <Compile Include="Assets\Script\ActScene\EventScene1.cs" />
     <Compile Include="Assets\Script\Singleton.cs" />
-    <Compile Include="Assets\Script\MenuManager.cs" />
+    <Compile Include="Assets\Script\ActScene\EventScene3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Spine\version.txt" />
-    <None Include="Assets\resource\spine\Lana\Original_Lana\onigirl.atlas.txt" />
-    <None Include="Assets\resource\spine\Emotion\human_emotion.atlas.txt" />
-    <None Include="Assets\resource\spine\Invader_Soldier\invader_soldier.atlas.txt" />
-    <None Include="Assets\resource\spine\Invader_Assassin\invader_assassin.atlas.txt" />
-    <None Include="Assets\resource\spine\Lana\WheelChair_Lana\futurecastle_onigirl_wheelchair.atlas.txt" />
-    <None Include="Assets\resource\spine\Ghost\coop_ghost.atlas.txt" />
-    <None Include="Assets\resource\spine\Invader_Magician\invader_magician.atlas.txt" />
-    <None Include="Assets\resource\spine\Invader_Knight\invader_knight.atlas.txt" />
+    <None Include="Assets\Data\spine\Lana\Original_Lana\onigirl.atlas.txt" />
+    <None Include="Assets\Data\spine\Emotion\bright\human_emotion.atlas.txt" />
+    <None Include="Assets\Data\spine\Robot\teatan_robot_empty.atlas.txt" />
+    <None Include="Assets\Data\spine\Clara\saintess.atlas.txt" />
+    <None Include="Assets\Data\spine\Emotion\human_emotion.atlas.txt" />
+    <None Include="Assets\Data\spine\Invader_Soldier\invader_soldier.atlas.txt" />
+    <None Include="Assets\Data\spine\Eva\idol_captain_5.atlas.txt" />
+    <None Include="Assets\Data\spine\Invader_Assassin\invader_assassin.atlas.txt" />
+    <None Include="Assets\Data\spine\Lana\WheelChair_Lana\futurecastle_onigirl_wheelchair.atlas.txt" />
+    <None Include="Assets\Data\spine\Ghost\coop_ghost.atlas.txt" />
+    <None Include="Assets\Data\spine\Invader_Magician\invader_magician.atlas.txt" />
+    <None Include="Assets\Data\spine\Lana\Original_Lana\ClearMode\onigirl.atlas.txt" />
+    <None Include="Assets\Data\spine\Marvin\desert_slave_idol.atlas.txt" />
+    <None Include="Assets\Data\spine\Guardian\knight_female_1.atlas.txt" />
+    <None Include="Assets\Data\spine\Invader_Knight\invader_knight.atlas.txt" />
+    <None Include="Assets\Data\spine\Eva\idol_captain_3.atlas.txt" />
+    <None Include="Assets\Data\spine\Mayreel\bari_mayreel.atlas.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

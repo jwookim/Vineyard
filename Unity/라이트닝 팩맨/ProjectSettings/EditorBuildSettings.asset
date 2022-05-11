@@ -11,4 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ClearScene.unity
+    guid: 6b9c2f43a0018814291b7c58efc9dacf
+  - enabled: 1
+    path: Assets/Scenes/FailScene.unity
+    guid: 75238ae89f8725a40a99f00b9cec4d85
+  - enabled: 1
+    path: Assets/Scenes/EventScene1.unity
+    guid: c258e1ef728af074ab8f079bb733af08
+  - enabled: 1
+    path: Assets/Scenes/EventScene2.unity
+    guid: fabeddbf77ee0a84ba9c71dac544c50e
+  - enabled: 1
+    path: Assets/Scenes/EventScene3.unity
+    guid: 2dd20776852fbf144b28a55ac13e6b74
   m_configObjects: {}

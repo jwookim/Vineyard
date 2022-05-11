@@ -16,7 +16,7 @@ public class Lana : Character
 
     GameObject victoryMecanim;
 
-    [SerializeField] AudioClip Scream, Clear;
+    [SerializeField] AudioClip Scream;
 
     protected override void Awake()
     {
@@ -182,8 +182,6 @@ public class Lana : Character
         if (!isFever)
             victoryMecanim.SetActive(true);
 
-        GetComponent<AudioSource>().clip = Clear;
-        GetComponent<AudioSource>().Play();
 
         controllable = false;
 

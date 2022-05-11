@@ -44,7 +44,7 @@ public class InvaderShip : MonoBehaviour
     public void StorageInvader(GameObject invader)
     {
         invader.SetActive(false);
-        invader.transform.position = transform.position;
+        invader.transform.position = GameManager.Instance.Max_x % 2 == 0 ? GameManager.Instance.ShipPosition + new Vector3(0.5f, 0f, 0f) : GameManager.Instance.ShipPosition;
 
         Enemies.Enqueue(invader.GetComponent<Enemy>());
     }

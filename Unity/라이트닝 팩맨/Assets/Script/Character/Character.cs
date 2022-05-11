@@ -2,6 +2,7 @@ using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum DIRECT
 {
@@ -17,8 +18,8 @@ enum MOTION
 }
 public abstract class Character : SpriteObj
 {
-    protected const float defaultSpeed = 2f;
-    protected const float runSpeed = 2.5f;
+    protected const float defaultSpeed = 3f;
+    protected const float runSpeed = 3.5f;
     protected const float slowSpeed = 1.5f;
 
     protected Vector3 curDir;
@@ -46,7 +47,7 @@ public abstract class Character : SpriteObj
     }
     protected virtual void Start()
     {
-        curSkel = null;
+        curSkel = normal_side;
         curDir = Vector3.zero;
         Speed = defaultSpeed;
         moveDistance = 1f;
@@ -62,8 +63,8 @@ public abstract class Character : SpriteObj
     public virtual void Initialization()
     {
         transform.localScale = Vector3.one;
-        curDir = Vector3.zero;
-        moveDistance = 1f;
+        curDir = Vector3.right;
+        moveDistance = 0f;
         Speed = defaultSpeed;
     }
 

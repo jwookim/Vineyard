@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     {
         if (controlable)
             Control();
+        
     }
 
 
@@ -68,6 +69,13 @@ public class Player : MonoBehaviour
 
         party[LeaderNum].MoveControl(dir);
 
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+            party[LeaderNum].KeyDownAttack();
+        
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+            party[LeaderNum].KeyUpAttack();
+
         if (Input.GetKey(KeyCode.LeftShift))
             party[LeaderNum].doRun();
 
@@ -80,6 +88,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
             party[LeaderNum].InteractionCancel();
+
+        if (party[LeaderNum].gameObject.activeSelf)
+            GameManager.Instance.CameraMove(party[LeaderNum].gameObject);
     }
 
     public void Placement(Vector3 pos)

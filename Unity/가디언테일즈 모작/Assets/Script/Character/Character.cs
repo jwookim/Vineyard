@@ -23,7 +23,8 @@ public abstract class Character : MonoBehaviour
 {
     const float DustGenTime = 0.07f;  // 달리기 시 먼지 생성 시간
 
-    const float DefaultSpeed = 4f;  // 기본 이동속도
+    protected const float DefaultSpeed = 4f;  // 기본 이동속도
+    protected const float slowScale = 0.5f;
     const float RunScale = 1.5f;  // 달리기 배율
     const float StairSlow = 0.3f; // 계단 위 감속
 
@@ -35,24 +36,35 @@ public abstract class Character : MonoBehaviour
 
     const float DmgCooldown = 0.5f;
 
+    const float DodgeCooldown = 3f;
 
     [SerializeField] private Animator animator;
     private GameObject[] CharDir = new GameObject[4];  // 방향별 모델링
 
-    private DIRECT curDir; // 캐릭터가 보는 방향
+    protected DIRECT curDir; // 캐릭터가 보는 방향
 
-    private Vector2 direction;  // 움직이는 방향
+    protected Vector2 direction;  // 움직이는 방향
 
     private bool isRun;  // 달리기 여부
 
     protected Weapon weapon;
 
-    protected Action Attack;  // 공격 delegate
+    [SerializeField] protected GameObject HpBar;
 
     private STATE curState;
 
     private bool Controlable;  // 컨트롤 가능 여부
+
+    private bool isAttack; // 공격중인가?
+    protected bool attackOrder;
+
+    private float dodgeTime;
+
     private Coroutine MovingFunc;
+
+    protected delegate IEnumerator delegateCoroutine();
+
+    protected delegateCoroutine AttackCoroutine;
 
     private Objects InteractObject;
 
@@ -66,10 +78,14 @@ public abstract class Character : MonoBehaviour
 
     protected float Speed;
 
+    protected float Power;
+
+    protected float Defensive;
+    protected float MagicResist;
 
     protected float MaxHp;
 
-    protected float curHp;
+    [SerializeField]protected float curHp;
 
     //////////////////////
     protected virtual void Awake()
@@ -86,13 +102,18 @@ public abstract class Character : MonoBehaviour
 
         isRun = false;
 
+        isAttack = false;
+        attackOrder = false;
+
+        dodgeTime = 0f;
+
         weapon = null;
 
         direction = Vector2.zero;
 
         Speed = DefaultSpeed;
 
-        Attack = null;
+        AttackCoroutine = null;
 
         Controlable = true;
 
@@ -104,6 +125,8 @@ public abstract class Character : MonoBehaviour
         TrapHitTime = 0f;
 
         onStair = false;
+
+        HpBar.GetComponent<StateBar>().parent = gameObject;
     }
 
     protected virtual void OnEnable()
@@ -122,6 +145,7 @@ public abstract class Character : MonoBehaviour
     {
         StopAllCoroutines();
         MovingFunc = null;
+        HpBar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -137,6 +161,9 @@ public abstract class Character : MonoBehaviour
     {
         if (TrapHitTime > 0f)
             TrapHitTime -= Time.deltaTime * GameManager.Instance.TimeScale;
+
+        if(dodgeTime > 0f)
+            dodgeTime -= Time.deltaTime * GameManager.Instance.TimeScale;
     }
 
     protected float GetHalfSize()
@@ -158,7 +185,7 @@ public abstract class Character : MonoBehaviour
 
         if(dir!=direction)
         {
-            if (dir != Vector2.zero)
+            if (dir != Vector2.zero && !isAttack)
             {
                 if (direction == Vector2.zero)
                 {
@@ -375,6 +402,18 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public void KeyDownAttack()
+    {
+        attackOrder = true;
+        if (!isAttack && InteractObject == null)
+            StartCoroutine(DuringAttack());
+    }
+
+    public void KeyUpAttack()
+    {
+        attackOrder = false;
+    }
+
     public void Interaction()
     {
         if(!Controlable)
@@ -518,6 +557,12 @@ public abstract class Character : MonoBehaviour
     public void doRun()
     {
         isRun = true;
+
+        if (isAttack && dodgeTime <= 0f)
+        {
+            CoroutineStop();
+            MovingFunc = StartCoroutine(Dodge());
+        }
     }
 
     public void doWalk()
@@ -556,10 +601,6 @@ public abstract class Character : MonoBehaviour
     }
 
 
-    protected void SwordAttack()
-    {
-
-    }
 
     protected void Skill()
     {
@@ -567,12 +608,30 @@ public abstract class Character : MonoBehaviour
             ;
     }
 
+    public virtual float Damage(float damage, AttackType type)
+    {
+        if (type == AttackType.Type_Melee)
+            damage -= Defensive;
+        else if (type == AttackType.Type_Magic)
+            damage -= MagicResist;
+
+        curHp -= damage;
+
+        HpBar.GetComponent<StateBar>().HpUpdate(curHp / MaxHp);
+
+        if (curHp <= 0f)
+            Dead();
+
+        return damage;
+    }
+
+
     public void HitbyTrap()
     {
         if (TrapHitTime <= 0f)
         {
             KnockBack();
-
+            Damage(MaxHp / 10f, AttackType.Type_True);
             TrapHitTime = TrapCooldown;
         }
     }
@@ -845,6 +904,41 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    IEnumerator DuringAttack()
+    {
+        if (AttackCoroutine == null)
+            yield break;
+
+        if (MovingFunc != null)
+            CoroutineStop();
+        isAttack = true;
+
+        yield return MovingFunc = StartCoroutine(AttackCoroutine());
+
+        if (isAttack)
+        {
+            CoroutineStop();
+            isAttack = false;
+        }
+    }
+
+    IEnumerator Dodge()
+    {
+        float timer = 0.2f;
+
+        dodgeTime = DodgeCooldown;
+        while (timer > 0f)
+        {
+            if (direction != Vector2.zero)
+                Move(direction * DefaultSpeed * 2f);
+            timer -= Time.deltaTime * GameManager.Instance.TimeScale;
+            yield return null;
+        }
+
+        CoroutineStop();
+        isAttack = false;
+    }
+
     IEnumerator DuringLift()
     {
         curState = STATE.STATE_LIFT;
@@ -993,9 +1087,15 @@ public abstract class Character : MonoBehaviour
     {
         while (true)
         {
-            if (curState == STATE.STATE_NORMAL && isRun && direction != Vector2.zero)
+            if (curState == STATE.STATE_NORMAL && isRun && !isAttack && direction != Vector2.zero)
                 ObjectPoolManger.Instance.GenerateDust(CharDir[(int)curDir].transform.Find("Shadow").position);
             yield return new WaitForSeconds(DustGenTime);
         }
     }    
+
+
+    void Dead()
+    {
+        gameObject.SetActive(false);
+    }
 }

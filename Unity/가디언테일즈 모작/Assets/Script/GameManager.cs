@@ -10,12 +10,14 @@ public class GameManager : Singletone<GameManager>
     const float TwiceSpeed = 2f;
     public float TimeScale { get; private set; }
     Player playerManager;
+    GameObject MainCamera;
 
     [SerializeField] Notice notice;
     [SerializeField] Covering covering;
 
     private void Awake()
     {
+        MainCamera = GameObject.Find("Main Camera");
         playerManager = GetComponent<Player>();
     }
 
@@ -71,6 +73,16 @@ public class GameManager : Singletone<GameManager>
     }
 
 
+
+    public void Attackto(GameObject offense, GameObject Defense, AttackType type, float Damage)
+    {
+        Defense.GetComponent<Character>().Damage(Damage, type);
+    }
+
+    public void CameraMove(GameObject Object)
+    {
+        MainCamera.transform.position = Object.transform.position + new Vector3(0f, 14f, -4f);
+    }
 
     IEnumerator Teleport(Vector3 pos)
     {

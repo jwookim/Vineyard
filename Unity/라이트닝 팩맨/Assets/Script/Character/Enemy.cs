@@ -57,7 +57,7 @@ public abstract class Enemy : Character
             case MODE.SCATTER:
                 return ScatterPoint;
             case MODE.EATEN:
-                return GameManager.Instance.ShipPosition;
+                return GameManager.Instance.Max_x % 2 == 0 ? GameManager.Instance.ShipPosition + new Vector3(0.5f, 0f, 0f) : GameManager.Instance.ShipPosition;
         }
 
         return default;
@@ -145,7 +145,7 @@ public abstract class Enemy : Character
         base.ChangeSkel(direct);
     }
 
-    private void ChangeMode(MODE mode)
+    protected virtual void ChangeMode(MODE mode)
     {
         if (mode == curMode)
             return;
@@ -254,6 +254,22 @@ public abstract class Enemy : Character
     public bool EatenCheck()
     {
         return curMode == MODE.EATEN ? true : false;
+    }
+
+    public void getSlow()
+    {
+        if (curMode == MODE.CHASE || curMode == MODE.SCATTER)
+        {
+            Speed = slowSpeed;
+        }
+    }
+
+    public void breakSlow()
+    {
+        if (curMode == MODE.CHASE || curMode == MODE.SCATTER)
+        {
+            Speed = defaultSpeed;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

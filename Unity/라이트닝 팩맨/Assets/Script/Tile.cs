@@ -44,18 +44,18 @@ public class Tile : MonoBehaviour
         Gizmos.color = Color.red;
         if (isHit)
         {
-            Gizmos.DrawRay(transform.position, Vector3.back * hit.distance);
-            Gizmos.DrawWireCube(transform.position + Vector3.back * hit.distance, transform.lossyScale/2f);
+            Gizmos.DrawRay(transform.position + Vector3.forward * 0.5f, Vector3.back * hit.distance);
+            Gizmos.DrawWireCube(transform.position + Vector3.forward * 0.5f + Vector3.back * hit.distance, transform.lossyScale / 2f);
         }
         else
         {
-            Gizmos.DrawRay(transform.position, Vector3.back * 1f);
+            Gizmos.DrawRay(transform.position + Vector3.forward * 0.5f, Vector3.back * 1f);
         }
     }
 
     public bool WallCheck()
     {
-        return Physics.BoxCast(transform.position + Vector3.forward*0.5f, transform.lossyScale / 4f, Vector3.back, Quaternion.identity, 1f, LayerMask.GetMask("Wall"));
+        return Physics.BoxCast(transform.position + Vector3.forward * 0.5f, transform.lossyScale / 4f, Vector3.back, Quaternion.identity, 1f, LayerMask.GetMask("Wall"));
     }
 
     public bool PassCheck()
@@ -69,10 +69,10 @@ public class Tile : MonoBehaviour
             return sprites[name];
 
 
-        string path = Application.dataPath + "/resource/Texture2D/tile/";
+        Sprite sprite;
+        /*string path = Application.streamingAssetsPath + "/TileSprite/";
         byte[] byteTexture;
         Texture2D texture = new Texture2D(0, 0);
-        Sprite sprite;
 
         try
         {
@@ -84,9 +84,11 @@ public class Tile : MonoBehaviour
         }
         texture.LoadImage(byteTexture);
         sprite = Sprite.Create(texture, new Rect(Vector2.zero, new Vector2(texture.width, texture.height)), new Vector2(0.5f, 0.5f));
+        */
+        
 
+        sprite = Resources.Load<Sprite>("TileSprite/" + name);
         sprites.Add(name, sprite);
-
         return sprite;
     }
     public void UpdateSprite()

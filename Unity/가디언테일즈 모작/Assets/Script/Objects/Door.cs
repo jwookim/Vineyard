@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
     Coroutine DoorCoroutine;
     Coroutine TimerCoroutine;
 
-    bool collision;
+    [SerializeField] bool collision;
 
     bool isOpen;
 

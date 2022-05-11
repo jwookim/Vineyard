@@ -60,6 +60,7 @@
     <Compile Include="Assets\Script\Objects\SwitchHub.cs" />
     <Compile Include="Assets\Script\Weapon.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_InspectorHelp.cs" />
+    <Compile Include="Assets\Script\Character\Puppet.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\Script\UI\StateBar.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\SD_Project\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\SD_Project\Scripts\controller.cs" />
     <Compile Include="Assets\Script\Objects\SmallRock.cs" />
+    <Compile Include="Assets\Script\Objects\Projectile\Blade.cs" />
     <Compile Include="Assets\Script\Objects\PushableObject.cs" />
     <Compile Include="Assets\SD_Project\Standard Assets\Image Effects (Pro Only)\ImageEffectBase.cs" />
     <Compile Include="Assets\PhysSound\Scripts\PhysSoundMaterial.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\SD_Project\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Script\Objects\BreakableObject.cs" />
+    <Compile Include="Assets\Script\Objects\Projectile\Arrow.cs" />
     <Compile Include="Assets\Script\Sword.cs" />
     <Compile Include="Assets\SD_Project\Scripts\MecanimButton.cs" />
     <Compile Include="Assets\SD_Project\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />

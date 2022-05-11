@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public enum EnemyName
 {
@@ -20,6 +21,8 @@ enum CameraName
 }
 public class GameManager : Singletone<GameManager>
 {
+    const int maxLevel = 20;
+
     public int bestScore;
     public int Score;
     public int level;
@@ -28,7 +31,10 @@ public class GameManager : Singletone<GameManager>
     const float defaultTimescale = 1f;
     public float timeScale;
 
+    bool escActivate;
+
     private Queue<float> timeTable;
+    [SerializeField] private int CoinLimit;
 
     const float DirectingTime_Elixir = 4f;
     const float DirectingTime_Termination = 3f;
@@ -43,7 +49,10 @@ public class GameManager : Singletone<GameManager>
     Coroutine actingCoroutine;
 
     AudioSource audioSource;
-    [SerializeField] AudioClip mainBGM, feverBGM;
+    [SerializeField] AudioClip[] mainBGM;
+    [SerializeField] AudioClip feverBGM;
+
+    int BGM_Num;
 
 
     private int mapSizeX;
@@ -58,11 +67,10 @@ public class GameManager : Singletone<GameManager>
     Vector3 StartingPoint;
 
 
-    [SerializeField] private List<Item> Items;
+    private List<Item> Items;
+    public int wholeCoin;
+    int coinCount;
 
-    [SerializeField] GameObject TilePrefab;
-    [SerializeField] GameObject CoinPrefab;
-    [SerializeField] GameObject ElixirPrefab;
 
     public Vector3 ShipPosition
     {
@@ -84,7 +92,7 @@ public class GameManager : Singletone<GameManager>
     [SerializeField]GameObject Player;
     [SerializeField]GameObject[] Enemies;
 
-    [SerializeField] GameObject InvaderShip;
+    GameObject InvaderShip;
 
     const float FeverLimit = 10f;
     float FeverTime;
@@ -99,17 +107,20 @@ public class GameManager : Singletone<GameManager>
         timeTable = new Queue<float>();
         Tiles = new List<Tile>();
         dumpTiles = new Stack<Tile>();
-
-        //Enemies = new GameObject[4];
+        Items = new List<Item>();
     }
     void Start()
     {
+        Player.SetActive(false);
+        foreach (var enemy in Enemies)
+            enemy.SetActive(false);
         audioSource = GetComponent<AudioSource>();
-        ScoreBoard = GameObject.Find("Canvas").transform.Find("ScoreBoard").Find("Score").GetComponent<Text>();
-        BestScoreBoard = GameObject.Find("Canvas").transform.Find("BestScore").Find("Score").GetComponent<Text>();
-        LifeBoard = GameObject.Find("Canvas").transform.Find("LifeBoard").gameObject;
-        Curtain = GameObject.Find("Canvas").transform.Find("Curtain").gameObject;
-        FirstSetting();
+        audioSource.Stop();
+        ScoreBoard = GameObject.Find("Canvas").transform.Find("Interface").Find("ScoreBoard").Find("Score").GetComponent<Text>();
+        BestScoreBoard = GameObject.Find("Canvas").transform.Find("Interface").Find("BestScore").Find("Score").GetComponent<Text>();
+        LifeBoard = GameObject.Find("Canvas").transform.Find("Interface").Find("LifeBoard").gameObject;
+        Curtain = GameObject.Find("Canvas").transform.Find("Interface").Find("Curtain").gameObject;
+        StartCoroutine(FirstSetting());
     }
 
     // Update is called once per frame
@@ -130,13 +141,21 @@ public class GameManager : Singletone<GameManager>
         }
     }
 
-    private void FirstSetting()
+    private IEnumerator FirstSetting()
     {
+        escActivate = false;
+        wholeCoin = 0;
+        Curtain.SetActive(true);
         UpdateMap();
+        yield return new WaitForSeconds(0.5f);
+        UpdateSprite();
         actCamera = CameraName.Camera_3D;
+        BGM_Num = 0;
         level = 1;
         Score = 0;
-        ExtraLife = 3;
+        ExtraLife = 2;
+
+        Player.SetActive(true);
 
         if (File.Exists(Application.streamingAssetsPath + "/bestscore.json"))
         {
@@ -145,14 +164,21 @@ public class GameManager : Singletone<GameManager>
             BestScoreBoard.text = json;
         }
 
-        PartialInit();
+        StartCoroutine(StageInit());
     }
 
 
 
-    private void StageInit()
+    private IEnumerator StageInit()
     {
+        BGM_Num = (level - 1) / (maxLevel / 4);
+        coinCount = 0;
+        Enemies[(int)EnemyName.Invader_soldier].GetComponent<Invader_soldier>().Discharge();
+
         PartialInit();
+
+        yield return null;
+
         foreach(var item in Items)
         {
             item.gameObject.SetActive(true);
@@ -161,41 +187,47 @@ public class GameManager : Singletone<GameManager>
     private void PartialInit()
     {
         timeScale = 0f;
+        isPlaying = false;
 
         checkLevelTable();
 
-        ChangeBGM(mainBGM);
-        audioSource.Play();
-
         actingCoroutine = null;
+
+        GameObject.Find("Canvas").transform.Find("Interface").Find("StageBoard").Find("Stage").GetComponent<Text>().text = level.ToString();
 
         PlayTime = 0f;
         standardMode = MODE.SCATTER;
         FeverTime = 0f;
 
-        Player.GetComponent<Lana>().Initialization();
+        audioSource.pitch = 1f + (coinCount / (wholeCoin / 6) * 0.2f);
+
         Player.transform.position = StartingPoint;
+        Player.GetComponent<Lana>().Initialization();
         CameraMove();
 
         comebackInvader();
 
         UpdateLifeBoard();
 
-        Curtain.SetActive(false);
-
-
         StartCoroutine(GameStart());
     }
 
     IEnumerator GameStart()
     {
-        GameObject text = GameObject.Find("Canvas").transform.Find("Ready").gameObject;
+
+        Curtain.SetActive(false);
+        GameObject text = GameObject.Find("Canvas").transform.Find("Interface").Find("Ready").gameObject;
 
         text.GetComponent<Text>().text = "Ready";
         text.SetActive(true);
+        transform.Find("SoundEffect").GetComponent<SoundEffectManager>().ReadySign();
         yield return new WaitForSeconds(1f);
         text.GetComponent<Text>().text = "Start!";
+        transform.Find("SoundEffect").GetComponent<SoundEffectManager>().StartSign();
         yield return new WaitForSeconds(0.5f);
+
+        ChangeBGM(mainBGM[BGM_Num]);
+        audioSource.Play();
 
         text.SetActive(false);
 
@@ -207,7 +239,7 @@ public class GameManager : Singletone<GameManager>
     {
         timeTable.Clear();
 
-        string json = File.ReadAllText(Application.dataPath + "/leveldata.json");
+        string json = File.ReadAllText(Application.streamingAssetsPath + "/leveldata.json");
 
         LevelData levelData = JsonUtility.FromJson<LevelData>(json);
 
@@ -222,19 +254,31 @@ public class GameManager : Singletone<GameManager>
                 break;
             }
         }
+
+        json = File.ReadAllText(Application.streamingAssetsPath + "/leveldata2.json");
+
+        LevelData2 levelData2 = JsonUtility.FromJson<LevelData2>(json);
+
+        CoinLimit = levelData2.data[level - 1];
     }
     void UpdateMap()
     {
-        mapSizeX = 28;
-        mapSizeY = 31;
+        string json = File.ReadAllText(Application.streamingAssetsPath + "/default_mapData.json");
+
+        MapData mapData = JsonUtility.FromJson<MapData>(json);
+
+
+
+        mapSizeX = mapData.x;
+        mapSizeY = mapData.y;
         map = new bool[mapSizeY, mapSizeX];
 
         float backgroundSize = Camera_2D.GetComponent<Camera>().orthographicSize;
-        Camera_2D.GetComponent<Camera>().orthographicSize = (float)mapSizeY / 2f;
-        Camera_2D.transform.position = new Vector3((float)mapSizeX / 2f, ((float)mapSizeY - 1f) / 2f, Camera_2D.transform.position.z);
+        Camera_2D.GetComponent<Camera>().orthographicSize = mapSizeY / 2f;
+        Camera_2D.transform.position = new Vector3(mapSizeX / 2f, (mapSizeY - 1f) / 2f, Camera_2D.transform.position.z);
         Camera_2D.transform.GetChild(0).localScale *= Camera_2D.GetComponent<Camera>().orthographicSize / backgroundSize;
 
-        StartingPoint = new Vector3(1f, 3f, -0.5f);
+        StartingPoint = new Vector3(mapData.playerPos.x, mapData.playerPos.y, mapData.playerPos.z);
 
         foreach(var ch in Enemies)
         {
@@ -248,6 +292,36 @@ public class GameManager : Singletone<GameManager>
         }
 
         GameObject tmp;
+        foreach(var obj in mapData.obstacles)
+        {
+            tmp = Instantiate(Resources.Load<GameObject>("Prefab/Obstacle/" + obj.name));
+
+            tmp.transform.position = new Vector3(obj.position.x, obj.position.y, obj.position.z);
+            tmp.transform.rotation = Quaternion.Euler(obj.rotation.x, obj.rotation.y, obj.rotation.z);
+            tmp.transform.localScale = new Vector3(obj.scale.x, obj.scale.y, obj.scale.z);
+
+            tmp.transform.SetParent(GameObject.Find("Map").transform.Find("Obstacles"));
+        }
+
+
+        foreach (var obj in mapData.objects)
+        {
+            tmp = Instantiate(Resources.Load<GameObject>("Prefab/" + obj.name));
+
+            tmp.transform.position = new Vector3(obj.position.x, obj.position.y, obj.position.z);
+            tmp.transform.rotation = Quaternion.Euler(obj.rotation.x, obj.rotation.y, obj.rotation.z);
+            tmp.transform.localScale = new Vector3(obj.scale.x, obj.scale.y, obj.scale.z);
+
+            tmp.transform.SetParent(GameObject.Find("Map").transform.Find("Objects"));
+
+            if (obj.name == "Coin")
+                wholeCoin++;
+
+            if (obj.name == "Coin" || obj.name == "Elixir")
+                Items.Add(tmp.GetComponent<Item>());
+        }
+
+
         for (int y = 0; y < mapSizeY; y++)
         {
             for (int x = 0; x < mapSizeX; x++)
@@ -259,52 +333,39 @@ public class GameManager : Singletone<GameManager>
                 }
                 else
                 {
-                    tmp = Instantiate(TilePrefab);
+                    tmp = Instantiate(Resources.Load<GameObject>("Prefab/Tile"));
                     tmp.transform.parent = GameObject.Find("Map").transform.Find("Tiles");
                 }
 
                 tmp.transform.position = new Vector3(x, y, 0f);
                 Tiles.Add(tmp.GetComponent<Tile>());
-
-                if (x == 0 || x == mapSizeX - 1 || y == 0 || y == mapSizeY - 1)
-                    map[y, x] = !tmp.GetComponent<Tile>().PassCheck();
-                else
-                    map[y, x] = tmp.GetComponent<Tile>().WallCheck();
             }
         }
+        InvaderShip = GameObject.Find("Map").transform.Find("Objects").Find("Invader Ship").gameObject;
+        InvaderShip.transform.position = new Vector3(mapData.shipPos.x, mapData.shipPos.y, mapData.shipPos.z);
 
-        InvaderShip.transform.position = new Vector3(Mathf.Ceil(mapSizeX / 2f), Mathf.Ceil(mapSizeY / 2f), ShipPosition.z);
+    }
 
-        for (int y = (int)ShipPosition.y - 1; y <= (int)ShipPosition.y + 1; y++)
+    private void UpdateSprite()
+    {
+        foreach(var tile in Tiles)
         {
-            for (int x = (int)ShipPosition.x - 1; x <= (int)ShipPosition.x + 1; x++)
+            if (tile.transform.position.x == 0 || tile.transform.position.x == mapSizeX - 1 || tile.transform.position.y == 0 || tile.transform.position.y == mapSizeY - 1)
+                map[(int)tile.transform.position.y, (int)tile.transform.position.x] = !tile.PassCheck();
+            else
+                map[(int)tile.transform.position.y, (int)tile.transform.position.x] = tile.WallCheck();
+        }
+
+        for (int y = (int)ShipPosition.y - 2; y <= (int)ShipPosition.y + 2; y++)
+        {
+            for (int x = (int)(ShipPosition.x - 3.5f); x <= (int)(ShipPosition.x + 3.5f); x++)
             {
-                if ((y == (int)ShipPosition.y + 1 || y == (int)ShipPosition.y) && x == (int)ShipPosition.x)
+                if ((y == (int)ShipPosition.y + 2f || y == (int)ShipPosition.y + 1f || y == (int)ShipPosition.y) && x == (int)(ShipPosition.x + 0.5f) /*|| (x == (int)(ShipPosition.x - 0.5f) && y == (int)ShipPosition.y + 2f)*/)
                     continue;
 
                 map[y, x] = true;
             }
         }
-
-
-        GameObject coin = Instantiate(CoinPrefab);
-        coin.transform.position = new Vector3(5f, 5f, coin.transform.position.z);
-        Items.Add(coin.GetComponent<Item>());
-        coin = Instantiate(CoinPrefab);
-        coin.transform.position = new Vector3(16f, 15f, coin.transform.position.z);
-        Items.Add(coin.GetComponent<Item>());
-
-        GameObject elixir = Instantiate(ElixirPrefab);
-        elixir.transform.position = new Vector3(15f, 15f, coin.transform.position.z);
-        Items.Add(elixir.GetComponent<Item>());
-        elixir = Instantiate(ElixirPrefab);
-        elixir.transform.position = new Vector3(6f, 5f, coin.transform.position.z);
-        Items.Add(elixir.GetComponent<Item>());
-
-        map[2, 2] = true;
-        map[4, 2] = true;
-        map[2, 4] = true;
-        map[4, 4] = true;
 
 
 
@@ -359,6 +420,9 @@ public class GameManager : Singletone<GameManager>
             {
                 FeverTime = 0f;
 
+
+                if (actingCoroutine != null)
+                    CancelDirection();
                 actingCoroutine = StartCoroutine(TerminationElixir());
             }
         }
@@ -388,6 +452,7 @@ public class GameManager : Singletone<GameManager>
 
         foreach(var enemy in Enemies)
             enemy.GetComponent<Enemy>().ChangeOrder(standardMode);
+
     }
 
     void InputKey()
@@ -395,6 +460,18 @@ public class GameManager : Singletone<GameManager>
         if(Input.GetKeyDown(KeyCode.Tab) && !Camera_direct.activeSelf)
         {
             SwapCamera();
+            transform.Find("SoundEffect").GetComponent<SoundEffectManager>().SwapCamera();
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            StartCoroutine(StageClear());*/
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!escActivate)
+                StartCoroutine(EscapeGame());
+            else
+                SceneManager.LoadScene("MenuScene");
         }
     }
 
@@ -405,6 +482,11 @@ public class GameManager : Singletone<GameManager>
             audioSource.Stop();
             audioSource.clip = audio;
             audioSource.Play();
+
+            if (audio == feverBGM)
+                audioSource.pitch = 1f;
+            else
+                audioSource.pitch = 1f + (coinCount / (wholeCoin / 6) * 0.2f);
         }
     }
 
@@ -421,8 +503,6 @@ public class GameManager : Singletone<GameManager>
             case CameraName.Camera_3D:
                 Camera_3D.SetActive(true);
                 Camera_2D.SetActive(false);
-                if (!Camera_direct.activeSelf)
-                    Camera_3D.GetComponent<AudioSource>().Play();
                 Camera_direct.SetActive(false);
                 actCamera = name;
 
@@ -440,8 +520,6 @@ public class GameManager : Singletone<GameManager>
             case CameraName.Camera_2D:
                 Camera_3D.SetActive(false);
                 Camera_2D.SetActive(true);
-                if (!Camera_direct.activeSelf)
-                    Camera_2D.GetComponent<AudioSource>().Play();
                 Camera_direct.SetActive(false);
                 actCamera = name;
 
@@ -510,7 +588,27 @@ public class GameManager : Singletone<GameManager>
 
     public void increaseScore(int score)
     {
-        int prevRatio = Score / 10000;
+        int prevRatio;
+
+        if (score == 10)
+        {
+            prevRatio = coinCount / (wholeCoin / 6);
+
+            coinCount++;
+
+            if (coinCount / (wholeCoin / 6) != prevRatio && FeverTime == 0f)
+            {
+                audioSource.Pause();
+                audioSource.pitch += 0.2f;
+                audioSource.UnPause();
+            }
+
+            if (wholeCoin - coinCount == CoinLimit)
+                Enemies[(int)EnemyName.Invader_soldier].GetComponent<Invader_soldier>().EmergencyCall();
+        }
+
+
+        prevRatio = Score / 10000;
         Score += score;
         ScoreBoard.text = Score.ToString();
         if (Score / 10000 > prevRatio)
@@ -534,8 +632,10 @@ public class GameManager : Singletone<GameManager>
 
     public void HitLana()
     {
+        if (!isPlaying)
+            return;
+
         Player.gameObject.GetComponent<Lana>().Collapse();
-        timeScale = 0f;
 
         StartCoroutine(StageFailed());
     }
@@ -544,6 +644,7 @@ public class GameManager : Singletone<GameManager>
     {
         return standardMode;
     }
+
 
     public Coroutine GetElixir()
     {
@@ -562,6 +663,8 @@ public class GameManager : Singletone<GameManager>
             FeverTime = FeverLimit;
             return null;
         }
+        if (actingCoroutine != null)
+            CancelDirection();
         return actingCoroutine = StartCoroutine(DirectGetElixir());
     }
 
@@ -581,12 +684,13 @@ public class GameManager : Singletone<GameManager>
 
     IEnumerator DirectGetElixir()
     {
-        timeScale = 0f;
+        timeScale = 0f; 
+        isPlaying = false;
 
         SwapCamera(CameraName.Directing_Camera);
 
         audioSource.Stop();
-
+        transform.Find("SoundEffect").GetComponent<SoundEffectManager>().FeverMusic();
         float limit = DirectingTime_Elixir;
         GameObject Props = GameObject.Find("Directing Screen").transform.Find("Get Item").gameObject;
         GameObject Bg_Effect = Props.transform.Find("get_item_bg").gameObject;
@@ -602,10 +706,11 @@ public class GameManager : Singletone<GameManager>
         Player.GetComponent<Lana>().DrinkElixir();
         SwapCamera();
         timeScale = defaultTimescale;
+        isPlaying = true;
         Props.SetActive(false);
 
         ChangeBGM(feverBGM);
-        FeverTime = FeverLimit;
+        FeverTime = Mathf.Max(FeverLimit - ((level - 1) / (float)maxLevel * FeverLimit), 1f);
 
         actingCoroutine = null;
     }
@@ -613,6 +718,7 @@ public class GameManager : Singletone<GameManager>
     IEnumerator TerminationElixir()
     {
         timeScale = 0f;
+        isPlaying = false;
 
         SwapCamera(CameraName.Directing_Camera);
         ChangeBGM(null);
@@ -635,7 +741,8 @@ public class GameManager : Singletone<GameManager>
         Player.GetComponent<Lana>().RemoveElixir();
         SwapCamera();
         timeScale = defaultTimescale;
-        ChangeBGM(mainBGM);
+        isPlaying = true;
+        ChangeBGM(mainBGM[BGM_Num]);
         Props.SetActive(false);
 
         actingCoroutine = null;
@@ -646,20 +753,36 @@ public class GameManager : Singletone<GameManager>
     IEnumerator StageClear()
     {
         timeScale = 0f;
+        isPlaying = false;
 
+        audioSource.Stop();
         Player.GetComponent<Lana>().Victory();
+        transform.Find("SoundEffect").GetComponent<SoundEffectManager>().ClearSign();
 
         CancelDirection();
         yield return StartCoroutine(DrawCurtain());
 
-        if (level < 100)
+        if (level < 20)
         {
+            if (level % 5 == 0)
+            {
+                SwapCamera(CameraName.Directing_Camera);
+                GameObject Interface = GameObject.Find("Canvas").transform.Find("Interface").gameObject;
+                Interface.SetActive(false);
+                SceneManager.LoadScene("EventScene" + level / 5, LoadSceneMode.Additive);
+                
+                while (SceneManager.sceneCount > 1)
+                    yield return null;
+                Interface.SetActive(true);
+                SwapCamera();
+            }
+
             level++;
 
-            StageInit();
+            StartCoroutine(StageInit());
         }
         else
-            GameOver();
+            GameClear();
     }
 
     IEnumerator StageFailed()
@@ -667,6 +790,7 @@ public class GameManager : Singletone<GameManager>
         DecreaseLife();
 
         timeScale = 0f;
+        isPlaying = false;
 
         CancelDirection();
         yield return StartCoroutine(DrawCurtain());
@@ -711,6 +835,15 @@ public class GameManager : Singletone<GameManager>
     void GameOver()
     {
         File.WriteAllText(Application.streamingAssetsPath + "/bestscore.json", bestScore.ToString());
+
+        SceneManager.LoadScene("FailScene");
+    }
+
+    void GameClear()
+    {
+        File.WriteAllText(Application.streamingAssetsPath + "/bestscore.json", bestScore.ToString());
+
+        SceneManager.LoadScene("ClearScene");
     }
 
 
@@ -722,6 +855,7 @@ public class GameManager : Singletone<GameManager>
 
         Curtain.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0f);
         Curtain.SetActive(true);
+        transform.Find("SoundEffect").GetComponent<SoundEffectManager>().DrawCurtain();
         while (Curtain.GetComponent<Image>().color.a < 1)
         {
             Curtain.GetComponent<Image>().color += new Color(0f, 0f, 0f, 1f) * Time.deltaTime;
@@ -733,4 +867,31 @@ public class GameManager : Singletone<GameManager>
     }
 
 
+    IEnumerator EscapeGame()
+    {
+        escActivate = true;
+        GameObject EscapeInfo = GameObject.Find("Canvas").transform.Find("Escape").gameObject;
+        EscapeInfo.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        while (EscapeInfo.GetComponent<RectTransform>().sizeDelta.x < 1100f)
+        {
+            EscapeInfo.GetComponent<RectTransform>().sizeDelta += new Vector2(1500f, 0f) * Time.deltaTime;
+            yield return null;
+        }
+
+        EscapeInfo.GetComponent<RectTransform>().sizeDelta = new Vector2(1100f, EscapeInfo.GetComponent<RectTransform>().sizeDelta.y);
+
+        EscapeInfo.transform.Find("Text").gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        EscapeInfo.transform.Find("Text").gameObject.SetActive(false);
+        while (EscapeInfo.GetComponent<RectTransform>().sizeDelta.x > 100f)
+        {
+            EscapeInfo.GetComponent<RectTransform>().sizeDelta -= new Vector2(1500f, 0f) * Time.deltaTime;
+            yield return null;
+        }
+        EscapeInfo.GetComponent<RectTransform>().sizeDelta = new Vector2(100f, EscapeInfo.GetComponent<RectTransform>().sizeDelta.y);
+        yield return new WaitForSeconds(0.2f);
+        EscapeInfo.SetActive(false);
+        escActivate = false;
+    }
 }
