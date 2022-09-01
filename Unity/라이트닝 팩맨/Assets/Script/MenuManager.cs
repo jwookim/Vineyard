@@ -24,17 +24,17 @@ public class MenuManager : MonoBehaviour
     {
         layout1 = transform.Find("Layout").gameObject;
         layout2 = transform.Find("Layout2").gameObject;
-        Text = GameObject.Find("Canvas").transform.Find("Text").gameObject;
-        blinkText = StartCoroutine(BlinkText());
+        /*Text = GameObject.Find("Canvas").transform.Find("Text").gameObject;
+        blinkText = StartCoroutine(BlinkText());*/
         check = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        PressKey();
+        //PressKey();
         MoveLayout();
-        BlinkText();
+        //BlinkText();
     }
 
 
@@ -49,14 +49,19 @@ public class MenuManager : MonoBehaviour
             Application.Quit();
         else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            StopCoroutine(blinkText);
-            blinkText = StartCoroutine(PressBlinkText());
+            /*StopCoroutine(blinkText);
+            blinkText = StartCoroutine(PressBlinkText());*/
 
-            transform.Find("PressSound").GetComponent<AudioSource>().Play();
-            check = false;
-
-            StartCoroutine(GameStart());
+            StartGame();
         }
+    }
+
+    public void StartGame()
+    {
+        transform.Find("PressSound").GetComponent<AudioSource>().Play();
+        check = false;
+
+        StartCoroutine(GameStart());
     }
 
     void MoveLayout()
@@ -72,7 +77,7 @@ public class MenuManager : MonoBehaviour
             layout2.transform.position -= new Vector3(0f, layoutSize * 2f, 0f);
     }
 
-    void ScoreView()
+    public void ScoreView()
     {
         GameObject board = GameObject.Find("Canvas").transform.Find("ScoreBoard").gameObject;
         if (!board.activeSelf)
@@ -90,12 +95,14 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator GameStart()
     {
+        GameObject panel = GameObject.Find("Canvas").transform.Find("Panel").gameObject;
+
+        panel.SetActive(true);
         AsyncOperation async = SceneManager.LoadSceneAsync("PlayScene");
         async.allowSceneActivation = false;
 
         yield return new WaitForSeconds(1.5f);
 
-        GameObject panel = GameObject.Find("Canvas").transform.Find("Panel").gameObject;
         while (panel.GetComponent<Image>().color.a < 1f)
         {
             panel.GetComponent<Image>().color += new Color(0f, 0f, 0f, 1f) * Time.deltaTime;

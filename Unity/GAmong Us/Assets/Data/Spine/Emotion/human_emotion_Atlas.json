@@ -1,0 +1,22 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -2861956063985135401
+  },
+  "m_Name": "human_emotion_Atlas",
+  "atlasFile": {
+    "m_FileID": 0,
+    "m_PathID": -550036669662861704
+  },
+  "materials": [
+    {
+      "m_FileID": 0,
+      "m_PathID": -3263146898555752867
+    }
+  ]
+}

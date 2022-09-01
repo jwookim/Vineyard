@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/EventScene3.unity
+- path: Assets/Scenes/ClearScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

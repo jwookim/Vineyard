@@ -89,12 +89,15 @@ public class GameManager : Singletone<GameManager>
 
     GameObject Curtain;
 
+    GameObject ElixirGuage;
+
     [SerializeField]GameObject Player;
     [SerializeField]GameObject[] Enemies;
 
     GameObject InvaderShip;
 
     const float FeverLimit = 10f;
+    float currentLimit;
     float FeverTime;
 
     bool isPlaying;
@@ -120,6 +123,7 @@ public class GameManager : Singletone<GameManager>
         BestScoreBoard = GameObject.Find("Canvas").transform.Find("Interface").Find("BestScore").Find("Score").GetComponent<Text>();
         LifeBoard = GameObject.Find("Canvas").transform.Find("Interface").Find("LifeBoard").gameObject;
         Curtain = GameObject.Find("Canvas").transform.Find("Interface").Find("Curtain").gameObject;
+        ElixirGuage = GameObject.Find("Canvas").transform.Find("Interface").Find("Guage").gameObject;
         StartCoroutine(FirstSetting());
     }
 
@@ -195,9 +199,12 @@ public class GameManager : Singletone<GameManager>
 
         GameObject.Find("Canvas").transform.Find("Interface").Find("StageBoard").Find("Stage").GetComponent<Text>().text = level.ToString();
 
+        ElixirGuage.SetActive(false);
+
         PlayTime = 0f;
         standardMode = MODE.SCATTER;
         FeverTime = 0f;
+        currentLimit = Mathf.Max(FeverLimit - ((level - 1) / (float)maxLevel * FeverLimit), 1f);
 
         audioSource.pitch = 1f + (coinCount / (wholeCoin / 6) * 0.2f);
 
@@ -415,6 +422,7 @@ public class GameManager : Singletone<GameManager>
         if (FeverTime > 0f)
         {
             FeverTime -= Time.deltaTime * timeScale;
+            ElixirGuage.transform.Find("Bar").GetComponent<Image>().fillAmount = FeverTime / currentLimit;
 
             if (FeverTime <= 0f)
             {
@@ -463,8 +471,6 @@ public class GameManager : Singletone<GameManager>
             transform.Find("SoundEffect").GetComponent<SoundEffectManager>().SwapCamera();
         }
 
-        /*if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            StartCoroutine(StageClear());*/
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -660,7 +666,7 @@ public class GameManager : Singletone<GameManager>
 
         if(FeverTime > 0f)
         {
-            FeverTime = FeverLimit;
+            FeverTime = currentLimit;
             return null;
         }
         if (actingCoroutine != null)
@@ -710,7 +716,8 @@ public class GameManager : Singletone<GameManager>
         Props.SetActive(false);
 
         ChangeBGM(feverBGM);
-        FeverTime = Mathf.Max(FeverLimit - ((level - 1) / (float)maxLevel * FeverLimit), 1f);
+        FeverTime = currentLimit;
+        ElixirGuage.SetActive(true);
 
         actingCoroutine = null;
     }
@@ -719,6 +726,7 @@ public class GameManager : Singletone<GameManager>
     {
         timeScale = 0f;
         isPlaying = false;
+        ElixirGuage.SetActive(false);
 
         SwapCamera(CameraName.Directing_Camera);
         ChangeBGM(null);
